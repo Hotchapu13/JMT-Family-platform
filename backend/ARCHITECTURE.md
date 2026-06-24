@@ -72,7 +72,7 @@ This is the security backbone of the entire application: **two independent JWT-i
                ▼                                          ▼
    Set-Cookie: jmt_viewer_token (HttpOnly)         Set-Cookie: jmt_admin_token (HttpOnly)
                │                                          │
-               └───────────────┬──────────────────────────┘
+               └────────────────┬─────────────────────────┘
                                 ▼
                   CookieJWTAuthentication (DRF auth class)
                   reads admin cookie first, then viewer cookie,
