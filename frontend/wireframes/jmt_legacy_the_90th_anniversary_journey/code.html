@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Noto+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d45211", // Heritage Orange
+                        "heritage-green": "#2e4232",
+                        "deep-charcoal": "#2c2c2c",
+                        "cream": "#fdf5e6",
+                        "background-light": "#fdf5e6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"],
+                        "sans": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Noto Sans', sans-serif; }
+        h1, h2, h3, .serif-font { font-family: 'Noto Serif', serif; }
+        .parallax-bg { background-attachment: fixed; }
+        .photo-frame { border: 1px solid #fdf5e6; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3); }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-deep-charcoal selection:bg-primary/30">
+<!-- Minimalist Header -->
+<header class="fixed top-0 w-full z-50 bg-cream/80 backdrop-blur-md border-b border-primary/10 px-8 py-4 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">history_edu</span>
+<span class="font-display font-bold text-lg tracking-tight">90 Years of Faith</span>
+</div>
+<nav class="hidden md:flex gap-8 text-sm font-medium uppercase tracking-widest">
+<a class="hover:text-primary transition-colors" href="#prologue">Prologue</a>
+<a class="hover:text-primary transition-colors" href="#service">Service</a>
+<a class="hover:text-primary transition-colors" href="#speeches">Speeches</a>
+<a class="hover:text-primary transition-colors" href="#celebration">Celebration</a>
+<a class="hover:text-primary transition-colors" href="#finale">Finale</a>
+</nav>
+<button class="bg-primary text-white px-6 py-2 rounded-full text-sm font-bold hover:brightness-110 transition-all">
+            Archive
+        </button>
+</header>
+<main class="w-full">
+<!-- Scene 1: The Prologue -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden" id="prologue">
+<div class="absolute inset-0 bg-cover bg-center grayscale contrast-75 brightness-50 parallax-bg" data-alt="Desaturated cinematic photo of a historic stone church at dawn" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBM5fvF5koX-4l90kgNv6S3cafLwmebSqdJ7DpFE7PN3U0JX38_D7gwy8j5b_j9Qm21gAbMwgKRy2Boki5HWBVum6U04q_2QRriVp9kJ-hmMwB9MR84K1lza7cWa0Qx8Ei5f7HA0o_-QiJkAkF8OSbDh1NoQL5HQJLJeUXADj2uCzSphRs3edYA3ICywTrYu1ItFd9J-kFQ2v9TAQCGfJa77l186E0R0_ec_4rRiGA3OaoJ8lBhhOO7HKKcamaUT2u5Ejdr9Mpg4zk');">
+</div>
+<div class="relative z-10 text-center px-4">
+<h1 class="text-primary text-7xl md:text-9xl font-bold mb-6 drop-shadow-sm">90 Years of Faith</h1>
+<p class="text-cream text-xl md:text-2xl font-display italic max-w-2xl mx-auto opacity-90">
+                    A Journey of Grace, Heritage, and Unwavering Devotion
+                </p>
+<div class="mt-12 animate-bounce">
+<span class="material-symbols-outlined text-cream text-4xl">expand_more</span>
+</div>
+</div>
+</section>
+<!-- Scene 2: The Service -->
+<section class="bg-heritage-green min-h-screen py-32 px-4 md:px-20 relative overflow-hidden" id="service">
+<!-- Smooth Transition Gradient -->
+<div class="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-deep-charcoal to-transparent opacity-30"></div>
+<div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16">
+<!-- Left: Scrollable Photos -->
+<div class="lg:w-1/2 space-y-12">
+<div class="photo-frame rounded-lg overflow-hidden group">
+<img class="w-full h-[600px] object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Close up of an old bible on a wooden pulpit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIVoi8xUs_VKSxVBmDlKh9tKvqCTEWvUqz7wZzh1Y202pOLmwtv7Jn3TuzpTdbWVLSZ3oTM5YD5oWchnsqjzqjrvUygQChciWDwTCNx6hVWIA_wS5yAVFRgXUodTWodCSrFySbSueiGv52KiOBncORyIfOu1yXT1rHubSkhUR_44AeF5vaLPIKSSQmOr6MLl0RCjzKHzia_qhUJ-2y9s8o1eLTcOXiMj6pv6SqT8-8Ap6SUi7Thm7VsWTOL_ggEkrPFjjXQI6P7FA"/>
+</div>
+<div class="relative photo-frame rounded-lg overflow-hidden group">
+<img class="w-full h-[500px] object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Stained glass window reflecting colorful light on pews" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVJe27u6k28b-_I3PvV-P_0246eFj-AZ7DjlvGv2YUxV2S0_XCHDdH_q28YbWDAi2c6czTJCZ6_--aMpAVckI4mQm4QW8lCPM50NlIRzJlJeT5iaz0sDbvaj8uafefFfG37qZWdDWnAR9D4ek3A7kvRhyw-TNf3-SQeBTumxXBRz63tBZycqbRL7XAf-pR00biDz6rVK4GjB9mahiRdZ6DYAsuZLWCL7vhiXb0eSAFAffr_mXXLvgZbh2YBLzr_uR0Xr0xT2j5cAY"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center p-12">
+<p class="text-cream text-3xl font-display italic text-center leading-relaxed">
+                                "Great is Thy faithfulness, O God my Father; There is no shadow of turning with Thee."
+                            </p>
+</div>
+</div>
+<div class="photo-frame rounded-lg overflow-hidden group">
+<img class="w-full h-[600px] object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Congregation singing hymns together in a sunlit hall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4d2T83zjZOX74TU-esL5kz7tM1NPlLWCrlinCzFeoeOWZ9vwXU3CNKydjfMJ3_lEW99x0xzFftMVknTwmVdsIUqT1C7Za5jo5CefMCXE3KW4HAQIi6Whl38gbk4F8uRogwWKK7Q5Lu3jlFw4thP01R5E7Iyd9pk21xDY4b9jcMbuFRB3XQOy4bL-7uv4VABBA7yACYu7vl4pdCPeXh7YymkFracra7W-vFTYDN8JiZDdvLPFfzdlTEW4NdOtpVXV-kN_CIZwmAKY"/>
+</div>
+</div>
+<!-- Right: Sticky Church Program -->
+<div class="lg:w-1/2">
+<div class="sticky top-32 bg-cream p-12 photo-frame rounded-lg text-deep-charcoal">
+<h2 class="text-primary text-4xl font-bold mb-8 border-b border-primary/20 pb-4">The Anniversary Service</h2>
+<div class="space-y-8 font-display">
+<div class="flex justify-between items-baseline border-b border-deep-charcoal/10 pb-2">
+<span class="font-bold text-lg">Prelude</span>
+<span class="italic opacity-70">Organ Solo: Great is Thy Faithfulness</span>
+</div>
+<div class="flex justify-between items-baseline border-b border-deep-charcoal/10 pb-2">
+<span class="font-bold text-lg">Call to Worship</span>
+<span class="italic opacity-70">Reverend Thomas Miller</span>
+</div>
+<div class="flex justify-between items-baseline border-b border-deep-charcoal/10 pb-2">
+<span class="font-bold text-lg">Hymn of Praise</span>
+<span class="italic opacity-70">"To God Be The Glory"</span>
+</div>
+<div class="flex justify-between items-baseline border-b border-deep-charcoal/10 pb-2">
+<span class="font-bold text-lg">Scripture Reading</span>
+<span class="italic opacity-70">Isaiah 40:28-31</span>
+</div>
+<div class="flex justify-between items-baseline border-b border-deep-charcoal/10 pb-2">
+<span class="font-bold text-lg">Anniversary Message</span>
+<span class="italic opacity-70">"A Legacy of Grace"</span>
+</div>
+<div class="flex justify-between items-baseline border-b border-deep-charcoal/10 pb-2">
+<span class="font-bold text-lg">Benediction</span>
+<span class="italic opacity-70">Closing Prayer &amp; Dismissal</span>
+</div>
+</div>
+<div class="mt-12 p-6 border-2 border-primary/20 rounded-lg bg-primary/5">
+<p class="text-deep-charcoal font-display text-center italic">
+                                "The Lord has done great things for us, and we are filled with joy." — Psalm 126:3
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Scene 3: The Speeches -->
+<section class="bg-cream py-32 px-4 md:px-20" id="speeches">
+<div class="max-w-5xl mx-auto space-y-32">
+<div class="text-center mb-24">
+<h2 class="text-primary text-5xl font-bold mb-4">Words of Reflection</h2>
+<p class="text-deep-charcoal/60 uppercase tracking-widest text-sm">Voices from the congregation</p>
+</div>
+<!-- Speech 1 -->
+<div class="flex flex-col md:flex-row items-center gap-16">
+<div class="md:w-1/3">
+<div class="photo-frame rounded-full overflow-hidden aspect-square border-4 border-primary/20">
+<img class="w-full h-full object-cover" data-alt="Portrait of an elderly man with a kind smile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5e20o-FscCZMZYxIbihCBdkAY7NWHO2wOaK8o9WaaQkukvP7eMvLJhmg_0tNhrTYP6ure4ukB3N3CR_SHVm40d6-sWCQkEQI0NQNvD1kHa4jrpbyau-h4cvjt3WUZ_E7_C0eEs2vX7BDDL4esBtGegaiiVanBeStLCqWqueAw-184_mnNnhUXsIPmRwvPJckH7BE9DHSweonAliDmq7nqJmVOPFF48V-UMgPXtnPp2uLC86M9hvff45Q4ohA6PZgOVEosu9kmEMA"/>
+</div>
+</div>
+<div class="md:w-2/3 space-y-6">
+<button class="flex items-center gap-4 bg-primary text-white px-8 py-3 rounded-full hover:scale-105 transition-transform">
+<span class="material-symbols-outlined fill-1">play_arrow</span>
+<span class="font-bold uppercase tracking-wider text-sm">Play Audio Message</span>
+</button>
+<blockquote class="text-3xl font-display text-deep-charcoal leading-snug italic">
+                            "I remember the first cornerstone being laid. We didn't just build a structure; we built a sanctuary for generations to come."
+                        </blockquote>
+<cite class="block text-primary font-bold not-italic tracking-widest uppercase">— Arthur P. Henderson, Elder</cite>
+</div>
+</div>
+<!-- Speech 2 -->
+<div class="flex flex-col md:flex-row-reverse items-center gap-16">
+<div class="md:w-1/3">
+<div class="photo-frame rounded-full overflow-hidden aspect-square border-4 border-primary/20">
+<img class="w-full h-full object-cover" data-alt="Portrait of a middle-aged woman looking thoughtful" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3D1VXnVHeC-l4nBuVg96dWLPnBlR7O-fIjedh3bz2XxsUHO6H6fJ6k8dWmgeE-KqcClffiEjA0iE8hZwBWvXzHO-SXQneTrZ5_qqq9IJFb37JTESTd8uyLxDPmAhTm_NjCwMAW_NnwTEaXXuvPfHKyD8a-_cxy_cVDT0rkGnVDPuGN8aOxmD2hQ28U2_vloGoyWubvaWxQSaHjzHm_s61Pl-7VnP7V_--eXZufBt_T1m1ghp5lCfqaYyyqjTdvtsYDCdedvdz8FU"/>
+</div>
+</div>
+<div class="md:w-2/3 space-y-6 text-right md:text-right">
+<div class="flex md:justify-end">
+<button class="flex items-center gap-4 bg-primary text-white px-8 py-3 rounded-full hover:scale-105 transition-transform">
+<span class="material-symbols-outlined fill-1">play_arrow</span>
+<span class="font-bold uppercase tracking-wider text-sm">Play Audio Message</span>
+</button>
+</div>
+<blockquote class="text-3xl font-display text-deep-charcoal leading-snug italic">
+                            "Grace is the thread that binds us. Over ninety years, that thread has only grown stronger, weaving a tapestry of shared life."
+                        </blockquote>
+<cite class="block text-primary font-bold not-italic tracking-widest uppercase">— Sarah Williams, Music Director</cite>
+</div>
+</div>
+</div>
+</section>
+<!-- Scene 4: The Celebration -->
+<section class="bg-deep-charcoal py-32 px-4 relative" id="celebration">
+<div class="max-w-[1400px] mx-auto">
+<div class="text-center mb-20">
+<h2 class="text-cream text-5xl font-bold mb-4">Moments of Joy</h2>
+<div class="w-24 h-1 bg-primary mx-auto"></div>
+</div>
+<div class="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+<div class="break-inside-avoid photo-frame rounded-lg overflow-hidden group relative">
+<img class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="Candid shot of people laughing at a long banquet table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhPqU8m313vnh6gVqLLWwQE_xkvgjve2MZAdytHkBZUr5TSariKMoEIgMqN37LkJGtNRX-gUYzaG6pX96dEZgf_RQX3YWoGVhcscFdwwyRI08JvappvRQPhhQIwUQjdIMD3_Vs8wAN-tgIVdyt_BxW62Uk9sPkNvxdnaB8hjzo8xVRXprOeK9N6iC8LjHTHT9bfbre4rnKCcFOnpcLFp65fqbYOKHkAyNOeKblv3zg8cozci60CLQPC35VmGhiv59LI3dyfMKBZVA"/>
+</div>
+<div class="break-inside-avoid photo-frame rounded-lg overflow-hidden group relative">
+<img class="w-full h-[500px] object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="Children playing on a lawn during the garden party" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1CN9IdO12ZYRgYpSjx4XpWxk5YURG6Lt6Xv9rfykj7bU8F8eFsbqrMn9MquNw986_LmzZYycIgyZfqNiFp94eIFbSpqLHF41622vOeTkRoc-SurBu-V-ZutGteoqekBDomL-mHuAk4GIyuZrgfRXzivFIcihsWgyqoBodBWa2napvek7TAjd1BLUgL-T2cfz_ud5znFUDvhWVdTxznjOmzGo91NXKQMwTjJ6Xul-fp8ioPqCrkd3jNh6xZxmxYGhY0WKks6i3uVY"/>
+</div>
+<div class="break-inside-avoid photo-frame rounded-lg overflow-hidden group relative">
+<img class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="Close up of a large anniversary cake with white frosting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASzfRV5NudpPMil8HA0GflG2IDSdU5uq9PFsI4nJmTXYjdqrqUvp4Nci4ghTojMo96q20oWwgq58EIL50ftemhEY9YmUD3xSBOX6-LMFC1FkEq9UogAB6qL81HTOptDgfAmj_vj4Yz39mpPTHmrQTBA8DOPLkCwVheoyk_7UWtDDcrHmkiP3Mj7NjQbq3IrRL8Fa73GD9TGQLhjRo15SiilRuB8VET2L4I5aQKBWMXRrECkbeAWxDdFOgOb4pUUtPhdQrNEPTVM5s"/>
+</div>
+<div class="break-inside-avoid photo-frame rounded-lg overflow-hidden group relative">
+<img class="w-full h-[300px] object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="Wide shot of the outdoor reception at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWVc-6bh1hEcBzPRhYB1ikZq01BuomuNC-CaQqvTLs-xrLoJ_n5-jP0ffm_laFBgLUB3o3mm4u45sEqnWXmkzWXaWdFRpawC7Efp3zovAe_CSYX8owxx_knEDXH2C0RN1Bg8cKaggfPbYZQ5ZdlT7AuBM0THxpqfbp4lt_AB7I5c7fT5sF2n5PIHdJ8uHVeXMICu_UOb8EON--ACrNlt0MLDkjM6RMOSUpuJLwQ27w2cyevuCos1GWfU9KOSjxMfq0fzscZghbCIk"/>
+</div>
+<div class="break-inside-avoid photo-frame rounded-lg overflow-hidden group relative">
+<img class="w-full h-[600px] object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="Older couple dancing under string lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXK0UVk58tMzmzpnvTpr__Hc8-9LKZHwL_Kr1cvY9AcB_WvNCI0TDXpihIXbwaTAVDuSNtRq2e4qBOtMvqbRlgM2qf177zO6WA2P5mSKB4FvFXOkgcaaCovExd6cbSh0eNiHnCjtxdyE5RidFP62Fhjjr3eZ03ptcVWQYSH5n3qR3uMKT8eSbXaqvXzuoXYI41UsZNwWJEeCMBdOAC3asIBwveQwp9egwsQzt8cP2IiERjv7wHveoBKrqFNuslrh2eeh-JrliOIUw"/>
+</div>
+<div class="break-inside-avoid photo-frame rounded-lg overflow-hidden group relative">
+<img class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="Group of friends toasted with champagne glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFmnK08EfszGF_JY1LgbqFDTrOHQ5ktz4evm3Wcd1zF0kV-Tp-rbPDH7HoMaYedOs4xWSkBP4R1WzorCJY7T6vA0vqpYh-IsSrsatv-0A6C_JvyuN8UiGzRCQvAIX1Cbeu337rgjQPnZg7dhDVuRMDQbzLSeHwNlKLSDq506oV6WlBBdz_SGLrxXRo8s4o08ZndwVyW5kAUAV_cvIBKdkCreZZ0ZLxGpYFw5ctCnJWpBZnZCTGkwMygp-qBPPZc7fTvrFMdHr1asE"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Scene 5: The Grand Finale -->
+<section class="relative w-full h-screen overflow-hidden group" id="finale">
+<div class="absolute inset-0 bg-cover bg-center parallax-bg" data-alt="Panoramic family photo with hundreds of members in front of the church" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBbL9n1UAHlYjZJuVLoaHGdR_CH8AIDn4Angh8HSYI9KqFgtxFqTDnKM3kEMEwZJiGc092V0AVekGJCkXXBseHY_oYI7n1JQK8gLe8uuy_kg6nWuneTP7DKYCj1BCwGH-tW9zaVepcjKxe14k1bP6Rfy6xVF-1KIRvzz0JRdChy7HlzHnRJWt8yDI-Q4SHfblQfInNI-1rteeA-DixcQv5Yd2iS8wp7v4n_LfOFcIJ6JIeRBVYsRrDqchOwdd6u_6NpGGPzgrxzcC0');">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-deep-charcoal via-transparent to-transparent"></div>
+<div class="absolute bottom-20 left-1/2 -translate-x-1/2 text-center w-full px-4">
+<h2 class="text-cream text-5xl font-bold mb-8">One Family in Faith</h2>
+<button class="bg-primary/90 backdrop-blur-sm text-white px-10 py-4 rounded-full flex items-center gap-3 mx-auto hover:bg-primary transition-all">
+<span class="material-symbols-outlined">group</span>
+<span class="font-bold uppercase tracking-widest">Identify Family Members</span>
+</button>
+</div>
+</section>
+<!-- Scene 6: The Epilogue -->
+<section class="bg-cream py-32 px-4 relative" id="epilogue">
+<div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAIw3p7LciQW8zQAEb5rHWs0Kxc2ie6bgEVpVHIp6geU-DoL63svgsqEVnDbU_mWnm2-B1E6gj6pc6p0Hvzbp9j7BtGBdpZSHeIEtDB9ZF5R4Nq0bfxo-oCEo5lFQzGBi7XZhiix4QI3Nu-x_dOSVutp5Tp1YAGF-IbcoXRWCz_zccYM2R1GYNS1dU7SStJuyAmmVDUk5i_tZiSj_Py2KjQUCD2aLRypdNpQ60Dw6DeYeYXkWX51wwBm9FaXxobMLz-e9bCxC7H6KQ');"></div>
+<div class="max-w-3xl mx-auto">
+<div class="text-center mb-20">
+<h2 class="text-deep-charcoal text-4xl font-display italic">Epilogue: Our Shared Journey</h2>
+</div>
+<div class="space-y-12">
+<div class="bg-white/40 p-10 rounded-lg shadow-sm photo-frame border-primary/5">
+<p class="text-deep-charcoal text-lg font-display leading-relaxed italic mb-4">
+                            "A beautiful celebration for a beautiful community. May the next 90 years be as filled with grace as the last."
+                        </p>
+<div class="text-primary font-bold text-sm tracking-widest uppercase">— The Miller Family</div>
+</div>
+<div class="bg-white/40 p-10 rounded-lg shadow-sm photo-frame border-primary/5">
+<p class="text-deep-charcoal text-lg font-display leading-relaxed italic mb-4">
+                            "Walking through these halls today, I felt the presence of all those who came before us. Truly a legacy of love."
+                        </p>
+<div class="text-primary font-bold text-sm tracking-widest uppercase">— Dr. Elizabeth Reed</div>
+</div>
+<div class="bg-white/40 p-10 rounded-lg shadow-sm photo-frame border-primary/5">
+<p class="text-deep-charcoal text-lg font-display leading-relaxed italic mb-4">
+                            "Ninety years is just the beginning. Our faith is timeless, our spirit is unbroken."
+                        </p>
+<div class="text-primary font-bold text-sm tracking-widest uppercase">— Deacon James Vance</div>
+</div>
+</div>
+<div class="mt-20 text-center">
+<button class="border-2 border-primary text-primary px-12 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-all">
+                        Sign the Guestbook
+                    </button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-deep-charcoal py-24 px-4 text-center">
+<div class="max-w-xl mx-auto space-y-8">
+<span class="material-symbols-outlined text-primary text-6xl">church</span>
+<h3 class="text-cream text-3xl font-display font-bold">The 90th Anniversary Collection</h3>
+<p class="text-cream/40 font-display text-sm leading-relaxed">
+                    © 2024 Heritage Foundation. All rights reserved. <br/>
+                    Preserving the history and legacy of our community.
+                </p>
+<div class="pt-8">
+<button class="bg-primary text-white px-10 py-4 rounded-full flex items-center gap-3 mx-auto hover:brightness-110 transition-all font-bold uppercase tracking-widest">
+<span class="material-symbols-outlined">archive</span>
+                        Back to the Full Archive
+                    </button>
+</div>
+<div class="flex justify-center gap-6 pt-12 text-cream/30">
+<a class="hover:text-primary transition-colors" href="#">Digital Museum</a>
+<span>•</span>
+<a class="hover:text-primary transition-colors" href="#">Timeline</a>
+<span>•</span>
+<a class="hover:text-primary transition-colors" href="#">Contact Archivist</a>
+</div>
+</div>
+</footer>
+</main>
+</body></html>

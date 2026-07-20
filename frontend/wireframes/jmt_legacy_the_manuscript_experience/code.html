@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JMT Legacy: The Manuscript Experience</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d45211", 
+                        "background-light": "#fdf8f0", 
+                        "background-dark": "#221610",
+                        "heritage-green": "#2E4232",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"],
+                        "sans": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Deckle Edge Effect using CSS Mask */
+        .deckle-edge {
+            mask-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 1000 1000' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
+            /* Since we can't use base64 for complex textures in the task rules easily without massive strings, 
+               we will simulate the torn edge with a rough border radius and box-shadow for a clean CSS solution 
+               that fits the 'modern' constraint while honoring the 'torn' request abstractly. */
+            border-radius: 2px;
+            box-shadow: 2px 2px 0px 0px rgba(0,0,0,0.1), -1px -1px 0px 0px rgba(0,0,0,0.05);
+        }
+        
+        /* Simpler jagged edge using clip-path for the photos */
+        .torn-paper {
+            clip-path: polygon(
+                0% 0%, 5% 2%, 10% 0%, 15% 3%, 20% 0%, 25% 2%, 30% 1%, 35% 3%, 40% 1%, 45% 2%, 50% 0%, 55% 2%, 60% 0%, 65% 3%, 70% 1%, 75% 2%, 80% 0%, 85% 3%, 90% 1%, 95% 3%, 100% 0%,
+                100% 100%, 95% 98%, 90% 100%, 85% 97%, 80% 100%, 75% 98%, 70% 100%, 65% 97%, 60% 100%, 55% 98%, 50% 100%, 45% 97%, 40% 100%, 35% 98%, 30% 100%, 25% 97%, 20% 100%, 15% 98%, 10% 100%, 5% 98%, 0% 100%
+            );
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-300">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Sticky Navigation -->
+<nav class="sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-primary/10 px-8 py-4 flex items-center justify-between">
+<a class="group flex items-center gap-2 text-heritage-green dark:text-primary transition-colors hover:opacity-80" href="#">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+<span class="text-sm font-bold tracking-wide uppercase">Back to Gallery</span>
+</a>
+<div class="hidden sm:block text-primary/40 text-xs tracking-[0.2em] uppercase font-sans">JMT Legacy Archive</div>
+</nav>
+<main class="layout-container flex h-full grow flex-col items-center">
+<!-- Reading Column -->
+<article class="layout-content-container flex flex-col w-full max-w-[700px] flex-1 px-6 sm:px-0 py-12 sm:py-20">
+<!-- Header Section -->
+<header class="mb-12 text-center">
+<div class="mb-6 flex justify-center text-primary">
+<span class="material-symbols-outlined text-4xl opacity-80">history_edu</span>
+</div>
+<h1 class="text-slate-900 dark:text-slate-100 text-5xl sm:text-6xl font-display font-medium leading-none tracking-tight mb-6">
+                        Ancestral Stories
+                    </h1>
+<div class="flex items-center justify-center gap-4 text-sm font-sans text-slate-500 dark:text-slate-400 uppercase tracking-widest">
+<span>Est. 1892</span>
+<span class="w-1 h-1 rounded-full bg-primary"></span>
+<span>The JMT Journals</span>
+</div>
+</header>
+<!-- Divider -->
+<div class="w-full flex justify-center mb-12">
+<div class="w-16 h-[1px] bg-primary/40"></div>
+</div>
+<!-- Content Block 1 -->
+<div class="prose prose-lg prose-slate dark:prose-invert font-display text-lg sm:text-xl leading-relaxed text-slate-800 dark:text-slate-200">
+<p class="first-letter:text-6xl first-letter:font-bold first-letter:text-primary first-letter:mr-3 first-letter:float-left">
+                        In the early dawn of 1892, the JMT family set forth on a journey that would redefine our lineage. The manuscript you see here is not merely a collection of dates and names, but a digital preservation of the original handwritten journals kept by our great-grandfather. It was a time of great upheaval, yet amidst the chaos, he found the discipline to record the mundane and the magnificent alike.
+                    </p>
+<p class="mt-6">
+                        The ink has faded, and the pages have grown brittle, but the voice remains clear. He wrote of the long winters in the valley, the scent of pine burning in the hearth, and the quiet resilience required to build a life from the soil up.
+                    </p>
+</div>
+<!-- Featured Image 1: Torn Paper Effect -->
+<figure class="my-12 relative group">
+<div class="torn-paper relative w-full aspect-[4/3] bg-slate-200 shadow-xl transition-transform duration-700 hover:scale-[1.01]">
+<div class="absolute inset-0 bg-cover bg-center sepia-[0.3] contrast-[0.9]" data-alt="Sepia toned historical photograph of a family standing in front of a wooden homestead" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBUtk5J9mReTDUyIHzNoGJiRtMiAd_CsCM2fAzIryOdxUNcnUPYcWc5yz4GVZn64rStOTKi9PGRtIOuR7Ye1cruNpq6yNPal0CJUt_i9Fzhw3oKgepgu5GrrA-q7gM9wwlIUJmCftbzEHrxQ2owQF7kSh1_xW5NghrsRLgrl5ga3_fsEypg6sQ2plgZeYsKCXwVQQ_hGWUzWeDNacH3YVFfPQEEWIG0BUcxBl7vRmw_7ckAeN45jzL_uYgHf93ZdwfI7pqED5A9IGU');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60"></div>
+</div>
+<figcaption class="mt-4 text-center font-sans text-xs text-slate-500 dark:text-slate-400 italic">
+                        Figure 1. The original homestead, circa 1894.
+                    </figcaption>
+</figure>
+<!-- Content Block 2 -->
+<div class="prose prose-lg prose-slate dark:prose-invert font-display text-lg sm:text-xl leading-relaxed text-slate-800 dark:text-slate-200">
+<p>
+                        The texture of the paper, yellowed with age, still holds the faint scent of oak and tobacco. Every stroke of the pen tells a story of resilience, hope, and an unwavering commitment to family unity. When reading these entries, one is struck not by the grandiosity of their achievements, but by the steadiness of their character.
+                    </p>
+<p class="mt-6">
+                        "We plant trees not for ourselves," he wrote in the entry dated October 14th, 1895, "but for the shade they will provide our children." This philosophy became the bedrock of the JMT legacy. It was never about the immediate harvest, but the enduring sustainability of the land and the kin who tended it.
+                    </p>
+<blockquote class="my-10 border-l-4 border-primary pl-6 italic text-2xl text-slate-700 dark:text-slate-300 bg-primary/5 py-4 pr-4 rounded-r-lg">
+                        "The strength of the root determines the reach of the branch. We must remain grounded."
+                    </blockquote>
+<p>
+                        As the years progressed, the journals began to document the changing world around them. The arrival of the railroad, the first telegraph, the shifting borders of the county. Yet, the internal world of the family remained remarkably consistent—centered on the evening table, the shared labor, and the Sunday reflection.
+                    </p>
+</div>
+<!-- Featured Image 2: Wide Cinematic -->
+<figure class="my-16 -mx-6 sm:-mx-12 relative">
+<div class="w-full aspect-[21/9] overflow-hidden rounded-lg shadow-lg relative">
+<div class="w-full h-full bg-cover bg-center grayscale contrast-125" data-alt="Close up detail of elegant cursive handwriting on textured paper" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAnQ7NNh6U_4tENQ9tivFZEkg406ykUCuj_10SOTmVuTmk5OQu6dHHqgaDUmJyO16u4LHxkN933bqPUThichPwWEfzP2YHPBfRHTmb-H6sDwNnCUf60-y6pXDh7yjrPolIVs3zXnAnWLzs0hgH60vVnvhYyspmvYjHH0H4Mgiz2lpTPnOhOA3hO3dD73TTjDXN2Vtc-K_pyhgmRJZAL9JbNq4Aqz40xdNXywZu28QrhRhCSilL4gkL3FK-tB9d9MLEEM0BkxbOcEFg');"></div>
+<div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+</div>
+<figcaption class="mt-4 text-center font-sans text-xs text-slate-500 dark:text-slate-400 italic">
+                        Excerpt from the "Winter of '98" journal entry.
+                    </figcaption>
+</figure>
+<!-- Content Block 3 -->
+<div class="prose prose-lg prose-slate dark:prose-invert font-display text-lg sm:text-xl leading-relaxed text-slate-800 dark:text-slate-200">
+<p>
+                        Today, as we digitize these fragile pages, we are careful to preserve not just the words, but the artifacts themselves. The ink blots, the crossed-out lines, the marginalia—these are the fingerprints of history. They remind us that our ancestors were not mythical figures, but human beings who doubted, corrected themselves, and strove for clarity.
+                    </p>
+<p class="mt-6 mb-12">
+                        We invite you to continue reading through the archives. Each page turn is a step back in time, a quiet conversation with the past that informs our present.
+                    </p>
+</div>
+<!-- Footer Flourish -->
+<div class="mt-12 flex flex-col items-center justify-center opacity-80">
+<div class="text-primary mb-2">
+<span class="material-symbols-outlined text-3xl">local_florist</span>
+</div>
+<div class="h-[1px] w-24 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+<p class="mt-4 font-display italic text-slate-500 text-sm">JMT Family Heritage</p>
+</div>
+</article>
+</main>
+<!-- Bottom Fade for reading immersion -->
+<div class="fixed bottom-0 left-0 w-full h-12 bg-gradient-to-t from-background-light dark:from-background-dark to-transparent pointer-events-none z-10"></div>
+</div>
+</body></html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JMT Legacy Archive | A Living History</title>
+<meta content="Celebrating 90 years of grace, devotion, and heritage at the JMT Family Archive." name="description"/>
+<!-- Tailwind CSS v3 CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Noto Serif for the 'Warm Library' aesthetic -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Noto Serif"', 'serif'],
+          },
+          colors: {
+            'cream': '#FDF5E6',
+            'charcoal': '#2C2C2C',
+            'heritage-green': '#2D4333',
+            'heritage-orange': '#D45D2A',
+            'sepia-light': '#E3D5C1',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-typography">
+    body {
+      font-family: 'Noto Serif', serif;
+      background-color: #FDF5E6;
+      color: #2C2C2C;
+    }
+    .text-heritage-orange { color: #D45D2A; }
+    .bg-heritage-orange { background-color: #D45D2A; }
+    .bg-heritage-green { background-color: #2D4333; }
+    .drop-cap::first-letter {
+      float: left;
+      font-size: 4rem;
+      line-height: 3.5rem;
+      padding-right: 0.5rem;
+      color: #D45D2A;
+      font-weight: bold;
+    }
+  </style>
+<style data-purpose="layout-and-effects">
+    /* Glassmorphism for sticky nav */
+    .glass-nav {
+      background: rgba(253, 245, 230, 0.8);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+    }
+    /* Section transitions */
+    section {
+      position: relative;
+      overflow: hidden;
+    }
+    /* Custom shapes for Archive Entry Points */
+    .arch-card {
+      border-radius: 50% 50% 0 0 / 40% 40% 0 0;
+      transition: transform 0.3s ease;
+    }
+    .arch-card:hover {
+      transform: translateY(-8px);
+    }
+  </style>
+</head>
+<body class="bg-cream">
+<!-- BEGIN: Sticky Navigation -->
+<nav class="fixed top-0 left-0 w-full z-50 glass-nav h-16 flex items-center justify-between px-6 md:px-12">
+<div class="flex items-center gap-2">
+<div class="bg-heritage-orange text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">J</div>
+<span class="font-bold text-lg tracking-tight">Legacy Archive</span>
+</div>
+<div class="hidden md:flex items-center gap-8 text-sm font-medium uppercase tracking-widest">
+<a class="hover:text-heritage-orange transition-colors" href="#hero">Home</a>
+<a class="hover:text-heritage-orange transition-colors" href="#welcome">History</a>
+<a class="hover:text-heritage-orange transition-colors" href="#archive">Gallery</a>
+<a class="hover:text-heritage-orange transition-colors" href="#heritage">Milestones</a>
+<button class="bg-heritage-orange text-white px-5 py-2 rounded-full hover:bg-opacity-90 transition-all">Menu</button>
+</div>
+</nav>
+<!-- END: Sticky Navigation -->
+<!-- BEGIN: Section 1 - The Gateway (Screen 6) -->
+<section class="min-height-screen relative pt-16" id="hero">
+<div class="relative h-[80vh] w-full bg-cover bg-center flex items-center justify-center text-center px-4" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuC0b8Q978-ts-3KOCY3fmrFJ2npEI466uhlpAsv-EYVwOaGKwmbgGJRpPAnFewgS40WDpjkgeq_Mp4-LD4BrLMrhYbzaF0_pF8fUIfqFUiMLQSyTo5fOfn2DVlJMgUEMvPuGEROAi0D3QyZ5AYJ1p-ajuPQQjOKs6yPjPg3V40Kg9OhF5fTylPT9zG0GGuESg1cbjWiOhFB4v6NSGaH7DI5e6BOgqCG6IQN3GMgcBaXWz5AjQMjRKdwF_2BVzuW1i0Bhh30jShciFw'); background-size: cover; background-position: center top;">
+<div class="max-w-4xl text-white">
+<div class="w-16 h-0.5 bg-heritage-orange mx-auto mb-6"></div>
+<h1 class="text-5xl md:text-7xl font-bold mb-4 leading-tight">The JMT Legacy:<br/><span class="italic font-normal">A Living Archive</span></h1>
+<p class="text-lg md:text-xl mb-8 opacity-90">Celebrating <span class="text-heritage-orange font-bold">90 Years</span> of Grace and Devotion.<br/>Honoring the past, inspiring the future.</p>
+<div class="flex flex-col items-center gap-6">
+<a class="bg-heritage-orange hover:bg-orange-700 text-white px-8 py-3 rounded-full flex items-center gap-2 transition-all group" href="#welcome">
+            Enter The Archive 
+            <svg class="h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+<div class="animate-bounce mt-4">
+<svg class="h-6 w-6 opacity-70" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+</div>
+<!-- Anniversary Badge -->
+<div class="absolute bottom-10 right-10 border border-white/30 rounded-full w-32 h-32 flex flex-col items-center justify-center bg-black/20 backdrop-blur-sm">
+<span class="text-3xl font-bold">90</span>
+<span class="text-[10px] uppercase tracking-tighter">Anniversary</span>
+</div>
+</div>
+<!-- Secondary Gallery Preview in Section 1 -->
+<div class="container mx-auto py-16 px-6">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-12 border-b border-charcoal/10 pb-6">
+<div>
+<span class="text-heritage-orange uppercase tracking-widest text-xs font-bold">The Collection</span>
+<h2 class="text-3xl font-bold mt-1">Curated Memories</h2>
+</div>
+<p class="max-w-xs italic text-sm text-charcoal/60 mt-4 md:mt-0">"To understand where we are going, we must first understand from where we have come."</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="space-y-3">
+<img alt="The Founding Era" class="w-full aspect-square object-cover rounded-2xl shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQS7wtWTIXJbQRqOGJAgB8evd_LQyek_yrmFkCjA9KTk9_OT-2L3LJb0fVY_LU_ZhX2aGq1zqoz2RTzdlTFGiGCwkXFH6vF0rGQ-7b5W4Rx5c9vn_q56VarVNW_91MITG793kb6GfAucE38TZ7JQw9poRNZzIzdD8R2ujA-fH65xJ73Ifisx8eMiKESFKlXhxXhdV8SHJUlNZ0bLlWoMkqHOTF-5aB3nbKPZ9dxQnNnM9ktppbqJ_YORQSvvG-UGNWuzltBEwa6wk"/>
+<h3 class="font-bold">The Founding Era</h3>
+<p class="text-xs text-charcoal/50">1934 — 1950</p>
+</div>
+<div class="space-y-3">
+<img alt="Letters" class="w-full aspect-square object-cover rounded-2xl shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAR84DUAnz1oEE3iBJ1jiKrB1AYiJTvwlrrjPvrxYDkjGOl7qaR3jE2xSgHb4RWO-_J8Su3G7DsRA55wbU_JlID7jGYFSnnfIjhXjeg6gyUIV0ECGa3xkJ8gT4ZzUPBTQZzPY4JpGMwG0QdHFPeR8xfUkg_J2SxGvnPLF3vGY1ISTWkvGmokRzho4lRQwwhAos2KhUZl1I9GsHDUICga3sgcWZITe4sDitgK1oP6FC1xo8phIMDTvBNTkycEU-uunmBJMUHAVi4xQw"/>
+<h3 class="font-bold">Letters &amp; Correspondence</h3>
+<p class="text-xs text-charcoal/50">Archives of thought</p>
+</div>
+<div class="space-y-3">
+<img alt="The Homestead" class="w-full aspect-square object-cover rounded-2xl shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAV429uFz2XqjX0WBEN84itTtsLPnimz2mZ2K8SQJfHbD6XjMv3_Nbh5SR5Qpmztbc7fKq0oJt7tuohoFJhSbllUw63MH_Dk3CgZurrlmDWeoG2lvcEN5lqgYE-ZYGIC_UfPTItZR8L4_lDfG5W-wU9-Ns36xSgvX5CHOoA_HshIbPqMWGtAgQPYtPX1Of4TQX0IH_gTupp2kxa129D-QfslJbS0hycnjvwolHUKgu7ANkekEegEWphIHRzIDCMrc_nFZvUeBbwYw"/>
+<h3 class="font-bold">The Homestead</h3>
+<p class="text-xs text-charcoal/50">Building the foundation</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Section 1 -->
+<!-- BEGIN: Section 2 - Welcome & Navigation (Screen 5) -->
+<section class="py-24 bg-cream flex justify-center items-center px-6" id="welcome">
+<div class="max-w-4xl w-full">
+<!-- Decorative Top Element -->
+<div class="flex justify-center mb-8">
+<div class="flex items-center gap-4 opacity-40">
+<div class="w-20 h-px bg-heritage-orange"></div>
+<div class="w-2 h-2 rounded-full bg-heritage-orange"></div>
+<div class="w-20 h-px bg-heritage-orange"></div>
+</div>
+</div>
+<!-- Memoir Card -->
+<div class="bg-[#FFFBF5] rounded-[40px] p-12 md:p-20 shadow-xl shadow-heritage-orange/5 border border-sepia-light text-center relative">
+<span class="text-heritage-orange uppercase tracking-[0.2em] text-sm font-bold block mb-4">The 90th Milestone</span>
+<h2 class="text-5xl md:text-6xl font-bold mb-4">Celebrating 90 Years of Grace</h2>
+<p class="italic text-heritage-orange text-xl mb-12">A Welcome to the JMT Family Archive</p>
+<div class="flex justify-center mb-10">
+<div class="flex items-center gap-4 text-sepia-light">
+<div class="w-16 h-px bg-current"></div>
+<span class="text-heritage-orange">✿</span>
+<div class="w-16 h-px bg-current"></div>
+</div>
+</div>
+<div class="max-w-2xl mx-auto text-left space-y-8 leading-relaxed text-lg text-charcoal/80">
+<p class="drop-cap">
+            elcome to a sanctuary of memories. As we gather to honor Maama's ninety remarkable years, we have curated this digital archive not merely as a collection of dates and photographs, but as a living testament to a life built on resilience, faith, and boundless love.
+          </p>
+<p>
+            Within these virtual pages, you will find the echoes of laughter that filled our childhood homes, the wisdom whispered in quiet moments, and the enduring strength that has anchored the JMT family through generations. It is an invitation to pause, reflect, and reconnect with the roots that ground us.
+          </p>
+<p>
+            May this "Warm Library" serve as a reminder that while time moves forward, the legacy we cherish remains timeless. We invite you to explore, to remember, and to add your own threads to this beautiful tapestry.
+          </p>
+</div>
+<div class="mt-16 pt-8">
+<p class="uppercase tracking-widest text-xs mb-4 opacity-60">With love and gratitude,</p>
+<div class="flex justify-center mb-4">
+<!-- Scribble/Signature SVG Placeholder -->
+<svg class="text-heritage-orange fill-none stroke-current stroke-2" height="40" viewbox="0 0 120 40" width="120">
+<path d="M10,30 C30,10 50,50 70,30 C90,10 110,30 110,30"></path>
+</svg>
+</div>
+<p class="italic text-heritage-orange">The JMT Family</p>
+</div>
+</div>
+<!-- Decorative Bottom Element -->
+<div class="flex justify-center mt-8 opacity-40">
+<span class="text-2xl">✿</span>
+</div>
+</div>
+</section>
+<!-- END: Section 2 -->
+<!-- BEGIN: Section 3 - Archive Entry Points (Screen 2) -->
+<section class="py-24 bg-white" id="archive">
+<div class="container mx-auto px-6 text-center">
+<div class="flex justify-center items-center gap-4 mb-4">
+<div class="w-12 h-px bg-heritage-orange"></div>
+<span class="text-heritage-orange font-medium text-sm">90th Anniversary Collection</span>
+<div class="w-12 h-px bg-heritage-orange"></div>
+</div>
+<h2 class="text-6xl md:text-7xl font-bold mb-4">Preserving the <br/><span class="italic text-heritage-orange">Legacy of Time</span></h2>
+<p class="max-w-2xl mx-auto text-charcoal/60 text-lg mb-16 leading-relaxed">
+        Explore the curated chapters of our history. From humble beginnings to a sprawling heritage, step into the warm embrace of the past.
+      </p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
+<!-- Card 1 -->
+<div class="group cursor-pointer">
+<div class="arch-card aspect-[3/4] overflow-hidden relative shadow-2xl bg-charcoal">
+<img alt="90th Milestone" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4KSnRlxboUR7dC2HLMmc4M98p_2vSirnYWIv1V0wDgFjjof9zjWMuUVW_1AY2yueaERf0J1bA8uXdpB3rjbfQyE8HGbMuInNzjD34x8WlnVrktRkwMjLEJJWBbH8Hn0rsEnEyJL_c2bh6J-dEGOi86Hpkio1r9jRIMlbmoH4dtHYgKI8Y9RG-XN6dkciELa2D9I1McD4QpckH_BnJ2MWUNAwfJVbsaKoOGEwfiGXUr03_yJQtS9MxYX0CsiaE4uhijI80GiabVCk"/>
+<div class="absolute top-8 left-1/2 -translate-x-1/2 bg-white/90 px-4 py-1 rounded-full text-[10px] font-bold tracking-widest text-charcoal">1934 — 2024</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+<div class="absolute bottom-10 w-full px-6">
+<h3 class="text-white text-3xl font-serif italic">The 90th Milestone</h3>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group cursor-pointer">
+<div class="arch-card aspect-[3/4] overflow-hidden relative shadow-2xl bg-charcoal border-4 border-heritage-orange/10">
+<img alt="The Roots" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt07EnvWJZdZRskdwYOG9XaPcbJ9Tu4jFoVKVwBYU5fk8ZiwTwtvXSmJ-_xV7DJHSQckruDj_pFuaBN1iATR9eZe2y4iMKDC_KArpViPXXfkYUXET2Ql7QFheAM93a19sbjxNcfIoYjDZyKxrFpabXuPrS_qaIdtcCYWiKHjBkV0AB2cwfSUoZNDG4qk2R3JE1whpUtQY_D_ccfy4psgVQAKHejjLGYoS2nIbx8r8MWegV4lCQi1rKBN06T6d4BUD7fl_tSJmwEnk"/>
+<div class="absolute top-8 left-1/2 -translate-x-1/2 bg-heritage-orange px-4 py-1 rounded-full text-[10px] font-bold tracking-widest text-white">THE BEGINNING</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-10 w-full px-6 text-white">
+<h3 class="text-3xl font-serif italic">The Roots</h3>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group cursor-pointer">
+<div class="arch-card aspect-[3/4] overflow-hidden relative shadow-2xl bg-charcoal">
+<img alt="Ancestral Stories" class="w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0TKLArh29-C5N7uoNrOHT94u68i5ovqMutBeeuSuX7pPZSE6pFwfT7KUEntiHqOvyELY2mtzIn8p6HTrJiyofnoss62hv065gLSgjb-2D9ccvktGSYx6RRJ-g7ot1NU-9ygY5z5Wk2oXRfcsa-eUGNGRD2je_yISW9SvXFevIG76GjER5-ntWpgWx_DdibJE2aKhL0w90EKQn2koD0uaQEYlQ8OyuuJ0c6AHXOH47inK8ta2szMbXcDt8gHHQTqbJ7BSv0auJIag"/>
+<div class="absolute top-8 left-1/2 -translate-x-1/2 bg-sepia-light px-4 py-1 rounded-full text-[10px] font-bold tracking-widest text-heritage-orange">ORAL HISTORIES</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+<div class="absolute bottom-10 w-full px-6">
+<h3 class="text-white text-3xl font-serif italic">Ancestral Stories</h3>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Section 3 -->
+<!-- BEGIN: Section 4 - Heritage Gallery & Panorama (Screen 4) -->
+<section class="pt-24 pb-0 bg-cream relative" id="heritage">
+<!-- Section Header -->
+<div class="container mx-auto px-6 text-center mb-16">
+<div class="inline-block border border-heritage-orange/30 px-6 py-1 rounded-full text-[10px] font-bold tracking-widest text-heritage-orange mb-6 bg-white/50">
+        90TH ANNIVERSARY COLLECTION
+      </div>
+<h2 class="text-5xl md:text-7xl font-bold leading-tight">
+<span class="italic text-heritage-orange">Preserving</span> the moments<br/>that built a legacy.
+      </h2>
+<p class="max-w-2xl mx-auto mt-8 text-charcoal/60 leading-relaxed">
+        From the humble beginnings in the rolling hills of Vermont to the global enterprise of today, the JMT family story is woven through decades of resilience, innovation, and unity. Explore the archive below.
+      </p>
+<div class="w-32 h-1 bg-heritage-orange/20 mx-auto mt-12 rounded-full"></div>
+</div>
+<!-- Masonry Grid Style Gallery -->
+<div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-6 pb-24">
+<!-- Item 1: Large Oval -->
+<div class="md:col-span-4 flex flex-col items-center">
+<div class="w-full aspect-[2/3] rounded-full overflow-hidden shadow-2xl border-8 border-white">
+<img alt="The Patriarch" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuKWCsJrvKERf5d_S6E_LRRl67nJHpuF5YvX4xXhMRXTEf0UR1iQk8xeLqAXYpn_2HmGJ6gWzp4IdVfTYqtgmAy9PQn-JZ4XRjUoxUq3G7a2C1RTtGiHAqu3jvrwMw3phdmc7JOxveLDRDZkFcmvbCkQsRSvYoBxT0MVCKerieTeA6wWJOBS5bWxR9BaSChGdyChji7_iPbEd4ODVffgbFhh7mCIApkA5pgDeSQo_QE44p-lyU2fw6lbb1t7m_WR5-vcZswA_Ly8M"/>
+</div>
+<span class="mt-4 text-[10px] font-bold tracking-[0.3em] text-heritage-orange">THE PATRIARCH</span>
+</div>
+<!-- Item 2: Medium Circle + Doc -->
+<div class="md:col-span-4 space-y-6">
+<div class="relative pt-12">
+<div class="w-4/5 mx-auto aspect-square rounded-full overflow-hidden border-[12px] border-white shadow-xl relative z-10">
+<img alt="Portrait" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXdSGP3jqHSOkc9bbkMEemJMeSPMGoer4vRzuisBztmtkpb9i1tjWezMccCJAPJCnTZTEvh8SR6NNbzyIBewPWWs4xPFYLuHyA6YT_AQibw7h0cuixht3V53M5vz7n4TiO29sa-LBKbPaknviCTW4NPv1fP73HLnjI8Rxtdmvn5KgPK5JkMn-vWA9hG10YMGvgEKub8pt5zIBu2YtYtfGGBh8JfCBE9z_5uwhiKzLHS1Fxmr2Tdywntvy0x1J6WM9eOzGWoZw65Hc"/>
+</div>
+<div class="absolute top-0 right-0 bg-white/80 backdrop-blur-sm p-3 rounded-xl border border-sepia-light text-[10px] italic">Spring, 1941</div>
+</div>
+<div class="bg-white/60 p-6 rounded-2xl border border-sepia-light shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-bold text-lg border-l-2 border-heritage-orange pl-3">Original Deed</h4>
+<div class="w-8 h-8 rounded-lg bg-heritage-orange/10 flex items-center justify-center">
+<svg class="h-4 w-4 text-heritage-orange" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+<p class="text-sm italic text-charcoal/70 mb-4">"For the sum of three hundred dollars, the land known as Green Creek is hereby transferred..."</p>
+<div class="flex justify-between text-[10px] font-bold text-heritage-orange">
+<span>ARCHIVED DOC #402</span>
+<span class="text-charcoal/40 uppercase">Oct 12, 1934</span>
+</div>
+</div>
+</div>
+<!-- Item 3: Square Photo + Quote -->
+<div class="md:col-span-4 flex flex-col justify-between">
+<div class="rounded-3xl overflow-hidden shadow-xl">
+<img alt="Family" class="w-full h-56 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsFUoraN7tbBOSXnUCjwYgQywnYQF5HgVjYg3rQ4IZtjB2Y52sIRq3LE-RAZFEhxp5kOHKcAaXiuleDVDjjOvpkw420jNzelQbkm2z5CKbQ-EXGdf309MEwKvcSh73LTYhQsDftJBHE3mP0Tun6ITCkSsIaLm6H9i5zFGvV_u07Wv-ZSIlF9WuDD72gdwXbKkU3YEaAj2E5UVkLmNDCr_mZg0eRnzytbyapeJx3CPK6W48iB4l__bRVq0ZUQLldHB-DGJSeykbeuA"/>
+</div>
+<div class="flex justify-end mt-6">
+<div class="relative w-48 aspect-[3/4] rounded-full overflow-hidden border-8 border-[#FFFBF5] shadow-lg">
+<img alt="Visionary" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKFzPcwI23ATYpvtdY5i1CGI5wQXK5lDw_Jwa1IC_FauZCLWv0qc2dV7Cyrb3p628tHay50iIV7yefNx9MdIUkhmGWhDMrBC_p8Z2aml-nBTidlKKHCmOJLvhpK4LwsDM-jdWasu5RHLaJqKK5KJGckVE4w2CUmuW828TfznY6NFd7Jx9uyg-QKn7Dm1vC8RoBknyNyLQpk35wVjKeQuLiESY5Bn1DKtxnP8O7pAXoURJ80AXW95T-5GMLIjvW6wQmDiWXTH7ld8g"/>
+<div class="absolute inset-0 flex items-center justify-end pr-1">
+<span class="rotate-90 text-[8px] font-bold tracking-[0.5em] text-charcoal/20 uppercase whitespace-nowrap origin-right">THE VISIONARY</span>
+</div>
+</div>
+</div>
+<div class="bg-heritage-green text-white p-8 rounded-tr-[50px] rounded-bl-[50px] mt-6 shadow-2xl">
+<p class="text-lg italic leading-relaxed mb-6">"We build not for ourselves, but for those who will stand here when we are gone."</p>
+<div class="flex items-center justify-between border-t border-white/20 pt-4">
+<div class="w-12 h-px bg-white/30"></div>
+<span class="text-xs font-bold uppercase tracking-widest">J.M.T. Jr, 1988</span>
+</div>
+</div>
+</div>
+<!-- Item 4: Wide Landscapes -->
+<div class="md:col-span-4 mt-6">
+<div class="relative group">
+<img alt="Land" class="w-full aspect-square object-cover rounded-[40px] shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxgVszYXOAIbf_5SOguDI-Y_Eh8CVEAdlzhxKJ0RR_IDRUFMYMzBP37cuuqaljAi4QfX3sOphLZkBogZsVvH98zqrPNic2We4nYKmRc3GUbNxiHkV8z_g7jmgA0XPKraDESDoQzM6QpJMBtSu8-j0_s2yKl9CEUhSJqNgi3LURAVTXQRDGOx4nTBZeDyMNH-BkLivc0JrEEJTaH9mCYy-5YwuImkeDX5elVqH4xYnWVgwhsHlK35Ypbmth-oBRc5DK0xgdbzXiE1g"/>
+<div class="absolute bottom-6 right-0 bg-white/90 backdrop-blur px-4 py-2 rounded-l-full shadow-lg text-[10px] font-bold tracking-widest">The First Homestead</div>
+</div>
+</div>
+</div>
+<!-- Panorama Footer Section -->
+<div class="relative w-full h-[80vh] bg-charcoal flex items-end overflow-hidden">
+<!-- Large Panorama Image Overlay -->
+<div class="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-luminosity" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAw2jq76iAMtxzLoEo01lFyhd-4oYJ9fSxxMOZ3yL9WHtaRLoLyhfv2YPx5dRHMV_x8MUgMzGSe24EXq2xzAqxuIgLBAlPhkZBB1lQtfRh0RTJ-HPFOLpzldw0LJeqSfCL02oHYlvY5kp24vL5_KZ0_-xX-kd2wngRaf_OZcLP1OKXAOosoupNj8mHwPMAK0Eq8RPZu6uE4N3KCf-hlmKYse2YMtlZrSI8Lr9LO4_-dJKAze1RP58tqNAv_9LLnL5wRTouse4gdOWc');"></div>
+<!-- Content Overlay -->
+<div class="container mx-auto px-6 pb-20 relative z-10 text-white flex flex-col md:flex-row justify-between items-end gap-12">
+<div class="max-w-2xl">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-10 h-px bg-heritage-orange"></div>
+<span class="text-heritage-orange text-xs font-bold uppercase tracking-widest">The Latest Chapter</span>
+</div>
+<h2 class="text-6xl font-bold mb-4">The 90th Reunion</h2>
+<p class="text-lg text-white/70">Gathered at the original estate, four generations celebrate the enduring bonds of family.</p>
+</div>
+<div class="flex flex-col items-end gap-6">
+<div class="bg-black/40 backdrop-blur-md p-6 rounded-2xl border border-white/10 text-right">
+<p class="text-sm font-bold">August 14, 2023</p>
+<p class="text-[10px] text-white/50 uppercase tracking-widest mt-1">Attendance: 142 Members</p>
+</div>
+<a class="bg-heritage-orange hover:bg-orange-700 text-white px-8 py-4 rounded-full flex items-center gap-4 font-bold transition-all group" href="#">
+            Explore Full Panorama
+            <div class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</a>
+</div>
+</div>
+<!-- Watermark/Large Text -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03] select-none">
+<span class="text-[20vw] font-bold whitespace-nowrap">JMT Family Archive</span>
+</div>
+</div>
+</section>
+<!-- END: Section 4 -->
+<!-- BEGIN: Main Footer -->
+<footer class="bg-heritage-green text-white/80 py-16 px-6">
+<div class="container mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-center border-b border-white/10 pb-12 mb-8">
+<div class="text-center md:text-left mb-8 md:mb-0">
+<h3 class="text-white text-2xl font-bold">JMT Legacy</h3>
+<p class="text-sm opacity-60 mt-1">Celebrating 90 Years of Heritage</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8 text-xs font-bold uppercase tracking-widest">
+<a class="hover:text-heritage-orange transition-colors" href="#">Archive Access</a>
+<a class="hover:text-heritage-orange transition-colors" href="#">Family Tree</a>
+<a class="hover:text-heritage-orange transition-colors" href="#">Contact Curator</a>
+</div>
+<div class="mt-8 md:mt-0">
+<p class="text-[10px] opacity-40">© 2024 JMT Family Trust. All rights reserved.</p>
+</div>
+</div>
+<!-- Secondary Small Footer (from Screen 2) -->
+<div class="flex flex-col items-center gap-6 pt-4">
+<div class="w-12 h-12 rounded-full bg-cream/10 flex items-center justify-center">
+<svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div class="flex gap-6 text-[10px] uppercase font-bold tracking-[0.2em] opacity-40">
+<a href="#">About the Archive</a>
+<a href="#">Contributors</a>
+<a href="#">Donate Artifacts</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: Main Footer -->
+</body></html>

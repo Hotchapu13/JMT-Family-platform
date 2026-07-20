@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>THE ROOTS | Archival Journey</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Work+Sans:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@0,700;1,400&amp;family=Montserrat:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-error-container": "#93000a",
+              "error": "#ba1a1a",
+              "on-primary-container": "#fffbff",
+              "surface-tint": "#a63b00",
+              "error-container": "#ffdad6",
+              "secondary": "#4e6352",
+              "tertiary": "#745547",
+              "surface-container-low": "#fbf3e4",
+              "surface-container": "#f5edde",
+              "primary": "#a23900",
+              "surface": "#fff8ef",
+              "on-tertiary-container": "#fffbff",
+              "inverse-primary": "#ffb599",
+              "on-error": "#ffffff",
+              "surface-bright": "#fff8ef",
+              "surface-variant": "#e9e2d3",
+              "on-primary-fixed-variant": "#7f2b00",
+              "on-surface": "#1e1b13",
+              "surface-container-highest": "#e9e2d3",
+              "outline-variant": "#e1bfb4",
+              "on-surface-variant": "#594139",
+              "primary-container": "#ca4b07",
+              "surface-dim": "#e1d9cb",
+              "on-secondary-container": "#546a58",
+              "inverse-on-surface": "#f8f0e1",
+              "secondary-fixed": "#d1e9d2",
+              "on-tertiary-fixed": "#2c160b",
+              "on-primary": "#ffffff",
+              "secondary-container": "#d1e9d2",
+              "on-primary-fixed": "#370e00",
+              "tertiary-fixed-dim": "#e6bead",
+              "on-tertiary-fixed-variant": "#5c4033",
+              "background": "#fff8ef",
+              "tertiary-fixed": "#ffdbcc",
+              "tertiary-container": "#8e6d5e",
+              "on-secondary-fixed-variant": "#374c3b",
+              "outline": "#8d7167",
+              "on-tertiary": "#ffffff",
+              "primary-fixed-dim": "#ffb599",
+              "surface-container-high": "#efe7d9",
+              "on-secondary-fixed": "#0c1f12",
+              "on-background": "#1e1b13",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed": "#ffdbce",
+              "secondary-fixed-dim": "#b5ccb7",
+              "on-secondary": "#ffffff",
+              "inverse-surface": "#343026"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Work Sans"],
+              "label": ["Work Sans"],
+              "serif-alt": ["Playfair Display"],
+              "sans-alt": ["Montserrat"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>body {
+    background-color: #fff8ef;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDMZNkVXYZTrm1pY72PGPI-f92G_dBmsF78iJyGAKqsFIdrikb75n8NbU-eUlywZ0Awgl29cp6ud28QSd94eXpZ7glO-TWyCKmOcrddH-k080DQmgq8AyVumkNcc9Nimpb7jnseCoCL5UOF2Y_251amc-_1pwxajJ6syTIhspiPEAaIj-MU8csl9U6ZQX6uG4_-W4dRc9Vn-Ru8NhOPSeTQIGh1TvQjUEysVsmVRfEzlrTLMkUl9gk12pth-mv2bJs6gCwMVjNSGeA);
+    color: #1e1b13
+    }
+.vellum-overlay {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAGRn1l9qET9C4dDGYyT8JZELXhyE-Ki4aST0jAlUFjj9JxSF_pCiZcuLO5IAPL6L11-qY7iE-xorxzZ90ArxITaW5JQoJ4B1WuTWWNLFhHayGAvQq6HhEbv7SOrurznuDIDXosFx8tu-bquUYV7ooezie4NWCnWV0Ykv-QAyfDyL0FfkI_ggY0OQFaUPehe3X6w6QHNpk_EEpXbGdDwMC8OSVMcNUsyGsOIiN7NwQs5XtD1eIN-JqAyZwMi6ItFgPkIswdu9e1NSo);
+    pointer-events: none
+    }
+.archival-border {
+    border: 1px solid #E8DFD0;
+    box-shadow: 0 4px 20px rgba(44, 44, 44, 0.15)
+    }
+.map-overlay {
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    opacity: 0.1
+    }
+.ink-glow {
+    text-shadow: 0 0 15px rgba(255, 248, 239, 0.8)
+    }</style>
+</head>
+<body class="font-body selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fff8ef]/85 dark:bg-[#1e1b13]/85 backdrop-blur-md shadow-none flex justify-between items-center px-12 py-6 w-full">
+<div class="text-2xl font-serif font-bold uppercase tracking-widest text-[#2c2c2c] dark:text-[#fff8ef]">
+            THE ROOTS
+        </div>
+<nav class="hidden md:flex items-center space-x-12">
+<a class="text-[#a23900] dark:text-[#ff8a50] border-b-2 border-[#a23900] pb-1 font-sans uppercase tracking-widest text-xs" href="#">Tribal</a>
+<a class="text-[#4e6352] dark:text-[#aabcb0] font-sans uppercase tracking-widest text-xs hover:text-[#a23900] transition-colors duration-300" href="#">Regional</a>
+<a class="text-[#4e6352] dark:text-[#aabcb0] font-sans uppercase tracking-widest text-xs hover:text-[#a23900] transition-colors duration-300" href="#">Lineage</a>
+<a class="text-[#4e6352] dark:text-[#aabcb0] font-sans uppercase tracking-widest text-xs hover:text-[#a23900] transition-colors duration-300" href="#">Exhibits</a>
+</nav>
+<div class="flex items-center space-x-6">
+<span class="material-symbols-outlined text-[#a23900] cursor-pointer" data-icon="search">search</span>
+<button class="bg-primary text-on-primary px-6 py-2 text-xs uppercase tracking-[0.2em] font-bold hover:bg-primary-container transition-all">
+                Archive
+            </button>
+</div>
+</header>
+<main class="relative w-full overflow-hidden">
+<!-- Hero Section -->
+<section class="relative w-full h-screen flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Archival Landscape" class="w-full h-full object-cover grayscale opacity-40 mix-blend-multiply" data-alt="A desaturated, high-contrast landscape of an ancient valley with mist rolling over rolling hills, captured in an archival photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcaQ2sJp0UPJuRIYiRjku5P2kLFp-4rYNri15ZMSCOV9eWuMalN7alRQO6OQ7r5IUA8i2Iu__uddL00r35I9nVizbNRjw52CRzWtZYaOX-522HmSRiMLHY1l7GMGbG-Sn-ZaDOykyvv5Tlsg_DkENxBujircqSD5eqAw3PfwzmQ4WLs85dTkJdDxctmjsKZdHW8ZY6J4Xz73v46EbCf7S72JDbMz0WWU_97E2qc-2pe4NTpJEtd39UVP2FcE4orfbQtTt3Kz20VK8"/>
+<div class="absolute inset-0 bg-gradient-to-b from-surface/0 via-surface/20 to-surface"></div>
+</div>
+<div class="relative z-10 text-center px-4">
+<p class="font-sans text-xs uppercase tracking-[0.5em] mb-4 text-secondary">A Three-Tiered Journey</p>
+<h1 class="text-8xl md:text-9xl font-headline font-bold text-[#2C2C2C] ink-glow tracking-tighter leading-none">
+                    The Roots
+                </h1>
+<div class="mt-12 flex flex-col items-center">
+<span class="w-[1px] h-24 bg-outline-variant/40 mb-4"></span>
+<p class="font-sans italic text-secondary tracking-widest text-sm">Begin the Descent</p>
+</div>
+</div>
+</section>
+<!-- Section 1: Tribe (Ankole) -->
+<section class="w-full py-48 bg-surface-container-low relative" id="ankole">
+<div class="max-w-[1280px] mx-auto px-12 grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+<div class="relative">
+<div class="absolute -top-12 -left-12 w-48 h-48 bg-primary/5 -z-10"></div>
+<img alt="Ankole Cattle" class="w-full aspect-[4/5] object-cover archival-border grayscale hover:grayscale-0 transition-all duration-700" data-alt="Close-up archival photograph of a majestic Ankole cow with massive, elegant white horns, standing in a dusty pastoral setting with soft light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEMcJ6Pe4uAV7bxb6-tEfQdB4F2ZDzHGC6ucMU7Dc50A60AZ6f3rkPiUcWCptdE0VUgORn7gz7ByBwYSfTRGJbmkF2Conjrh0Z3vPyPNRN31TF6Z6CPHYaijclNKiP0fDAHlKZbIQFUBdx04WdfoGRxKm8OQZia-IyiU7eFXAPBDGLFBiNi6YNe5GzxvmqR8ilBUB0F6P-NQABdXlHKaMOUrLnZqjYSkq5cp1ANHG4yJmfUjyiTvaWgK1D-hzGjKruIbnikMIkkq8"/>
+<p class="absolute bottom-6 right-6 font-sans text-[10px] uppercase tracking-widest text-on-surface-variant/60 bg-surface/80 p-2">Plate 01: The Sacred Longhorn</p>
+</div>
+<div class="flex flex-col space-y-8">
+<div class="space-y-2">
+<span class="font-sans text-xs uppercase tracking-[0.3em] text-primary font-semibold">Tier One: The Tribe</span>
+<h2 class="text-6xl font-serif-alt text-on-surface leading-tight">Ankole</h2>
+</div>
+<div class="w-24 h-[2px] bg-primary"></div>
+<p class="font-sans-alt text-lg leading-relaxed text-on-surface-variant/90 max-w-md">
+                        The Ankole people of Western Uganda represent a lineage defined by their deep spiritual and physical bond with the majestic long-horned cattle. This is an archival exploration of a culture where wealth is measured in horns and legacy is whispered through the lowing of the herd across the savanna.
+                    </p>
+<a class="group flex items-center space-x-4 text-primary font-bold uppercase tracking-widest text-xs" href="#">
+<span>Read More</span>
+<span class="material-symbols-outlined group-hover:translate-x-2 transition-transform" data-icon="arrow_right_alt">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Section 2: Region (Western Uganda) -->
+<section class="w-full py-48 bg-surface relative" id="regional">
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+<img class="absolute top-0 right-0 w-1/2 h-full object-cover map-overlay rotate-12" data-alt="Faint, vintage parchment map showing topographical lines and old-world cartography of East African territories." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnrjYFWb_-fpRIUsfV43Vo88iQgZsM1yIYmbxkhW_7Sk_4moxCJkgJCjVnYkqjQZZGYh7U3IDoVE_6T42fTXUdRXm2Gx7fLUn_ocqtacrLEuATZv6XAf2_rxUWrF7Si1vdyogjrZW9M7cmd4Z37PLIeAGM7TKgubEejY9ciODftIJLnhVHkI9EKeKFlhRQQM7_kYzM3-3azRCD1J8lEpQotbG_yUUFgcEj0yb_X8r5XjfHQRclGtOD6XODRRxk7sVDPZ2pqGkwE5s"/>
+</div>
+<div class="max-w-[1280px] mx-auto px-12 grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+<div class="order-2 md:order-1 flex flex-col space-y-8">
+<div class="space-y-2">
+<span class="font-sans text-xs uppercase tracking-[0.3em] text-secondary font-semibold">Tier Two: The Region</span>
+<h2 class="text-6xl font-serif-alt text-on-surface leading-tight">Regional Roots</h2>
+</div>
+<p class="font-sans-alt text-lg leading-relaxed text-on-surface-variant/90 max-w-md">
+                        Nestled in the Albertine Rift, Western Uganda is a landscape of dramatic geological shifts and verdant peaks. From the snow-capped Rwenzori Mountains to the crater lakes of Queen Elizabeth Park, the soil here holds the memory of empires and the endurance of the land itself.
+                    </p>
+<div class="flex items-start space-x-6 py-6 border-y border-outline-variant/20">
+<div class="text-center">
+<span class="block text-2xl font-serif text-primary">0°N</span>
+<span class="text-[10px] uppercase tracking-tighter opacity-60">Latitude</span>
+</div>
+<div class="text-center">
+<span class="block text-2xl font-serif text-primary">30°E</span>
+<span class="text-[10px] uppercase tracking-tighter opacity-60">Longitude</span>
+</div>
+<div class="text-center">
+<span class="block text-2xl font-serif text-primary">5k+</span>
+<span class="text-[10px] uppercase tracking-tighter opacity-60">Peak Elevation</span>
+</div>
+</div>
+</div>
+<div class="order-1 md:order-2 relative">
+<img alt="Western Uganda" class="w-full aspect-video md:aspect-square object-cover archival-border" data-alt="Cinematic wide-angle view of the lush, green rolling hills of Western Uganda at sunrise, with morning mist settled in the valleys." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNL6WM_q62SJVGiNv8qTXNo9Ckx34MD8_uIR36nAhhMc-UPqrpINBNBM5bieNPxTkJ-k9fkblPkeY1d2S6cXekZ2BpIvDbc5v9THnTMNxgPeNrYjTsR3y1xffSYZYO3H5IzgKDY0DlI6GpJr4j_It6JFiZtMxudX5jezn5Kx6MGkG2OEVfRdXYiHsB-7Tl64zCKQVJl5XL7N41YZuNbmg_MvDnAKYmt38nduTzSWRuTDR7JDFoEwVVzqLJgtetQ8i-CXB3-uLdWOQ"/>
+<div class="absolute -bottom-8 -left-8 p-6 bg-secondary text-on-primary">
+<span class="material-symbols-outlined block mb-2" data-icon="landscape">landscape</span>
+<p class="font-sans text-[10px] uppercase tracking-[0.2em] leading-tight">Albertine Rift<br/>Conservation Record</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Lineage (The JMT Lineage) -->
+<section class="w-full py-48 bg-surface-container-high relative" id="lineage">
+<div class="max-w-[1280px] mx-auto px-12 grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+<div class="relative bg-surface p-12 archival-border">
+<div class="absolute top-0 right-0 p-4 border-l border-b border-outline-variant/30 font-sans text-[10px] text-on-surface-variant/40">
+                        DOC ID: JMT-ARCH-1924
+                    </div>
+<h4 class="font-serif italic text-2xl mb-8 border-b border-outline-variant/30 pb-4">Ancestral Map</h4>
+<!-- Stylized Tree Preview -->
+<div class="flex flex-col items-center space-y-12 py-12">
+<div class="w-12 h-12 border border-primary flex items-center justify-center font-serif text-primary bg-primary/5">A</div>
+<div class="w-[1px] h-12 bg-primary/30 relative">
+<div class="absolute top-1/2 -left-24 w-48 h-[1px] bg-primary/30"></div>
+</div>
+<div class="flex space-x-24">
+<div class="flex flex-col items-center space-y-8">
+<div class="w-10 h-10 border border-secondary flex items-center justify-center font-serif text-secondary opacity-60">B</div>
+<div class="w-[1px] h-8 bg-secondary/20"></div>
+<div class="flex space-x-12">
+<div class="w-8 h-8 border border-secondary/30 flex items-center justify-center font-serif text-secondary/40">D</div>
+<div class="w-8 h-8 border border-secondary/30 flex items-center justify-center font-serif text-secondary/40">E</div>
+</div>
+</div>
+<div class="flex flex-col items-center space-y-8">
+<div class="w-10 h-10 border border-secondary flex items-center justify-center font-serif text-secondary opacity-60">C</div>
+<div class="w-[1px] h-8 bg-secondary/20"></div>
+<div class="w-8 h-8 border border-secondary/30 flex items-center justify-center font-serif text-secondary/40">F</div>
+</div>
+</div>
+</div>
+<p class="mt-8 text-[10px] font-sans text-center text-on-surface-variant/50 uppercase tracking-[0.2em]">Abstract Node Mapping: The JMT Genesis</p>
+</div>
+<div class="flex flex-col space-y-8">
+<div class="space-y-2">
+<span class="font-sans text-xs uppercase tracking-[0.3em] text-primary font-semibold">Tier Three: The Lineage</span>
+<h2 class="text-6xl font-serif-alt text-on-surface leading-tight">The JMT Lineage</h2>
+</div>
+<p class="font-sans-alt text-lg leading-relaxed text-on-surface-variant/90 max-w-md">
+                        Tracing the specific branches of the JMT family tree reveals a story of migration, survival, and scholastic achievement. This lineage represents the intersection of traditional Ugandan values and modern global citizenship. Each node in this interactive tree is a curated archive of letters, photographs, and oral histories.
+                    </p>
+<div class="pt-8">
+<button class="group bg-primary text-on-primary px-10 py-5 text-sm uppercase tracking-[0.2em] font-bold shadow-2xl hover:bg-primary-container transition-all flex items-center space-x-4">
+<span>Explore the Interactive Tree</span>
+<span class="material-symbols-outlined text-lg" data-icon="account_tree">account_tree</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Signature Archival Timeline Snippet -->
+<section class="max-w-[800px] mx-auto py-32 px-12 border-l border-outline-variant/20 ml-auto mr-auto md:ml-48">
+<h3 class="font-serif italic text-3xl mb-16 text-secondary">Timeline Milestones</h3>
+<div class="space-y-24">
+<div class="relative pl-12">
+<div class="absolute -left-[5px] top-2 w-2 h-2 rounded-full bg-primary"></div>
+<span class="font-sans text-xs text-primary font-bold uppercase tracking-widest block mb-2">1892</span>
+<h4 class="text-xl font-headline font-bold mb-4">The First Migration</h4>
+<p class="text-on-surface-variant/70 text-sm leading-relaxed max-w-sm italic font-serif">"The crossing of the Katonga river marked the beginning of our settlement in the western fertile lands."</p>
+</div>
+<div class="relative pl-12">
+<div class="absolute -left-[5px] top-2 w-2 h-2 rounded-full bg-primary"></div>
+<span class="font-sans text-xs text-primary font-bold uppercase tracking-widest block mb-2">1954</span>
+<h4 class="text-xl font-headline font-bold mb-4">Scholarly Foundations</h4>
+<p class="text-on-surface-variant/70 text-sm leading-relaxed max-w-sm">The establishment of the family educational trust in Mbarara, solidifying a legacy of intellectual pursuit.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#4e6352] dark:bg-[#1e2b21] flex flex-col md:flex-row justify-between items-center px-12 py-16 w-full text-[#fff8ef] space-y-8 md:space-y-0">
+<div class="flex flex-col items-center md:items-start space-y-2">
+<span class="text-lg font-serif italic text-[#fff8ef]">The Roots Archive</span>
+<p class="font-sans uppercase tracking-[0.2em] text-[10px] opacity-60">© 2024 THE ROOTS ARCHIVE. PRESERVING GLOBAL LINEAGE.</p>
+</div>
+<nav class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+<a class="font-sans uppercase tracking-[0.2em] text-[10px] text-[#fff8ef]/80 hover:text-white transition-all" href="#">Curatorial Statement</a>
+<a class="font-sans uppercase tracking-[0.2em] text-[10px] text-[#fff8ef]/80 hover:text-white transition-all" href="#">Terms of Access</a>
+<a class="font-sans uppercase tracking-[0.2em] text-[10px] text-[#fff8ef]/80 hover:text-white transition-all" href="#">Privacy Policy</a>
+<a class="font-sans uppercase tracking-[0.2em] text-[10px] text-[#fff8ef]/80 hover:text-white transition-all font-bold" href="#">Contact Curator</a>
+</nav>
+<div class="flex space-x-4">
+<span class="material-symbols-outlined text-sm opacity-60 hover:opacity-100 cursor-pointer" data-icon="share">share</span>
+<span class="material-symbols-outlined text-sm opacity-60 hover:opacity-100 cursor-pointer" data-icon="local_library">local_library</span>
+<span class="material-symbols-outlined text-sm opacity-60 hover:opacity-100 cursor-pointer" data-icon="museum">museum</span>
+</div>
+</footer>
+<!-- Vellum Texture Layer -->
+<div class="fixed inset-0 vellum-overlay opacity-30 z-[100] mix-blend-multiply pointer-events-none"></div>
+</body></html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JMT Legacy: Welcome &amp; Navigation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d45211",
+                        "primary-light": "#fceee5", // Light tint of primary for subtle backgrounds
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                        "parchment": "#FDF5E6",
+                        "parchment-dark": "#3e2f26",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                    backgroundImage: {
+                        'paper-texture': "url('https://www.transparenttextures.com/patterns/cream-paper.png')",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 82, 17, 0.1);
+        }
+        .dark .glass-nav {
+            background: rgba(34, 22, 16, 0.6);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .handwritten-path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 0;
+            animation: dash 5s linear forwards;
+        }
+        
+        @keyframes dash {
+          to {
+            stroke-dashoffset: 0;
+          }
+        }
+        
+        /* Subtle paper grain effect */
+        .paper-grain::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.4;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+            mix-blend-mode: multiply;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-100 min-h-screen flex flex-col">
+<!-- Sticky Glass Navigation -->
+<nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
+<div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+<!-- Brand / Monogram -->
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl border-2 border-primary/20 shadow-lg">
+                    JMT
+                </div>
+<span class="text-xl font-bold tracking-tight text-primary dark:text-primary-light hidden sm:block">Legacy Archive</span>
+</div>
+<!-- Navigation Chips -->
+<div class="flex items-center gap-2 sm:gap-4">
+<a class="px-6 py-2 rounded-full bg-primary text-white text-sm font-semibold shadow-md transition-transform hover:scale-105 active:scale-95" href="#">
+                    Home
+                </a>
+<a class="px-6 py-2 rounded-full bg-white dark:bg-white/10 text-gray-600 dark:text-gray-200 border border-primary/10 hover:border-primary/40 text-sm font-semibold transition-all hover:bg-primary-light dark:hover:bg-primary/20" href="#">
+                    Family
+                </a>
+<a class="px-6 py-2 rounded-full bg-white dark:bg-white/10 text-gray-600 dark:text-gray-200 border border-primary/10 hover:border-primary/40 text-sm font-semibold transition-all hover:bg-primary-light dark:hover:bg-primary/20" href="#">
+                    Love
+                </a>
+</div>
+<!-- Menu Icon (Mobile) -->
+<button class="sm:hidden p-2 text-primary">
+<span class="material-icons">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-grow pt-24 pb-12 px-4 sm:px-6 lg:px-8 relative z-0">
+<!-- Hero Background Image (Decorative) -->
+<div class="absolute top-0 left-0 w-full h-[600px] -z-10 opacity-10 pointer-events-none overflow-hidden">
+<img alt="Background Texture" class="w-full h-full object-cover mask-image-gradient" data-alt="Abstract soft warm floral pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtkolI7G71g6Vs9Zh_Ie900gilq4PbPhfbgnrEQ9bnjxS80wfIBKwEjy6u9OHwEzIqefK7LS14XqYAutvxMFuULJFPU8H0dJdFkzcWItCfBcYXmTFNGe9gt_OgozXKR-sGkkWjlHyGma3C9iKbP3nQCB_ho9LNUeI9AyNtkabQOZAc8GqbRPjU6Z6u46MfutuyVWwQNvlBY6cy0KiAeuD8DXF_D0v5CfsluV8QlesSkF0vZN5HuRlU5YxLgIwH3svPWR_Uqonh3yw"/>
+<div class="absolute inset-0 bg-gradient-to-b from-background-light via-transparent to-background-light dark:from-background-dark dark:to-background-dark"></div>
+</div>
+<!-- Parchment Narrative Section -->
+<div class="max-w-3xl mx-auto mt-8 sm:mt-16 relative">
+<!-- Decorative Top Ornament -->
+<div class="flex justify-center mb-6 text-primary/40">
+<svg fill="none" height="20" stroke="currentColor" stroke-width="1" viewbox="0 0 120 20" width="120">
+<path d="M0,10 Q30,20 60,10 T120,10"></path>
+<circle cx="60" cy="10" fill="currentColor" r="3"></circle>
+</svg>
+</div>
+<article class="relative bg-parchment dark:bg-parchment-dark rounded-[3rem] p-8 sm:p-16 shadow-xl border border-primary/10 paper-grain overflow-hidden">
+<!-- Inner Border for Book Feel -->
+<div class="absolute inset-4 border border-primary/10 rounded-[2.5rem] pointer-events-none"></div>
+<!-- Header Content -->
+<header class="text-center mb-12 relative z-10">
+<span class="block text-primary font-bold tracking-widest uppercase text-sm mb-4">The 90th Milestone</span>
+<h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-gray-900 dark:text-white leading-tight mb-4">
+                        Celebrating 90 <br/> Years of Grace
+                    </h1>
+<p class="text-xl sm:text-2xl text-primary/80 dark:text-primary-light italic font-serif">
+                        A Welcome to the JMT Family Archive
+                    </p>
+</header>
+<!-- Divider -->
+<div class="flex items-center justify-center gap-4 mb-10 opacity-50">
+<div class="h-px w-16 bg-primary"></div>
+<span class="material-icons text-primary text-sm">filter_vintage</span>
+<div class="h-px w-16 bg-primary"></div>
+</div>
+<!-- Narrative Body -->
+<div class="prose prose-lg prose-stone dark:prose-invert mx-auto text-center font-display leading-relaxed text-gray-700 dark:text-gray-200">
+<p class="mb-6 first-letter:text-5xl first-letter:font-bold first-letter:text-primary first-letter:mr-1 first-letter:float-left first-letter:leading-[0.8]">
+                        Welcome to a sanctuary of memories. As we gather to honor Maama’s ninety remarkable years, we have curated this digital archive not merely as a collection of dates and photographs, but as a living testament to a life built on resilience, faith, and boundless love.
+                    </p>
+<p class="mb-6">
+                        Within these virtual pages, you will find the echoes of laughter that filled our childhood homes, the wisdom whispered in quiet moments, and the enduring strength that has anchored the JMT family through generations. It is an invitation to pause, reflect, and reconnect with the roots that ground us.
+                    </p>
+<p class="mb-8">
+                        May this "Warm Library" serve as a reminder that while time moves forward, the legacy we cherish remains timeless. We invite you to explore, to remember, and to add your own threads to this beautiful tapestry.
+                    </p>
+</div>
+<!-- Footer / Signature -->
+<footer class="mt-16 text-center">
+<p class="text-sm font-medium uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-6">With love and gratitude,</p>
+<!-- SVG Signature -->
+<div class="flex justify-center items-center">
+<svg class="text-primary w-48 sm:w-64" height="80" viewbox="0 0 200 80" width="200" xmlns="http://www.w3.org/2000/svg">
+<!-- This path simulates a signature "Maama" roughly -->
+<path class="handwritten-path" d="M20,50 C30,40 40,60 50,30 C55,15 45,15 40,30 C35,45 55,60 70,50 C80,45 85,35 80,30 C75,25 70,35 75,45 C80,55 95,50 105,45 C115,40 120,30 115,30 C110,30 110,40 115,45 C120,50 135,45 145,40 C155,35 170,45 180,35" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<div class="mt-2 text-xs text-primary/60 font-serif italic">The JMT Family</div>
+</footer>
+</article>
+<!-- Bottom decorative element -->
+<div class="flex justify-center mt-6 text-primary/20">
+<span class="material-icons text-3xl">local_florist</span>
+</div>
+</div>
+</main>
+<!-- Floating visual anchor bottom right (optional context) -->
+<div class="fixed bottom-8 right-8 hidden lg:block z-20">
+<div class="relative group cursor-pointer">
+<div class="absolute inset-0 bg-primary rounded-full blur opacity-20 group-hover:opacity-40 transition-opacity"></div>
+<div class="relative bg-white dark:bg-zinc-800 p-4 rounded-full shadow-lg border border-primary/10 flex items-center justify-center">
+<span class="material-icons text-primary">history_edu</span>
+</div>
+<div class="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-black/80 text-white text-xs px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                Start the Journey
+            </div>
+</div>
+</div>
+</body></html>

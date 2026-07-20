@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>A Story — The JMT Legacy Archive</title>
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body class="bg-surface-low">
+    <!-- The manuscript reads as a single sheet, so it keeps its own slim
+         top bar instead of the full site nav. -->
+    <div class="vellum-glass sticky top-0 z-40">
+      <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+        <a
+          href="/stories.html"
+          class="flex items-center gap-2 font-body text-xs uppercase tracking-label text-ink-soft transition-colors hover:text-primary"
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M19 12H5M11 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          Back to Stories
+        </a>
+        <span class="font-body text-xs uppercase tracking-label text-primary/70">
+          JMT Legacy Archive
+        </span>
+      </div>
+    </div>
+
+    <main data-story-root class="px-6 py-16"></main>
+
+    <script type="module" src="/src/js/story.js"></script>
+  </body>
+</html>

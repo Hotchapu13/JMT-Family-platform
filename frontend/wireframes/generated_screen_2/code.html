@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The JMT Legacy: The Living Archive</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Noto Serif -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- BEGIN: Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            parchment: '#FDF5E6',
+            charcoal: '#2C2C2C',
+            heritageOrange: '#D45211',
+            heritageGreen: '#2E4232',
+            paperWhite: '#FFFFFF'
+          },
+          fontFamily: {
+            serif: ['Noto Serif', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- END: Tailwind Configuration -->
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="masonry-layout">
+    /* Custom Masonry implementation using CSS Columns */
+    .masonry-grid {
+      columns: 1;
+      column-gap: 1.5rem;
+    }
+    @media (min-width: 640px) { .masonry-grid { columns: 2; } }
+    @media (min-width: 1024px) { .masonry-grid { columns: 3; } }
+    @media (min-width: 1280px) { .masonry-grid { columns: 4; } }
+
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 1.5rem;
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    /* Scroll animation initial state */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    /* Scroll animation active state */
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+<style data-purpose="photo-styling">
+    .physical-print {
+      border: 1px solid white;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      display: block;
+      width: 100%;
+      height: auto;
+      background-color: #fff;
+    }
+    
+    .photo-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+
+    /* Subtle frosted effect for header */
+    .frosted-nav {
+      background-color: rgba(253, 245, 230, 0.85);
+      backdrop-filter: blur(8px);
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="bg-parchment font-serif text-charcoal selection:bg-heritageOrange selection:text-white">
+<!-- BEGIN: Top Border -->
+<div class="h-1 w-full bg-heritageGreen fixed top-0 z-[60]"></div>
+<!-- END: Top Border -->
+<!-- BEGIN: Persistent Header -->
+<header class="fixed top-1 left-0 w-full z-50 frosted-nav border-b border-charcoal/5">
+<nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+<h1 class="text-xl tracking-tight font-bold">The JMT Archive</h1>
+<div class="flex gap-6 text-sm uppercase tracking-widest font-medium opacity-80">
+<a class="hover:text-heritageOrange transition-colors" href="#">Timeline</a>
+<a class="hover:text-heritageOrange transition-colors" href="#">Portraits</a>
+<a class="hover:text-heritageOrange transition-colors" href="#">About</a>
+</div>
+</nav>
+</header>
+<!-- END: Persistent Header -->
+<!-- BEGIN: Hero Section -->
+<section class="pt-32 pb-16 px-6 text-center max-w-4xl mx-auto">
+<h2 class="text-4xl md:text-6xl mb-6">The JMT Legacy</h2>
+<p class="text-lg italic opacity-75">A Living Archive of moments, fragments, and shared histories.</p>
+<div class="mt-12 flex justify-center gap-3">
+<span class="px-4 py-1 rounded-full border border-heritageOrange text-heritageOrange text-xs uppercase tracking-widest">Heritage Collection</span>
+<span class="px-4 py-1 rounded-full border border-heritageOrange text-heritageOrange text-xs uppercase tracking-widest">Est. 1942</span>
+</div>
+</section>
+<!-- END: Hero Section -->
+<!-- BEGIN: Dynamic Masonry Grid -->
+<main class="max-w-[1600px] mx-auto px-6 pb-32">
+<div class="masonry-grid" id="archive-grid">
+<!-- Row 1 -->
+<div class="masonry-item reveal">
+<div class="photo-container">
+<img alt="Vintage Portrait" class="physical-print" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABnpQ_hrdiWGjxYKHzgGm6lg20a0psm_3wvOpCfQfjkhJuXbIu1B605z7L7slNYeEn6EU6zW2NLtLM6MZlToB_NlkSfNfayWMPuxBzHJTJuRqpLz2IpnLJgBy4Wb3DfPrk3WcSlicuZhSxztYdM3BinbLaIkbjKQ6CH-l_UjLLmip1z-6_B2tP2-bZu8zdYcnCtbIfGKk-OUmAxXKzYfNOSbxCqkxuytB-OORtsdRcFhVBs8Uf5w3njbJ_15eE6sbYqQMHPWsgkmw"/>
+</div>
+</div>
+<div class="masonry-item reveal">
+<div class="photo-container">
+<img alt="Heritage Landscape" class="physical-print" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAcmajsxjfCGyMBJ6Jic1oZUkOE1dKI5Sv8Vs1ovIbnFvk60YpT-mrQPw8YucT34jYQ0b2Zdwqhx8mGaaPwtD6DlwOgOz_Aa74mA_gXhIqyQ-TgZX03t-WaDCAwZ2I0ixd-xm7ugWQYvo1eb6JFnVeiP1NBFKLQn0Def0Hd8OIms6rLYQ_oe4SseeDka_psOcWloSFatCFBWSMIYEVCcTsT_inH6sEH36iv0pbq6GwESYH-35lVy8VnCP8RngdGvzrmeFlDKo0Qzc"/>
+</div>
+</div>
+<div class="masonry-item reveal">
+<div class="photo-container">
+<img alt="Family Snapshot" class="physical-print" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs5Lf0X437U3QnTPX82EFWgpiTBAQEK_HVcKzdiaxGJ3VxExZAKkR7L-vDRc8uOyyAkU6Atb08hr3SlXOtgaotCUFpeM7KMc6ACXgxxDGbzFvMlAfwhY-uO0OpcNGxWEe8PSak402Ml9AoagNeFZ47diFAzy2B55NSQjMoyKHlHoGO_RmPVlmyhkW5qYThOFHCO_4TYqN8ch4Mlbb27Yi_xMqlgl57mmoXFgDpZg9UukYIG1h0LYM_WpvP0L-4X90qXnC8h9JFFCM"/>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="masonry-item reveal">
+<div class="photo-container">
+<img alt="Vintage Portrait" class="physical-print" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0eV7QBjxHnF5Ej2MiphVo2IP1GbL4fy_O3LAwBFahF9nzQN7me6xApXmJrCn4reJFR_80hLxuBFK3kdqnkjDoCDVntm4Bc8f-WtFCqeAAhtkW7v9OFNzRQ681N-IxaGS7bHnEIuwwu0iKCR4Zc8EGTNBBQG_UFjUn_Mt4GjYB1aLSWp-cKCF9CgBDIzuOPS6QfcFtn4JDcH688zNpWb9MTnRInynpbTWCDNzoLergEDbjaBL3Clf2L_ldPB1kx1D5J-cLmwnQ8X8"/>
+</div>
+</div>
+<div class="masonry-item reveal">
+<div class="photo-container">
+<img alt="Group Archive" class="physical-print" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_2PWRHz_V4YS119D5SoU2jeTqd_fLg_BqP5dXI_wFjM8EVqh8wUZ7ZE01-S2vTNYMpGgtSMDHU4h7abOkHi__-g7CXifv_zABEoetamQukrTRCS1OrWWEB3qHx7WxtIhRDMpaA0B2iY5Ru8XIYeoYWlcTSfmCHFzuoR0INLbfusQQa-QY1PUUdbCmg4-7rCA6HoKRDshfy929pe5Wz6CWF5Qg2m4iG0eVq5G4ou0x-p7zgyYhUMNaGLwMMOU-MLgoiCMWlNmc5VI"/>
+</div>
+</div>
+<div class="masonry-item reveal">
+<div class="photo-container">
+<img alt="Object Detail" class="physical-print" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4rSKpTUWOMN__YNT80spmmoRwQESh-baRCrkgcz0LDZUFt4H-PeEViMaRf_044miKKjlRP0jLFv2Ko0ioB5x0x_LHe264j3yqRjy1ek_35qUSnZ4ILG2wbL1FMj-3YLXPD4kKgHbYzwzNu3jMviwuBXA0iPKh8c7bE0Vl-aEEmJlQueXWVuJfmhyRIxqqk1LwYq6YT3xDDPft1lqJ_nYhPQ2UeYWKdpoi2ox2yQx_lYWh4xydVui0i4QRXO49a1Pcj5S4BoZFJZU"/>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="masonry-item reveal">
+<div class="photo-container">
+<img alt="Archival Document" class="physical-print" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLAqaFbgEBe9ZIMNaaNQfdlHLRK-yKjbrjPN5Bn4OYGiS2cBfOuMgg04fcY70xImsuOUQGaFWNI1E6s7IofnNPAuOwny7NW6nbATYMgCODim_b5oMgJNk1no5iF7Ive2S7IjRHs2E8jwjz51G8W_cVBSz5IEVGjc2CyD5mGL4wyATp97k-xtwmrIPDDuKiPnzCUVjCekVV2jgX1yC7DhrrhFitXW_lgjT05xZ4ccSpoMagvi-t7QF3fooMvC3eqtzsc9eNKMDbTsM"/>
+</div>
+</div>
+<div class="masonry-item reveal">
+<div class="photo-container">
+<img alt="Candid Moment" class="physical-print" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmt8YZGJ718qbgWWpvefwZwP1PbQ1DtfZRvw9RuW4el6qrzEW5YC-TQsHT2moiWPBJQWdnj8hv3gZCR9er37ksPjrdb3QUuTozVwS5Rz4MkBTINEuUtPY2C8s7a-I6Y15rVM8VStvl2iJ912lfyy5bAxHoccqIjNoSh2qCB2gOl_iNIA3w3oX2106F7TRrn_l_x_1SjjyKonANfIX0jI1NIab4U0YBsCwfGpEsddE3oAJJ1zdHfAAeclpVSgCTMHDHG3nDiof2NrE"/>
+</div>
+</div>
+<div class="masonry-item reveal">
+<div class="photo-container">
+<img alt="Historical Site" class="physical-print" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKJR7Z3pq4QMJeasvyj4x_c5PK3ZFViohR2GoV1Xwiz7co2OdVMjJo6B7v1mlFCaHs6lRCfXjLHilKLFyy8gWU9CSzACbitlmWB1EPdNaYQHglUn_VA4ZkNpwvTQE5h9oUZwMQ_lCfeSxD9r-vL_KELERPjJQHxhg2g-UohFKcGcEqBFuZw28YV5qLntXbXPE8lzDRqpbUPbeiNwhH2nhraImAVHobXCVJbu6ICevJh-wY6qp-if85cSFIGJPrzTdb0qHvnQXkb30"/>
+</div>
+</div>
+<!-- Row 4 -->
+<div class="masonry-item reveal">
+<div class="photo-container">
+<img alt="Vintage Portrait" class="physical-print" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHQW1YgEYbpLMNmKzFEesjeUFp4MHPYMGMQ4aDL2VENrwPJX2uUjHwZ6hF9furDP3B1m7F4MUrEXm8vIeBSSf8clS8l1OhFSABzGPfKud_hzh7WFqrI9gZdJ2NJRJNP7QE8pjg7Qzuemmur3oQjJMITxgoMoRc6CL5CgzSSnJfAamqvbQl4KlpxMUlqnLCHQNPupF3PyJQzTGFVlLj_rAwoUsOlsu0Yq9Q8_j5P9XCiC03GcJQ7rReRKlOyGQ5rA-yan_I4UDL0bs"/>
+</div>
+</div>
+<div class="masonry-item reveal">
+<div class="photo-container">
+<img alt="Travel History" class="physical-print" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJDT8MDKmVjkSMLXOUUVNtpbqn7OothQv3Y8fvIvBGvWoaT_LnnhV0HRMPC2ymmlb5n332aSvqSkWWYQmMBsrpAxYjFUjA_KytdnRDHp63ImWQt_O_gCGEkY7S_DdY5pip_bSyhYQsgPH46Sh8tbO-D1dIhbv3lW8L0nCY0_zccV1Nq_BmIuBJvDbkwZXNvMKE_u_qoxDe5pZJ4EQesoNOQnjaKQCwOetETGQ1TpmobSKlkzEX_YelxzSX1rexgvxOAEwxfLImGi8"/>
+</div>
+</div>
+<div class="masonry-item reveal">
+<div class="photo-container">
+<img alt="Family Artifact" class="physical-print" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDO_5ByGSwq3Q26ZIQ2f2GHCmdijoxeNXdjxDCZWg1Po2WqcJmmNEFUaghPN9WM2GErMLWZU4ub8-KCbQ6_IHSRM-Yuj_zl74PSMclDMrZlN08WAzeQLAR44VhErqap-ReIPLGMAsb4nYlGwBYDgKSHGTyG9ZkcKvVAa_nGC5kv4xBRKPAoX6-SzbrtLaVCWwpZ0_1vWRqZ3OTK3ahMersG6K9k46Iw75iQrXhe0q89wpKO-YWLMjQzvb_Ow-2LeYk86v4EUfALzE0"/>
+</div>
+</div>
+</div>
+</main>
+<!-- END: Dynamic Masonry Grid -->
+<!-- BEGIN: Solid Footer -->
+<footer class="bg-heritageGreen text-parchment py-16 px-6 relative">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div data-purpose="footer-branding">
+<p class="text-2xl font-bold opacity-30 select-none">© JMT Family Archive</p>
+<p class="text-sm mt-2 font-light opacity-60">Preserving history for future generations.</p>
+</div>
+<!-- Return to Top Button -->
+<button class="bg-heritageOrange hover:bg-orange-700 text-white px-8 py-3 rounded-full transition-all duration-300 flex items-center gap-2 group shadow-lg" data-purpose="return-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+<span class="uppercase tracking-widest text-xs font-bold">Return to Top</span>
+<svg class="h-4 w-4 transform group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 10l7-7m0 0l7 7m-7-7v18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</footer>
+<!-- END: Solid Footer -->
+<!-- BEGIN: Scroll Interactivity -->
+<script data-purpose="reveal-on-scroll">
+    const reveal = () => {
+      const reveals = document.querySelectorAll('.reveal');
+      const windowHeight = window.innerHeight;
+      const revealPoint = 100;
+
+      reveals.forEach(element => {
+        const revealTop = element.getBoundingClientRect().top;
+        if (revealTop < windowHeight - revealPoint) {
+          element.classList.add('active');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', reveal);
+    // Initial call to reveal items on screen on load
+    window.addEventListener('load', reveal);
+  </script>
+<!-- END: Scroll Interactivity -->
+</body></html>
