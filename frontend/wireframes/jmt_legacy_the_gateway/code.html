@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JMT Legacy: The Gateway</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d45211",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom styles for interactions that Tailwind utilities might not cover fully or for specific aesthetic choices */
+        .hero-zoom {
+            animation: kenburns 20s infinite alternate;
+        }
+        
+        @keyframes kenburns {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        .text-shadow-sm {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .text-shadow-lg {
+            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 overflow-x-hidden">
+<!-- Navbar: Minimal & Transparent -->
+<nav class="fixed top-0 w-full z-50 px-6 py-6 md:px-12 flex justify-between items-center transition-all duration-300">
+<div class="flex items-center gap-2 group cursor-pointer">
+<div class="h-10 w-10 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:bg-white group-hover:text-primary transition-colors duration-300">
+                J
+            </div>
+<span class="text-white font-semibold tracking-widest uppercase text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 -ml-2 group-hover:ml-2">MT Legacy</span>
+</div>
+<div class="flex items-center gap-6">
+<a class="hidden md:block text-white/80 hover:text-primary transition-colors text-sm tracking-widest uppercase font-medium" href="#">History</a>
+<a class="hidden md:block text-white/80 hover:text-primary transition-colors text-sm tracking-widest uppercase font-medium" href="#">Gallery</a>
+<button class="flex items-center gap-2 text-white hover:text-primary transition-colors">
+<span class="text-sm uppercase tracking-widest font-semibold">Menu</span>
+<span class="material-icons">menu</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section: The Gateway -->
+<main class="relative h-screen w-full overflow-hidden flex items-center justify-center">
+<!-- Background Image with Ken Burns Effect -->
+<div class="absolute inset-0 z-0">
+<div class="relative w-full h-full">
+<!-- Sepia tone overlay built into the image handling or via CSS filter -->
+<img alt="Vintage black and white photo of a 1930s family gathering in a library setting" class="w-full h-full object-cover hero-zoom sepia-[.3] contrast-[1.1]" data-alt="Vintage black and white photo of a 1930s family gathering in a library setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkvBlta0GSFMP6Is1kIOei59cPab2BNEUfIC-ygyJthqoif-Zh0XJyTk-r952zFJRMdwtgkqt1J1NfpzRi_N40n4N5YlvEO7VV2S37qRMMYlWWnEBas2O-5uzihpzNBxxON2EauLX4soh7mrWjiyItx92U5GorgqMJlce-ZF1RPM8xkB7F4RHcXCbnGVP6Hra_JkCUGmdW6pbyvUjoRjEgggMqGTPcTD0T9tDADQy24zRzjauYLlnm7u49k1nUVwNxzGN83xBgIgA"/>
+</div>
+</div>
+<!-- Vignette & Gradient Overlay -->
+<!-- This creates the dark pocket for text readability -->
+<div class="absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-transparent to-background-dark/90 mix-blend-multiply"></div>
+<div class="absolute inset-0 z-10 bg-radial-gradient from-transparent to-black/60"></div>
+<!-- Subtle texture overlay for "Old Photo" feel -->
+<div class="absolute inset-0 z-10 opacity-10 pointer-events-none" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAjJeRU2-Gr3YYBls9SO9ailabQ67JBELQWjXmb59zvRxKkFYprHaiGW-ZjseTA8B0ta7TO6icHsqxA__sopk8Bz84KLoK6p5j1FBY6Cy0TSr8gxK4Uk5cmd0A0r5tF0Ay9qhaSOT_2WfWFt7VWzaDFeHqkMiM5cR33EPA1D-qJPe65KTyqt9Dw6LxGUtfAcxn5IgiQcgGmQO18O1fkceL38XhCTp2wuIm9R1pgH6lxMXLohSV3uy70F2eVHgrG6Kp1t7-kkV1oM7o');"></div>
+<!-- Content Container -->
+<div class="relative z-20 text-center max-w-5xl px-6 flex flex-col items-center">
+<!-- Decorative Element: Top line -->
+<div class="w-16 h-[2px] bg-primary mb-8 opacity-80"></div>
+<!-- Primary Headline -->
+<h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight mb-6 leading-tight text-shadow-lg">
+                The JMT Legacy:<br/>
+<span class="italic font-light text-white/90">A Living Archive</span>
+</h1>
+<!-- Sub-Headline -->
+<p class="text-xl md:text-2xl text-gray-200 font-light italic tracking-wide mb-12 max-w-2xl mx-auto leading-relaxed text-shadow-sm">
+                Celebrating <span class="text-primary font-semibold not-italic">90 Years</span> of Grace and Devotion. <br class="hidden md:block"/>Honoring the past, inspiring the future.
+            </p>
+<!-- CTA Button -->
+<a class="group relative inline-flex items-center justify-center px-10 py-4 bg-primary text-white text-lg font-medium tracking-wide rounded-full overflow-hidden transition-all duration-300 hover:bg-white hover:text-primary shadow-2xl hover:shadow-primary/50 ring-1 ring-primary" href="#archive">
+<span class="relative z-10 flex items-center gap-2">
+                    Enter The Archive
+                    <span class="material-icons text-xl group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</span>
+</a>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce cursor-pointer opacity-70 hover:opacity-100 transition-opacity">
+<span class="text-xs uppercase tracking-[0.2em] text-white/80">Explore</span>
+<div class="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center bg-black/20 backdrop-blur-sm">
+<span class="material-icons text-white text-lg">keyboard_arrow_down</span>
+</div>
+</div>
+</div>
+<!-- Floating Badge: 90th Anniversary -->
+<div class="absolute bottom-8 right-8 z-20 hidden lg:block">
+<div class="relative w-32 h-32 rounded-full border border-white/20 backdrop-blur-md bg-white/5 flex flex-col items-center justify-center text-center p-4 shadow-2xl group cursor-pointer hover:bg-primary/90 hover:border-primary transition-all duration-500">
+<span class="text-4xl font-bold text-white mb-0 leading-none group-hover:text-white transition-colors">90</span>
+<span class="text-[0.6rem] uppercase tracking-widest text-primary font-bold mt-1 group-hover:text-white transition-colors">Anniversary</span>
+<div class="absolute inset-0 rounded-full border border-white/10 scale-110"></div>
+</div>
+</div>
+</main>
+<!-- Content Preview Section (Just to show scroll context) -->
+<section class="bg-background-light dark:bg-background-dark py-24 px-6 relative" id="archive">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-primary/20 pb-8">
+<div>
+<h2 class="text-primary text-sm font-bold uppercase tracking-widest mb-2">The Collection</h2>
+<h3 class="text-4xl md:text-5xl font-display text-gray-900 dark:text-white">Curated Memories</h3>
+</div>
+<p class="text-gray-600 dark:text-gray-400 max-w-md mt-4 md:mt-0 text-lg italic">
+                    "To understand where we are going, we must first understand from where we have come."
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="group cursor-pointer">
+<div class="relative h-96 w-full overflow-hidden rounded-lg mb-4 bg-gray-200">
+<div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 z-10 transition-colors duration-300"></div>
+<img alt="Old sepia portrait of a dignified man in a suit from the 1940s" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 sepia-[.2]" data-alt="Old sepia portrait of a dignified man in a suit from the 1940s" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmSvPM0wbD4Yv6LC1uTgSJRU7WNJ6lt9hedufUFcDlPTazIbn6hUNRX1Zgjw2RCWFFA7vh6q9oTYk1u9pYtIYecYuWF0DYlsESCplnbNhefS0aBbsekPKVFn81eCgo9LCXpwhCoGQjuYixM46UefYyNSR7nve7bjqVFZsgLZnzdBJ9VqEfhtuecPCbVsNAJuSAaxt5Ckb9T0ikc_YiX5NAZuugR1ce9z_kdl37Lv-1iuLh8Lhb9gu3tLYoBje6yiftzyM4y_OGXcs"/>
+</div>
+<h4 class="text-xl text-gray-900 dark:text-white font-semibold group-hover:text-primary transition-colors">The Founding Era</h4>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">1934 — 1950</p>
+</div>
+<!-- Card 2 -->
+<div class="group cursor-pointer md:mt-12">
+<div class="relative h-96 w-full overflow-hidden rounded-lg mb-4 bg-gray-200">
+<div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 z-10 transition-colors duration-300"></div>
+<img alt="Black and white photo of a handwritten letter and fountain pen on a desk" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 sepia-[.2]" data-alt="Black and white photo of a handwritten letter and fountain pen on a desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi766JtUvhQiXwBNGtZqaMESiiiPhmB0iaOU-MhDyxPQ_a0-pQij_vvlXzUWH_zX92dhU_-yVHeIb6bg4WGtGWzZCmkxXxG8NUqRC0q2OkC1dNUEjAJgcVItvJoMWNdQh318F4QLW03rzmohEiIYNvSCob-rGbOeboK3eyFd0wpGfGyDHOrW-3ho4C-dPhQjPZYofkBRChl7jVVf2xdoJQ6Ae3QqO_2Wh6MwkzONr5ptDycKFqYRgbUOEUsIZGbASGxR10EvWtDGQ"/>
+</div>
+<h4 class="text-xl text-gray-900 dark:text-white font-semibold group-hover:text-primary transition-colors">Letters &amp; Correspondence</h4>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Archives of thought</p>
+</div>
+<!-- Card 3 -->
+<div class="group cursor-pointer">
+<div class="relative h-96 w-full overflow-hidden rounded-lg mb-4 bg-gray-200">
+<div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 z-10 transition-colors duration-300"></div>
+<img alt="Vintage photo of a family home exterior with a garden" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 sepia-[.2]" data-alt="Vintage photo of a family home exterior with a garden" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFy7pSuurjL874evTbNKVDWp6kSa2tXAY5o0vfWkIvoh8EPS9smjdfqiCf7qEGxe98vVMYpWjlXMHx8JnqhUOwhDIXo48jVwhKPEvWNaDWhTUgBA5oUWT8Y_lSuk2uzHJLJz8DjQc4IjJdTON7JLpY-rKQmzXfigi7iE1rKKmJv3RMbsRSey1D-HXjCGgC7Wne8zfRIVj3ICkQ0h3r6nCjV7byM4oV3KidyopAM0NGxmYfP7JCShcQtOcKKSiXec1d_5t-OU4dftE"/>
+</div>
+<h4 class="text-xl text-gray-900 dark:text-white font-semibold group-hover:text-primary transition-colors">The Homestead</h4>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Building the foundation</p>
+</div>
+</div>
+</div>
+</section>
+</body></html>

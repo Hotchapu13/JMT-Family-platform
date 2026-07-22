@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JMT Legacy: Ancestral Stories</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d45211",
+                        "background-light": "#FDF5E6", /* Adapted to cream as requested */
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"],
+                        "sans": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen text-[#181311] dark:text-[#f4f2f0]">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Header -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/20 bg-background-light/95 backdrop-blur-sm px-10 py-4 dark:bg-background-dark/95 dark:border-primary/10">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-6">
+<svg class="text-primary" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-primary text-xl font-bold leading-tight tracking-[-0.015em]">JMT Legacy</h2>
+</div>
+<nav class="hidden lg:flex items-center gap-9">
+<a class="text-[#181311] dark:text-[#f4f2f0] hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Home</a>
+<a class="text-[#181311] dark:text-[#f4f2f0] hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Ancestry</a>
+<a class="text-primary font-bold text-sm leading-normal border-b-2 border-primary" href="#">Stories</a>
+<a class="text-[#181311] dark:text-[#f4f2f0] hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Gallery</a>
+<a class="text-[#181311] dark:text-[#f4f2f0] hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">About</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-6 items-center">
+<div class="hidden md:flex w-full max-w-xs items-center relative">
+<span class="material-symbols-outlined absolute left-3 text-primary/60">search</span>
+<input class="w-full bg-white dark:bg-[#3a2820] border border-primary/20 rounded-lg py-2 pl-10 pr-4 text-sm focus:outline-none focus:border-primary placeholder-primary/40 text-[#181311] dark:text-[#f4f2f0]" placeholder="Search archives..." type="text"/>
+</div>
+<button class="flex shrink-0 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary hover:bg-primary/90 transition-colors text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Donate</span>
+</button>
+</div>
+</header>
+<main class="flex flex-1 justify-center py-10 px-4 md:px-10 lg:px-20">
+<div class="flex flex-col max-w-[1280px] w-full flex-1">
+<!-- Hero / Title Section -->
+<div class="flex flex-col gap-6 mb-12 text-center md:text-left">
+<div class="space-y-2">
+<h1 class="text-[#181311] dark:text-[#f4f2f0] text-5xl md:text-6xl font-black leading-tight tracking-[-0.033em] font-display">Ancestral Stories</h1>
+<p class="text-[#5c4d44] dark:text-[#a89b94] text-xl md:text-2xl font-light font-sans max-w-3xl">A curated collection of memories, triumphs, and the enduring spirit of our lineage.</p>
+</div>
+<!-- Filters -->
+<div class="flex flex-wrap gap-3 py-4 border-b border-primary/10">
+<button class="px-4 py-2 rounded-lg bg-primary text-white text-sm font-medium transition-colors">All Stories</button>
+<button class="px-4 py-2 rounded-lg bg-white dark:bg-[#3a2820] border border-primary/10 text-[#5c4d44] dark:text-[#a89b94] hover:border-primary hover:text-primary transition-colors text-sm font-medium">Early Beginnings</button>
+<button class="px-4 py-2 rounded-lg bg-white dark:bg-[#3a2820] border border-primary/10 text-[#5c4d44] dark:text-[#a89b94] hover:border-primary hover:text-primary transition-colors text-sm font-medium">Migration Era</button>
+<button class="px-4 py-2 rounded-lg bg-white dark:bg-[#3a2820] border border-primary/10 text-[#5c4d44] dark:text-[#a89b94] hover:border-primary hover:text-primary transition-colors text-sm font-medium">Modern Legacy</button>
+<button class="px-4 py-2 rounded-lg bg-white dark:bg-[#3a2820] border border-primary/10 text-[#5c4d44] dark:text-[#a89b94] hover:border-primary hover:text-primary transition-colors text-sm font-medium">Audio Recordings</button>
+</div>
+</div>
+<!-- Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+<!-- Card 1 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="w-full aspect-[4/3] overflow-hidden rounded-lg mb-4 border border-primary/10 relative">
+<div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors z-10"></div>
+<img alt="Antique sailing ship at sea" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 sepia-[0.3]" data-alt="Antique sailing ship crossing rough ocean waves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAWhL9PYMQ-MGMQo9L_MjdknWullhlq_sLQPW5yy1x5heaSKkhDi46QrEj6Mt8ogJIzu5jtmKHtye2lBDVsztkZpYU6xIN8NkvptN4IVmtm0HBjOQX_JAR_6WbfRHlM_62NZktFCegMgYNLumHGtJ-oXilJaRfvpw6bdKpH8ESJgDri_57zZHLduGBVhjKUHxkIH98U2H6tIpkzBhre6Xp6Y5N9XHxjmYc7hWr8DR1wqD9OhHIWvYJNfu0o_cUSuv_g4jjpwMExs4"/>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 text-primary/80 text-xs font-sans font-medium uppercase tracking-wider">
+<span>Migration Era</span>
+<span class="w-1 h-1 rounded-full bg-primary/40"></span>
+<span>1942</span>
+</div>
+<h3 class="text-primary text-2xl font-bold leading-tight font-display group-hover:underline decoration-primary/30 underline-offset-4">The Crossing of '42</h3>
+<p class="text-[#3a2e28] dark:text-[#ccc3be] text-base font-sans leading-relaxed line-clamp-3">
+                                    A harrowing journey across the Atlantic that defined a generation's resilience. The letters from this voyage reveal the quiet courage of those who left everything behind.
+                                </p>
+<div class="flex items-center gap-2 mt-2 text-[#896f61] text-sm font-sans">
+<span class="material-symbols-outlined text-base">schedule</span>
+<span>4 min read</span>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="w-full aspect-[4/3] overflow-hidden rounded-lg mb-4 border border-primary/10 relative">
+<div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors z-10"></div>
+<img alt="Vintage garden tools and flowers" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 sepia-[0.2]" data-alt="Old gardening tools resting on wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTbFzB_BKIoLfwAq7Fgvpf47XS8K6XbzaUgamAYAkXtBAeCQr8965wR8ZA6MkrdYR5hugxFQw3TmJRynr8rDqV7ayXZzja5U74xPbTMJtu0R7tZld_YYqZRaH-f-6cUJabWLEhIz-q2ycWd2B06iSr6gxLL45zrF5rvQBX1mA-mSL7TYsLYZZzbPPGX3bhXmxYUxqWLvglXiF3i8yT6_jsUFNrhkUGoT3rKn38jSagokM7LVYgGi7LOwp5CiYXQBNii_NAKAweWlY"/>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 text-primary/80 text-xs font-sans font-medium uppercase tracking-wider">
+<span>Early Beginnings</span>
+<span class="w-1 h-1 rounded-full bg-primary/40"></span>
+<span>1955</span>
+</div>
+<h3 class="text-primary text-2xl font-bold leading-tight font-display group-hover:underline decoration-primary/30 underline-offset-4">Grandmother's Garden</h3>
+<p class="text-[#3a2e28] dark:text-[#ccc3be] text-base font-sans leading-relaxed line-clamp-3">
+                                    Exploring the botanical legacy left behind in the soil of the old homestead. Her rare rose varieties are still cultivated by horticulturists in the region today.
+                                </p>
+<div class="flex items-center gap-2 mt-2 text-[#896f61] text-sm font-sans">
+<span class="material-symbols-outlined text-base">schedule</span>
+<span>6 min read</span>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="w-full aspect-[4/3] overflow-hidden rounded-lg mb-4 border border-primary/10 relative">
+<div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors z-10"></div>
+<img alt="Stack of handwritten letters" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 sepia-[0.25]" data-alt="Bundle of aged handwritten letters tied with string" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpTsNyh0R3itwx4zwPAjkLn3oqZ7wHKDwZphICIVh5ZDr7ZuqsPca9kAysho0hufG1YVlOBMzmwwVSPYiDJJDcroxKrTdxEQjQtMpbd8Ax3WQn6qXVJJXrxd3hDg1Y4y_lxn4PcrkZeLnIfuY7nmZ7yDkos5ETpnVSrHzqTcnTkVHs4rfNGFv1Zwa130fHRAK1W-LDb8nGGadqorzeFrXPqa1NGMcBXbTc8-HLyEfOEVXJYNN4v6yEXgOsXw62fzmXIdQAIE8W1aE"/>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 text-primary/80 text-xs font-sans font-medium uppercase tracking-wider">
+<span>Archives</span>
+<span class="w-1 h-1 rounded-full bg-primary/40"></span>
+<span>1938-1945</span>
+</div>
+<h3 class="text-primary text-2xl font-bold leading-tight font-display group-hover:underline decoration-primary/30 underline-offset-4">The War Letters</h3>
+<p class="text-[#3a2e28] dark:text-[#ccc3be] text-base font-sans leading-relaxed line-clamp-3">
+                                    A preserved correspondence between brothers separated by conflict. These documents offer an intimate glimpse into the daily life of soldiers.
+                                </p>
+<div class="flex items-center gap-2 mt-2 text-[#896f61] text-sm font-sans">
+<span class="material-symbols-outlined text-base">schedule</span>
+<span>12 min read</span>
+</div>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="w-full aspect-[4/3] overflow-hidden rounded-lg mb-4 border border-primary/10 relative">
+<div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors z-10"></div>
+<img alt="Old pocket watch" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 sepia-[0.3]" data-alt="Golden pocket watch on dark wooden surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZCtZR199RYUAAsGvV3zp9yMC2vJs6MDAlXsdlG0DRZ2muBU4AVEjnemCJ4G8JZ1wANhCW7NPhX_u0EmDVHM9M_1j3aHUVFOBPkkW6sh1-Q86K4VxvnhrWvETwMl5jihIXHYdP-qj3bjf78z7s_rAtlEduQoU8NL2AEROTxqjW2QiNf4pDIKWJikOA-Apl3PHLlgUtg2NgRoDBKqBGjxWJ85TMExzgRbGmk57swl3ffLHdxAq1YtozCkATYQBhBtpySVocx02WlDM"/>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 text-primary/80 text-xs font-sans font-medium uppercase tracking-wider">
+<span>Heirlooms</span>
+<span class="w-1 h-1 rounded-full bg-primary/40"></span>
+<span>1890</span>
+</div>
+<h3 class="text-primary text-2xl font-bold leading-tight font-display group-hover:underline decoration-primary/30 underline-offset-4">The Silent Timekeeper</h3>
+<p class="text-[#3a2e28] dark:text-[#ccc3be] text-base font-sans leading-relaxed line-clamp-3">
+                                    The story of the gold pocket watch passed down to the eldest son for five generations. It stopped ticking the exact moment Great Grandfather passed.
+                                </p>
+<div class="flex items-center gap-2 mt-2 text-[#896f61] text-sm font-sans">
+<span class="material-symbols-outlined text-base">schedule</span>
+<span>3 min read</span>
+</div>
+</div>
+</article>
+<!-- Card 5 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="w-full aspect-[4/3] overflow-hidden rounded-lg mb-4 border border-primary/10 relative">
+<div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors z-10"></div>
+<img alt="Old wooden rustic house" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 sepia-[0.1]" data-alt="Rustic wooden cabin in a dense forest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdG9k09COpIyCXZqo2OJ5wzjLdZgI3A4ddl-C_SpM5V8O0p7W-l8411PTBrgO9AEzD3mHBg0B5lAOrt1yaKd6QiVXqvbOnWEM14ZiscHVbJJ4UGwkIk5gwWz04JahYW_o_ZqIfdfQsctawKpaCkJRtVJDd3EnXjJH44TG3MKQihaMlhwYYhsjDtkOhwp8qMm5aglZFJWMJ3r-p0-Hq9vcoWYDcTewF7XdK6bFnvzUiwDyom2ZdgT3BE7Dw2ClEY65Tmkqvqggtr9o"/>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 text-primary/80 text-xs font-sans font-medium uppercase tracking-wider">
+<span>Origins</span>
+<span class="w-1 h-1 rounded-full bg-primary/40"></span>
+<span>1920</span>
+</div>
+<h3 class="text-primary text-2xl font-bold leading-tight font-display group-hover:underline decoration-primary/30 underline-offset-4">Building the First Home</h3>
+<p class="text-[#3a2e28] dark:text-[#ccc3be] text-base font-sans leading-relaxed line-clamp-3">
+                                    With nothing but hand tools and determination, the family constructed their first permanent residence in the valley. A testament to sheer will.
+                                </p>
+<div class="flex items-center gap-2 mt-2 text-[#896f61] text-sm font-sans">
+<span class="material-symbols-outlined text-base">schedule</span>
+<span>8 min read</span>
+</div>
+</div>
+</article>
+<!-- Card 6 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="w-full aspect-[4/3] overflow-hidden rounded-lg mb-4 border border-primary/10 relative">
+<div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors z-10"></div>
+<img alt="Family gathering black and white photo" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 sepia-[0.3] grayscale" data-alt="Black and white photo of a large family gathering outdoors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMH8sxwhUjk2Hef6tBTsv6Q7GUQzFeIAicxDhScDaHZT0iWvbl18tXddxV4oN1VvxznqyoACX-XEZrYVb2nOOMi9m67GENLi5PcYxjtKOGOIULzeMtjh3SYdmzIdXI7jH-g4sUV_lttCyk-wkgpZCjKFBXvrz588NJI7WDTe3mAb1DwTwzKsrKU-Nf5Nh7akYK37kj6uaC05p1gufuGpctrmZ5gKC9xlHsfVDhRMPEJKiYPmFENOjwDgIn0MfoZqCwxDzF0P7S02E"/>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 text-primary/80 text-xs font-sans font-medium uppercase tracking-wider">
+<span>Traditions</span>
+<span class="w-1 h-1 rounded-full bg-primary/40"></span>
+<span>1968</span>
+</div>
+<h3 class="text-primary text-2xl font-bold leading-tight font-display group-hover:underline decoration-primary/30 underline-offset-4">The Summer Reunion</h3>
+<p class="text-[#3a2e28] dark:text-[#ccc3be] text-base font-sans leading-relaxed line-clamp-3">
+                                    Recalling the legendary gathering of 1968 where over 200 family members convened. The recipes shared that day are still used in our kitchens.
+                                </p>
+<div class="flex items-center gap-2 mt-2 text-[#896f61] text-sm font-sans">
+<span class="material-symbols-outlined text-base">schedule</span>
+<span>5 min read</span>
+</div>
+</div>
+</article>
+<!-- Card 7 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="w-full aspect-[4/3] overflow-hidden rounded-lg mb-4 border border-primary/10 relative">
+<div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors z-10"></div>
+<img alt="Vintage map" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 sepia-[0.2]" data-alt="Detailed vintage map with navigational lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv7bNJGJVnvEpKNRxIiIfM63r1csEGvmD30QW4WbOvPwkqLqnX9XROUlgviVxU3l1yGJOtXcumYEXY8Ys9xg2oTW10skvVbo8w87qHWvXE-UlfYdprCIdMz20CW2zJ-c66Zk4ls6uEUrWfFzOGXRMpnNCWX5fJ72VbS8VpZ97Q6T_288dfTibiElV2lDDtKiQoUuG_aMET6H_KFewEuNQ-eK2DOoeyS9DeRr5uUDPxsmVg69yMeqw9-KtUc9cGc7K-ilZr8fesASw"/>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 text-primary/80 text-xs font-sans font-medium uppercase tracking-wider">
+<span>Exploration</span>
+<span class="w-1 h-1 rounded-full bg-primary/40"></span>
+<span>1910</span>
+</div>
+<h3 class="text-primary text-2xl font-bold leading-tight font-display group-hover:underline decoration-primary/30 underline-offset-4">Charting the Unknown</h3>
+<p class="text-[#3a2e28] dark:text-[#ccc3be] text-base font-sans leading-relaxed line-clamp-3">
+                                    Before GPS, our ancestors navigated by stars and hand-drawn charts. This story follows the expedition to the northern territories.
+                                </p>
+<div class="flex items-center gap-2 mt-2 text-[#896f61] text-sm font-sans">
+<span class="material-symbols-outlined text-base">schedule</span>
+<span>10 min read</span>
+</div>
+</div>
+</article>
+<!-- Card 8 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="w-full aspect-[4/3] overflow-hidden rounded-lg mb-4 border border-primary/10 relative flex items-center justify-center bg-primary/5">
+<div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors z-10"></div>
+<span class="material-symbols-outlined text-primary/40 text-6xl">mic</span>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 text-primary/80 text-xs font-sans font-medium uppercase tracking-wider">
+<span>Audio</span>
+<span class="w-1 h-1 rounded-full bg-primary/40"></span>
+<span>1975</span>
+</div>
+<h3 class="text-primary text-2xl font-bold leading-tight font-display group-hover:underline decoration-primary/30 underline-offset-4">Voices of the Past</h3>
+<p class="text-[#3a2e28] dark:text-[#ccc3be] text-base font-sans leading-relaxed line-clamp-3">
+                                    Restored audio tapes from the 70s featuring interviews with the elders. Hearing their voices brings the stories to life in a way text cannot.
+                                </p>
+<div class="flex items-center gap-2 mt-2 text-[#896f61] text-sm font-sans">
+<span class="material-symbols-outlined text-base">headphones</span>
+<span>15 min listen</span>
+</div>
+</div>
+</article>
+<!-- Card 9 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="w-full aspect-[4/3] overflow-hidden rounded-lg mb-4 border border-primary/10 relative">
+<div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors z-10"></div>
+<img alt="Vintage textile pattern" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 sepia-[0.1]" data-alt="Close up of intricate vintage woven fabric texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmlgzLkeeKGSVjVHfHZQaJsxSo8QDsYvvQUWvC50GhcQQYL57l0S8qbq1zk3SGeG0RnSV5iB90w59XwBD_DKhZJZUUmgKS1-BwZj-aP69P0Vu3cfVliBX49wcLv4Em8cacTY1LxuigtmOxV5uq8VuWRCOu2UTWakCPvCiCk2iE8vz2J9tdzw6pHyMwZ1DiESVS5KCP423vykNfyEJ7zMDEnAIHFQtWkYV2By5_NBeAc52wXrIoOCoVLeyfqVMo4YGoltN4E3iMr3w"/>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 text-primary/80 text-xs font-sans font-medium uppercase tracking-wider">
+<span>Craft</span>
+<span class="w-1 h-1 rounded-full bg-primary/40"></span>
+<span>1930</span>
+</div>
+<h3 class="text-primary text-2xl font-bold leading-tight font-display group-hover:underline decoration-primary/30 underline-offset-4">The Weaving Loom</h3>
+<p class="text-[#3a2e28] dark:text-[#ccc3be] text-base font-sans leading-relaxed line-clamp-3">
+                                    How the women of the family sustained the household during the depression through textile arts. The patterns tell their own silent stories.
+                                </p>
+<div class="flex items-center gap-2 mt-2 text-[#896f61] text-sm font-sans">
+<span class="material-symbols-outlined text-base">schedule</span>
+<span>7 min read</span>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination / Load More -->
+<div class="mt-20 flex justify-center pb-20">
+<button class="group flex items-center gap-2 px-8 py-3 rounded-full border border-primary/20 bg-transparent hover:bg-primary hover:text-white transition-all duration-300 text-primary font-bold">
+<span>Load More Stories</span>
+<span class="material-symbols-outlined group-hover:translate-y-1 transition-transform">expand_more</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#181311] text-[#f4f2f0] py-12 px-10">
+<div class="flex flex-col md:flex-row justify-between items-start gap-10 max-w-[1280px] mx-auto">
+<div class="flex flex-col gap-4 max-w-sm">
+<div class="flex items-center gap-2 text-primary">
+<div class="size-6">
+<svg class="text-primary" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+</svg>
+</div>
+<span class="text-xl font-bold font-display">JMT Legacy</span>
+</div>
+<p class="text-[#a89b94] text-sm font-sans leading-relaxed">
+                            Preserving the past to inspire the future. The JMT Legacy Archive is dedicated to cataloging the history and stories of our ancestors.
+                        </p>
+</div>
+<div class="flex gap-16 flex-wrap">
+<div class="flex flex-col gap-4">
+<h4 class="text-primary font-bold font-display text-lg">Explore</h4>
+<a class="text-[#f4f2f0] hover:text-primary transition-colors text-sm" href="#">Ancestry Tree</a>
+<a class="text-[#f4f2f0] hover:text-primary transition-colors text-sm" href="#">Oral Histories</a>
+<a class="text-[#f4f2f0] hover:text-primary transition-colors text-sm" href="#">Photo Gallery</a>
+<a class="text-[#f4f2f0] hover:text-primary transition-colors text-sm" href="#">Map View</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-primary font-bold font-display text-lg">Support</h4>
+<a class="text-[#f4f2f0] hover:text-primary transition-colors text-sm" href="#">Donate Artifacts</a>
+<a class="text-[#f4f2f0] hover:text-primary transition-colors text-sm" href="#">Financial Support</a>
+<a class="text-[#f4f2f0] hover:text-primary transition-colors text-sm" href="#">Volunteer</a>
+<a class="text-[#f4f2f0] hover:text-primary transition-colors text-sm" href="#">Contact Us</a>
+</div>
+</div>
+</div>
+<div class="border-t border-[#3a2820] mt-12 pt-8 text-center text-[#5c4d44] text-xs">
+                    © 2023 JMT Legacy Foundation. All rights reserved.
+                </div>
+</footer>
+</div>
+</div>
+</body></html>

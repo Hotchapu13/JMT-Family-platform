@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Work+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface font-body text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-ink;
+  }
+
+  p {
+    line-height: 1.7;
+  }
+
+  /* Paper grain, fixed over the whole viewport so every surface reads as
+     vellum rather than flat screen. Non-interactive by design. */
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    opacity: 0.35;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  }
+}
+
+@layer components {
+  /* ---- Typography primitives ---- */
+
+  /* Cataloged index-card labels: uppercase, generously tracked */
+  .label-eyebrow {
+    @apply font-body text-xs font-semibold uppercase tracking-label text-primary;
+  }
+
+  .display-hero {
+    @apply font-display text-4xl font-bold leading-tight tracking-display sm:text-5xl lg:text-6xl;
+  }
+
+  .display-section {
+    @apply font-display text-3xl font-bold tracking-display sm:text-4xl;
+  }
+
+  .prose-archive {
+    @apply font-display text-[1.05rem] leading-[1.85] text-ink-soft;
+  }
+
+  /* ---- Buttons ---- */
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3
+           font-body text-sm font-medium transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-surface-lowest shadow-lift
+           hover:-translate-y-0.5 hover:bg-primary-container hover:shadow-ambient;
+  }
+
+  .btn-ghost {
+    /* "Ghost border" — never a fully opaque container border */
+    @apply btn border border-outline/60 bg-transparent text-ink
+           hover:border-primary hover:text-primary;
+  }
+
+  /* ---- Surfaces ---- */
+
+  /* The "exhibit box": paper resting on paper, no drawn borders */
+  .card-exhibit {
+    @apply rounded-2xl bg-surface-lowest p-editorial shadow-lift transition-all duration-300;
+  }
+
+  /* Photographs read as "pasted" onto the archival record */
+  .artifact-image {
+    @apply border border-outline-variant shadow-artifact transition-all duration-300;
+  }
+
+  .artifact-image:hover {
+    @apply border-primary;
+    box-shadow: 0 8px 22px rgba(44, 44, 44, 0.22);
+  }
+
+  /* Vellum glass — floating nav over parchment */
+  .vellum-glass {
+    @apply border-b border-outline-variant/50 bg-surface/85 backdrop-blur-[20px];
+  }
+
+  /* ---- The archway entry points (home page) ----
+     A cathedral-arch silhouette: fully rounded top, squared-off base. */
+  .arch {
+    @apply relative flex h-[26rem] flex-col items-center justify-end overflow-hidden
+           p-8 shadow-lift transition-all duration-500;
+    border-radius: 50% 50% 0.75rem 0.75rem / 32% 32% 0.75rem 0.75rem;
+  }
+
+  .group:hover .arch {
+    @apply -translate-y-2 shadow-ambient;
+  }
+
+  .arch-badge {
+    @apply absolute left-1/2 top-8 -translate-x-1/2 whitespace-nowrap rounded-full
+           bg-surface/90 px-4 py-1.5 font-body text-[0.65rem] font-semibold
+           uppercase tracking-label text-primary;
+  }
+
+  .arch-title {
+    @apply font-display text-2xl font-bold italic text-surface-lowest;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  }
+
+  /* ---- Filter chips ---- */
+
+  .chip {
+    @apply rounded-full px-5 py-2 font-body text-sm transition-all duration-200;
+  }
+
+  .chip-inactive {
+    @apply chip bg-surface-lowest text-ink-soft shadow-sm hover:text-primary;
+  }
+
+  .chip-active {
+    @apply chip bg-primary text-surface-lowest shadow-lift;
+  }
+
+  /* ---- Ornament: the small orange flourish between sections ---- */
+  .ornament {
+    @apply mx-auto flex items-center justify-center gap-3 text-primary/70;
+  }
+
+  .ornament::before,
+  .ornament::after {
+    content: '';
+    @apply block h-px w-16 bg-primary/25;
+  }
+}
+
+@layer utilities {
+  /* Scroll reveal — curator laying items on a table.
+     Gated on the `js` class so that if the script never runs, content is
+     simply visible rather than permanently transparent. */
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}

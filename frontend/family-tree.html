@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>The Roots — The JMT Legacy Archive</title>
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body class="bg-surface">
+    <main class="px-6 pt-16 lg:px-10">
+      <header class="mx-auto max-w-7xl reveal">
+        <p class="label-eyebrow">The Roots</p>
+        <h1 class="display-hero mt-4">The Family Tree</h1>
+        <p class="prose-archive mt-5 max-w-xl">
+          Trace the lineage generation by generation. Select any name to read
+          their story; drag to pan and scroll to zoom.
+        </p>
+      </header>
+
+      <!-- React + D3 island: the one screen where hand-rolled DOM would hurt -->
+      <div data-tree-island class="mx-auto mt-12 max-w-7xl"></div>
+    </main>
+
+    <script type="module" src="/src/tree/main.jsx"></script>
+  </body>
+</html>
