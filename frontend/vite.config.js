@@ -1,12 +1,13 @@
-import { resolve } from 'node:path';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 // Multi-page setup: every viewer screen is its own plain HTML entry so the
 // markup stays close to the wireframes. React is only pulled in by the
 // family-tree entry, which mounts the D3 tree island.
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const page = (name) => resolve(__dirname, `${name}.html`);
-
 export default defineConfig({
   plugins: [react()],
   server: {
