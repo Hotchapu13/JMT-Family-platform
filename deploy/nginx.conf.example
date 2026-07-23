@@ -1,0 +1,69 @@
+# Reference reverse-proxy config for serving the JMT frontend and backend
+# from a single origin in production, mirroring the dev-time Vite proxy
+# (frontend/vite.config.js: '/api' -> http://127.0.0.1:8000).
+#
+# Same-origin is required because auth is an HTTP-only, SameSite=Lax cookie
+# (backend/apps/authentication) — there is no bearer token for the frontend
+# to attach, so the browser must see frontend and backend as one origin.
+#
+# Assumes:
+#   - Django is running behind Gunicorn/uWSGI on 127.0.0.1:8001 (not the
+#     dev-only `manage.py runserver`).
+#   - The frontend has been built with `npm run build` (frontend/) and the
+#     `dist/` output is deployed to /var/www/jmt-frontend/dist.
+#   - TLS is terminated here, so Django's SECURE_PROXY_SSL_HEADER setting
+#     (backend/config/settings/production.py) sees X-Forwarded-Proto.
+
+server {
+    listen 443 ssl http2;
+    server_name jmt.example.com;
+
+    ssl_certificate     /etc/letsencrypt/live/jmt.example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/jmt.example.com/privkey.pem;
+
+    # Built frontend: static files, multi-page (each .html is its own entry
+    # per frontend/vite.config.js rollupOptions.input).
+    root /var/www/jmt-frontend/dist;
+    index home.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    # Everything under /api/v1/ is Django/DRF — proxied same-origin so the
+    # jmt_viewer_token / jmt_admin_token cookies are sent without any
+    # CORS/SameSite negotiation.
+    location /api/ {
+        proxy_pass http://127.0.0.1:8001;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+    }
+
+    # Django's own admin UI (django-unfold), per backend/config/urls.py.
+    # Distinct from the frontend's family-facing /admin.html and
+    # /admin-login.html pages (no path collision: Django owns "/admin/"
+    # with a trailing slash, the static pages are "/admin.html").
+    location /admin/ {
+        proxy_pass http://127.0.0.1:8001;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+    }
+
+    # Backend-generated robots.txt (backend/config/urls.py::robots_txt)
+    # disallows all crawling — this is a private family archive.
+    location = /robots.txt {
+        proxy_pass http://127.0.0.1:8001;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto https;
+    }
+}
+
+server {
+    listen 80;
+    server_name jmt.example.com;
+    return 301 https://$host$request_uri;
+}

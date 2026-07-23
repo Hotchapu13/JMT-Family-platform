@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Admin Login · The JMT Legacy Archive</title>
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body class="bg-surface">
+    <div class="grain-overlay"></div>
+
+    <main class="relative flex min-h-screen items-center justify-center px-6 py-16">
+      <div
+        class="pointer-events-none absolute inset-0 opacity-70"
+        style="background: radial-gradient(ellipse at 50% 30%, #f5ebdc 0%, #fff8ef 55%, #fff8ef 100%)"
+      ></div>
+
+      <section class="relative w-full max-w-xl">
+        <div class="mb-10 text-center">
+          <span
+            class="mx-auto mb-8 flex h-16 w-16 items-center justify-center rounded-full bg-primary font-display text-xl font-bold text-surface-lowest shadow-lift"
+            >90</span
+          >
+          <p class="label-eyebrow">Editor-in-Chief</p>
+          <h1 class="display-hero mt-4">Admin Sign In</h1>
+          <p class="mx-auto mt-3 max-w-md prose-archive !text-base">
+            Curator access for managing access codes, photographs and stories.
+          </p>
+        </div>
+
+        <form data-admin-login-form class="card-exhibit" novalidate>
+          <label for="admin-username" class="label-eyebrow !text-ink-faint block">Username</label>
+          <input
+            id="admin-username"
+            name="username"
+            type="text"
+            autocomplete="username"
+            required
+            class="mt-3 w-full border-0 border-b border-outline bg-transparent px-0 py-3 font-display text-lg text-ink placeholder:text-ink-faint/60 focus:border-primary focus:outline-none focus:ring-0"
+          />
+
+          <label for="admin-password" class="label-eyebrow !text-ink-faint mt-6 block">Password</label>
+          <input
+            id="admin-password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            required
+            class="mt-3 w-full border-0 border-b border-outline bg-transparent px-0 py-3 font-display text-lg text-ink placeholder:text-ink-faint/60 focus:border-primary focus:outline-none focus:ring-0"
+          />
+
+          <p
+            data-admin-login-error
+            role="alert"
+            class="mt-4 hidden font-body text-sm text-primary"
+          ></p>
+
+          <button type="submit" data-admin-login-submit class="btn-primary mt-8 w-full">
+            <span data-submit-label>Sign In</span>
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <script type="module" src="/src/js/admin-login.js"></script>
+  </body>
+</html>
