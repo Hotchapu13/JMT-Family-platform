@@ -33,7 +33,11 @@ function navMarkup(activeKey) {
     <header class="vellum-glass sticky top-0 z-40">
       <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
         <a href="/home.html" class="flex items-center gap-3">
-          <span class="flex h-10 w-10 items-center justify-center rounded-full bg-primary font-display text-sm font-bold text-surface-lowest">90</span>
+          <img
+            src="https://res.cloudinary.com/lox7of3m/image/upload/f_auto,q_auto/JMT_FINAL_LOGO_1__page-0002_kxaodi"
+            alt="JMT Legacy"
+            class="h-12 w-auto"
+          />
           <span class="flex flex-col leading-none">
             <span class="font-display text-lg font-bold tracking-wide text-ink">JMT Legacy</span>
             <span class="mt-1 font-display text-[0.7rem] italic tracking-wider text-primary">Est. 1934</span>
