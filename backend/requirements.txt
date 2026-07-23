@@ -13,3 +13,5 @@ Pillow>=10.4,<11.0
 gunicorn>=22.0,<23.0
 whitenoise>=6.7,<6.8
 dj-database-url>=2.2,<2.3
+
+
