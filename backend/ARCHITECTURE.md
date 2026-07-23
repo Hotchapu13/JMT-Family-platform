@@ -54,14 +54,14 @@ backend/
 This is the security backbone of the entire application: **two independent JWT-issuing flows**, never merged.
 
 ```
- ┌─────────────────────────┐            ┌──────────────────────────┐
- │      Family Viewer       │            │      Editor-in-Chief       │
- │  (no account, shared      │            │  (AdminUser: username/    │
- │   access code)            │            │   password)                │
- └─────────────┬─────────────┘            └─────────────┬──────────────┘
+ ┌──────────────────────────┐              ┌────────────────────────┐
+ │      Family Viewer       │              │     Editor-in-Chief    │
+ │  (no account, shared     │              │  (AdminUser: username/ │
+ │   access code)           │              │   password)            │
+ └─────────────┬────────────┘              └─────────────┬──────────┘
                │ POST /api/v1/auth/validate-code/        │ POST /api/v1/auth/admin/login/
-               │ { "code": "<plaintext>" }                │ { "username", "password" }
-               ▼                                          ▼
+               │ { "code": "<plaintext>" }               │ { "username", "password" }
+               ▼                                         ▼
    AccessCode.objects.get(code_hash=...)         Django authenticate(username, password)
    check is_valid() (is_active + not expired)     check user.is_active
                │                                          │
@@ -72,7 +72,7 @@ This is the security backbone of the entire application: **two independent JWT-i
                ▼                                          ▼
    Set-Cookie: jmt_viewer_token (HttpOnly)         Set-Cookie: jmt_admin_token (HttpOnly)
                │                                          │
-               └───────────────┬──────────────────────────┘
+               └────────────────┬─────────────────────────┘
                                 ▼
                   CookieJWTAuthentication (DRF auth class)
                   reads admin cookie first, then viewer cookie,

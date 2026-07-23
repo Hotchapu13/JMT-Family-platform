@@ -133,3 +133,98 @@ export function getStory(id) {
 export async function getAnniversaryEvents() {
   return results(await request('/anniversary/events/'));
 }
+
+// ---------------------------------------------------------------------------
+// Admin
+// ---------------------------------------------------------------------------
+
+/** Where an unauthenticated admin visitor gets sent back to. */
+export const ADMIN_GATEWAY_URL = '/admin-login.html';
+
+function redirectToAdminGateway() {
+  window.location.replace(ADMIN_GATEWAY_URL);
+}
+
+async function adminRequest(path, options = {}) {
+  try {
+    return await request(path, { ...options, redirectOn401: false });
+  } catch (error) {
+    if (error instanceof ApiError && (error.status === 401 || error.status === 403)) {
+      redirectToAdminGateway();
+      return new Promise(() => {});
+    }
+    throw error;
+  }
+}
+
+/** Confirms the admin cookie is still valid, bouncing to the admin login if not. */
+export async function requireAdminSession() {
+  await adminRequest('/stories/admin/');
+}
+
+export function adminLogin(username, password) {
+  return request('/auth/admin/login/', {
+    method: 'POST',
+    body: { username, password },
+    redirectOn401: false,
+  });
+}
+
+export async function adminLogout() {
+  await adminRequest('/auth/admin/logout/', { method: 'POST' });
+}
+
+/** Generates (rotates) a new Family Viewer access code. Plaintext is returned once. */
+export function generateAccessCode({ label = '', expiresInDays = 365 } = {}) {
+  return adminRequest('/auth/admin/access-codes/', {
+    method: 'POST',
+    body: { label, expires_in_days: expiresInDays },
+  });
+}
+
+export function deactivateAccessCode(id) {
+  return adminRequest(`/auth/admin/access-codes/${id}/deactivate/`, { method: 'POST' });
+}
+
+/** Uploads one or more photo files (multipart), optionally tagged with an era. */
+export async function bulkUploadPhotos(files, era) {
+  const formData = new FormData();
+  [...files].forEach((file) => formData.append('images', file));
+  if (era) formData.append('era', era);
+
+  const response = await fetch(`${API_ROOT}/gallery/photos/bulk-upload/`, {
+    method: 'POST',
+    credentials: 'include',
+    body: formData,
+  });
+
+  if (response.status === 401 || response.status === 403) {
+    redirectToAdminGateway();
+    return new Promise(() => {});
+  }
+  if (!response.ok) {
+    const detail = await readDetail(response);
+    throw new ApiError(detail || `Upload failed (${response.status}).`, response.status);
+  }
+  return response.json();
+}
+
+export function updatePhotoStatus(id, status) {
+  return adminRequest(`/gallery/photos/${id}/status/`, { method: 'PATCH', body: { status } });
+}
+
+export async function listAdminStories() {
+  return results(await adminRequest('/stories/admin/'));
+}
+
+export function createStory(story) {
+  return adminRequest('/stories/admin/', { method: 'POST', body: story });
+}
+
+export function getAdminStory(id) {
+  return adminRequest(`/stories/admin/${id}/`);
+}
+
+export function updateStory(id, patch) {
+  return adminRequest(`/stories/admin/${id}/`, { method: 'PATCH', body: patch });
+}
