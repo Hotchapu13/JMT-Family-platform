@@ -1,11 +1,11 @@
-from rest_framework import generics
+from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from apps.authentication.permissions import IsFamilyViewer
+from apps.authentication.permissions import IsFamilyViewer, IsPlatformAdmin
 
 from .models import FamilyMember
-from .serializers import FamilyMemberDetailSerializer
+from .serializers import FamilyMemberAdminSerializer, FamilyMemberDetailSerializer
 from .services import build_family_tree
 
 
@@ -31,3 +31,37 @@ class FamilyMemberDetailView(generics.RetrieveAPIView):
     queryset = FamilyMember.objects.all()
     serializer_class = FamilyMemberDetailSerializer
     permission_classes = [IsFamilyViewer]
+
+
+class FamilyMemberAdminListCreateView(generics.ListCreateAPIView):
+    """GET/POST /api/v1/family-tree/admin/members/
+
+    Admin-only content management: list every family member, or create a
+    new one (multipart, for the profile_image upload).
+    """
+
+    queryset = FamilyMember.objects.all()
+    serializer_class = FamilyMemberAdminSerializer
+    permission_classes = [IsPlatformAdmin]
+
+
+class FamilyMemberAdminDetailView(generics.RetrieveUpdateDestroyAPIView):
+    """GET/PATCH/DELETE /api/v1/family-tree/admin/members/{id}/
+
+    Admin-only: edit or remove a family member. Deletion is blocked while
+    the member still has children in the tree — reparent or delete the
+    children first, so the tree never silently loses a branch.
+    """
+
+    queryset = FamilyMember.objects.all()
+    serializer_class = FamilyMemberAdminSerializer
+    permission_classes = [IsPlatformAdmin]
+
+    def destroy(self, request, *args, **kwargs):
+        member = self.get_object()
+        if member.children.exists():
+            return Response(
+                {'detail': 'Reassign or delete this member\'s children before deleting them.'},
+                status=status.HTTP_409_CONFLICT,
+            )
+        return super().destroy(request, *args, **kwargs)

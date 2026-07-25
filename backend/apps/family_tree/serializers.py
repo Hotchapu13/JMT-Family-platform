@@ -27,6 +27,29 @@ class FamilyMemberNodeSerializer(serializers.ModelSerializer):
         ]
 
 
+class FamilyMemberAdminSerializer(serializers.ModelSerializer):
+    """Admin-facing create/update/delete shape for CRUD management."""
+
+    is_deceased = serializers.ReadOnlyField()
+
+    class Meta:
+        model = FamilyMember
+        fields = [
+            'id',
+            'parent',
+            'full_name',
+            'title',
+            'date_of_birth',
+            'date_of_death',
+            'is_deceased',
+            'biography',
+            'profile_image',
+            'created_at',
+            'updated_at',
+        ]
+        read_only_fields = ['created_at', 'updated_at']
+
+
 class FamilyMemberDetailSerializer(serializers.ModelSerializer):
     """Full bio-modal payload for a single family member."""
 
