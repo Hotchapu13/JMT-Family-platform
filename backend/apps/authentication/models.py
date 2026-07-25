@@ -58,14 +58,19 @@ class AccessCode(models.Model):
         return hashlib.sha256(plaintext_code.encode('utf-8')).hexdigest()
 
     @classmethod
-    def generate(cls, created_by, expires_at, label=''):
+    def generate(cls, created_by, expires_at, label='', custom_code=None):
         """Create a new AccessCode and return `(instance, plaintext_code)`.
 
-        The plaintext is only ever available here, at creation time.
+        The plaintext is only ever available here, at creation time. If
+        `custom_code` is given, it is used verbatim instead of generating a
+        random one (raising if it collides with an existing code's hash).
         """
-        plaintext_code = secrets.token_urlsafe(9)
+        plaintext_code = custom_code or secrets.token_urlsafe(9)
+        code_hash = cls.hash_code(plaintext_code)
+        if custom_code and cls.objects.filter(code_hash=code_hash).exists():
+            raise ValueError('This code is already in use.')
         instance = cls.objects.create(
-            code_hash=cls.hash_code(plaintext_code),
+            code_hash=code_hash,
             expires_at=expires_at,
             created_by=created_by,
             label=label,

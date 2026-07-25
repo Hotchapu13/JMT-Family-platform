@@ -9,8 +9,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import AccessCode
-from .permissions import IsPlatformAdmin
+from .permissions import IsFamilyViewer, IsPlatformAdmin
 from .serializers import (
+    AccessCodeSerializer,
     AdminLoginSerializer,
     GenerateAccessCodeSerializer,
     ValidateCodeSerializer,
@@ -56,6 +57,22 @@ class ValidateCodeView(APIView):
             samesite='Lax',
             max_age=int(settings.VIEWER_TOKEN_LIFETIME.total_seconds()),
         )
+        return response
+
+
+class ViewerLogoutView(APIView):
+    """POST /api/v1/auth/logout/
+
+    Signs a Family Viewer out by clearing their viewer-scoped cookie. The
+    JWT itself is stateless (no server-side blacklist), so this is purely
+    a cookie-removal operation, mirroring AdminLogoutView below.
+    """
+
+    permission_classes = [IsFamilyViewer]
+
+    def post(self, request):
+        response = Response({'detail': 'Logged out.'}, status=status.HTTP_200_OK)
+        response.delete_cookie(settings.AUTH_COOKIE_NAME)
         return response
 
 
@@ -110,14 +127,20 @@ class AdminLogoutView(APIView):
 
 
 class GenerateAccessCodeView(APIView):
-    """POST /api/v1/auth/admin/access-codes/
+    """GET/POST /api/v1/auth/admin/access-codes/
 
-    Admin-only endpoint to generate (rotate) a new Family Viewer access
-    code. The plaintext code is returned exactly once, in this response —
-    it cannot be recovered afterward since only its hash is persisted.
+    Admin-only endpoint to list every access code ever issued (valid and
+    expired/deactivated alike) and to generate a new one — either randomly
+    or from an admin-supplied custom code. The plaintext of a newly
+    generated code is returned exactly once, in the POST response — it
+    cannot be recovered afterward since only its hash is persisted.
     """
 
     permission_classes = [IsPlatformAdmin]
+
+    def get(self, request):
+        codes = AccessCode.objects.all()
+        return Response(AccessCodeSerializer(codes, many=True).data)
 
     def post(self, request):
         serializer = GenerateAccessCodeSerializer(data=request.data)
@@ -126,11 +149,15 @@ class GenerateAccessCodeView(APIView):
         expires_at = timezone.now() + timedelta(
             days=serializer.validated_data['expires_in_days']
         )
-        access_code, plaintext_code = AccessCode.generate(
-            created_by=request.user,
-            expires_at=expires_at,
-            label=serializer.validated_data.get('label', ''),
-        )
+        try:
+            access_code, plaintext_code = AccessCode.generate(
+                created_by=request.user,
+                expires_at=expires_at,
+                label=serializer.validated_data.get('label', ''),
+                custom_code=serializer.validated_data.get('custom_code') or None,
+            )
+        except ValueError as exc:
+            return Response({'detail': str(exc)}, status=status.HTTP_400_BAD_REQUEST)
         return Response(
             {
                 'id': access_code.id,
