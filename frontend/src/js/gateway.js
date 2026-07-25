@@ -6,6 +6,17 @@ const input = document.querySelector('#access-code');
 const errorEl = document.querySelector('[data-gateway-error]');
 const submit = document.querySelector('[data-gateway-submit]');
 const submitLabel = document.querySelector('[data-submit-label]');
+const toggleBtn = document.querySelector('[data-toggle-code-visibility]');
+const eyeOpen = toggleBtn.querySelector('[data-eye-open]');
+const eyeClosed = toggleBtn.querySelector('[data-eye-closed]');
+
+toggleBtn.addEventListener('click', () => {
+  const showing = input.type === 'text';
+  input.type = showing ? 'password' : 'text';
+  eyeOpen.classList.toggle('hidden', !showing);
+  eyeClosed.classList.toggle('hidden', showing);
+  toggleBtn.setAttribute('aria-label', showing ? 'Show code' : 'Hide code');
+});
 
 function showError(message) {
   errorEl.textContent = message;

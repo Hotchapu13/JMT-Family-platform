@@ -100,6 +100,10 @@ export async function requireSession() {
   await request('/anniversary/events/');
 }
 
+export async function viewerLogout() {
+  await request('/auth/logout/', { method: 'POST', redirectOn401: false });
+}
+
 // ---------------------------------------------------------------------------
 // Content
 // ---------------------------------------------------------------------------
@@ -132,6 +136,24 @@ export function getStory(id) {
 
 export async function getAnniversaryEvents() {
   return results(await request('/anniversary/events/'));
+}
+
+/** Viewer-facing story submission (multipart) — always lands as pending_review. */
+export async function submitStory(formData) {
+  const response = await fetch(`${API_ROOT}/stories/submit/`, {
+    method: 'POST',
+    credentials: 'include',
+    body: formData,
+  });
+  if (response.status === 401 || response.status === 403) {
+    redirectToGateway();
+    return new Promise(() => {});
+  }
+  if (!response.ok) {
+    const detail = await readDetail(response);
+    throw new ApiError(detail || `Submission failed (${response.status}).`, response.status);
+  }
+  return response.json();
 }
 
 // ---------------------------------------------------------------------------
@@ -175,15 +197,19 @@ export async function adminLogout() {
 }
 
 /** Generates (rotates) a new Family Viewer access code. Plaintext is returned once. */
-export function generateAccessCode({ label = '', expiresInDays = 365 } = {}) {
-  return adminRequest('/auth/admin/access-codes/', {
-    method: 'POST',
-    body: { label, expires_in_days: expiresInDays },
-  });
+export function generateAccessCode({ label = '', expiresInDays = 365, customCode = '' } = {}) {
+  const body = { label, expires_in_days: expiresInDays };
+  if (customCode) body.custom_code = customCode;
+  return adminRequest('/auth/admin/access-codes/', { method: 'POST', body });
 }
 
 export function deactivateAccessCode(id) {
   return adminRequest(`/auth/admin/access-codes/${id}/deactivate/`, { method: 'POST' });
+}
+
+/** Lists every access code ever issued (valid and expired/deactivated alike). */
+export async function listAccessCodes() {
+  return results(await adminRequest('/auth/admin/access-codes/'));
 }
 
 /** Uploads one or more photo files (multipart), optionally tagged with an era. */
@@ -209,6 +235,25 @@ export async function bulkUploadPhotos(files, era) {
   return response.json();
 }
 
+/** Admin-scoped multipart request — mirrors `adminRequest()` but sends FormData. */
+async function adminMultipartRequest(path, formData, method = 'POST') {
+  const response = await fetch(`${API_ROOT}${path}`, {
+    method,
+    credentials: 'include',
+    body: formData,
+  });
+
+  if (response.status === 401 || response.status === 403) {
+    redirectToAdminGateway();
+    return new Promise(() => {});
+  }
+  if (!response.ok) {
+    const detail = await readDetail(response);
+    throw new ApiError(detail || `Request failed (${response.status}).`, response.status);
+  }
+  return response.json();
+}
+
 export function updatePhotoStatus(id, status) {
   return adminRequest(`/gallery/photos/${id}/status/`, { method: 'PATCH', body: { status } });
 }
@@ -217,14 +262,34 @@ export async function listAdminStories() {
   return results(await adminRequest('/stories/admin/'));
 }
 
-export function createStory(story) {
-  return adminRequest('/stories/admin/', { method: 'POST', body: story });
+export function createStory(formData) {
+  return adminMultipartRequest('/stories/admin/', formData, 'POST');
 }
 
 export function getAdminStory(id) {
   return adminRequest(`/stories/admin/${id}/`);
 }
 
-export function updateStory(id, patch) {
-  return adminRequest(`/stories/admin/${id}/`, { method: 'PATCH', body: patch });
+export function updateStory(id, formData) {
+  return adminMultipartRequest(`/stories/admin/${id}/`, formData, 'PATCH');
+}
+
+export function publishStory(id) {
+  return adminRequest(`/stories/admin/${id}/publish/`, { method: 'POST' });
+}
+
+export async function listFamilyMembersAdmin() {
+  return results(await adminRequest('/family-tree/admin/members/'));
+}
+
+export function createFamilyMember(formData) {
+  return adminMultipartRequest('/family-tree/admin/members/', formData, 'POST');
+}
+
+export function updateFamilyMember(id, formData) {
+  return adminMultipartRequest(`/family-tree/admin/members/${id}/`, formData, 'PATCH');
+}
+
+export function deleteFamilyMember(id) {
+  return adminRequest(`/family-tree/admin/members/${id}/`, { method: 'DELETE' });
 }

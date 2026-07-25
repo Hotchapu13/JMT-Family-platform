@@ -31,6 +31,7 @@ export default defineConfig({
         gallery: page('gallery'),
         stories: page('stories'),
         story: page('story'),
+        storySubmit: page('story-submit'),
         anniversary: page('anniversary'),
         adminLogin: page('admin-login'),
         admin: page('admin'),

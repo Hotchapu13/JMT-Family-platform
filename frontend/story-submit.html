@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Submit a Story — The JMT Legacy Archive</title>
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body class="bg-surface">
+    <main class="mx-auto max-w-3xl px-6 py-14 lg:px-10">
+      <h1 class="display-section">Submit a Story</h1>
+      <p class="mt-2 prose-archive !text-base">
+        Share a memory for the family archive. Submissions are reviewed by the family curator before publishing.
+      </p>
+
+      <form data-story-submit-form class="card-exhibit mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div>
+          <label for="submit-title" class="label-eyebrow !text-ink-faint block">Title</label>
+          <input id="submit-title" required class="mt-2 w-full rounded-lg border border-outline bg-transparent px-3 py-2 text-sm text-ink focus:border-primary focus:outline-none" />
+        </div>
+        <div>
+          <label for="submit-category" class="label-eyebrow !text-ink-faint block">Category</label>
+          <input id="submit-category" class="mt-2 w-full rounded-lg border border-outline bg-transparent px-3 py-2 text-sm text-ink focus:border-primary focus:outline-none" />
+        </div>
+        <div>
+          <label for="submit-year" class="label-eyebrow !text-ink-faint block">Year label</label>
+          <input id="submit-year" class="mt-2 w-full rounded-lg border border-outline bg-transparent px-3 py-2 text-sm text-ink focus:border-primary focus:outline-none" />
+        </div>
+        <div>
+          <label for="submit-name" class="label-eyebrow !text-ink-faint block">Your name</label>
+          <input id="submit-name" required class="mt-2 w-full rounded-lg border border-outline bg-transparent px-3 py-2 text-sm text-ink focus:border-primary focus:outline-none" />
+        </div>
+        <div class="sm:col-span-2">
+          <label for="submit-excerpt" class="label-eyebrow !text-ink-faint block">Excerpt</label>
+          <textarea id="submit-excerpt" rows="2" class="mt-2 w-full rounded-lg border border-outline bg-transparent px-3 py-2 text-sm text-ink focus:border-primary focus:outline-none"></textarea>
+        </div>
+        <div class="sm:col-span-2">
+          <label for="submit-body" class="label-eyebrow !text-ink-faint block">Your story</label>
+          <textarea id="submit-body" rows="8" required class="mt-2 w-full rounded-lg border border-outline bg-transparent px-3 py-2 text-sm text-ink focus:border-primary focus:outline-none"></textarea>
+        </div>
+        <div class="sm:col-span-2">
+          <label for="submit-cover" class="label-eyebrow !text-ink-faint block">Cover image (optional)</label>
+          <input id="submit-cover" type="file" accept="image/*" class="mt-2 text-sm text-ink-soft" />
+        </div>
+        <div class="sm:col-span-2 flex justify-end">
+          <button type="submit" data-story-submit-button class="btn-primary !px-6 !py-2.5 text-sm">Submit for Review</button>
+        </div>
+      </form>
+
+      <p data-story-submit-error role="alert" class="mt-4 hidden font-body text-sm text-primary"></p>
+      <p data-story-submit-success role="status" class="mt-4 hidden font-body text-sm text-ink-soft"></p>
+    </main>
+
+    <script type="module" src="/src/js/story-submit.js"></script>
+  </body>
+</html>
