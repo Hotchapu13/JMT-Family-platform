@@ -18,7 +18,9 @@ class FamilyMember(models.Model):
     date_of_birth = models.DateField(null=True, blank=True)
     date_of_death = models.DateField(null=True, blank=True)
     biography = models.TextField(blank=True)
-    profile_image = models.ImageField(upload_to='profiles/')  # Cloudinary-backed storage
+    profile_image = models.ImageField(
+        upload_to='profiles/', null=True, blank=True
+    )  # Cloudinary-backed storage
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

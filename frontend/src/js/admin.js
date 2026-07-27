@@ -532,9 +532,9 @@ memberForm.addEventListener('submit', async (event) => {
   if (memberFields.date_of_birth.value) formData.append('date_of_birth', memberFields.date_of_birth.value);
   if (memberFields.date_of_death.value) formData.append('date_of_death', memberFields.date_of_death.value);
   formData.append('biography', memberFields.biography.value);
-  formData.append('father', memberFatherSelect.value);
-  formData.append('mother', memberMotherSelect.value);
-  formData.append('spouse', memberSpouseSelect.value);
+  if (memberFatherSelect.value) formData.append('father', memberFatherSelect.value);
+  if (memberMotherSelect.value) formData.append('mother', memberMotherSelect.value);
+  if (memberSpouseSelect.value) formData.append('spouse', memberSpouseSelect.value);
   formData.append('joined_by_marriage', memberJoinedByMarriage.checked ? 'true' : 'false');
   if (memberPhotoInput.files[0]) formData.append('profile_image', memberPhotoInput.files[0]);
 
