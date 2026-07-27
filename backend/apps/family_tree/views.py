@@ -6,20 +6,20 @@ from apps.authentication.permissions import IsFamilyViewer, IsPlatformAdmin
 
 from .models import FamilyMember
 from .serializers import FamilyMemberAdminSerializer, FamilyMemberDetailSerializer
-from .services import build_family_tree
+from .services import build_family_graph
 
 
 class FamilyTreeView(APIView):
     """GET /api/v1/family-tree/
 
-    Returns the full family hierarchy as a nested `children` array per
-    node, shaped for direct consumption by a D3.js frontend.
+    Returns the full family graph: members, unions (parent-pair groupings
+    of children), and spouse links.
     """
 
     permission_classes = [IsFamilyViewer]
 
     def get(self, request):
-        return Response(build_family_tree())
+        return Response(build_family_graph())
 
 
 class FamilyMemberDetailView(generics.RetrieveAPIView):
@@ -49,8 +49,9 @@ class FamilyMemberAdminDetailView(generics.RetrieveUpdateDestroyAPIView):
     """GET/PATCH/DELETE /api/v1/family-tree/admin/members/{id}/
 
     Admin-only: edit or remove a family member. Deletion is blocked while
-    the member still has children in the tree — reparent or delete the
-    children first, so the tree never silently loses a branch.
+    the member is still referenced as a father, mother, or spouse
+    elsewhere in the tree — reassign those references first, so the tree
+    never silently loses a branch or a marriage link.
     """
 
     queryset = FamilyMember.objects.all()
@@ -59,9 +60,18 @@ class FamilyMemberAdminDetailView(generics.RetrieveUpdateDestroyAPIView):
 
     def destroy(self, request, *args, **kwargs):
         member = self.get_object()
-        if member.children.exists():
+        if (
+            member.fathered_children.exists()
+            or member.mothered_children.exists()
+            or member.spouse_of.exists()
+        ):
             return Response(
-                {'detail': 'Reassign or delete this member\'s children before deleting them.'},
+                {
+                    'detail': (
+                        'Reassign or delete this member\'s children, or clear the spouse '
+                        'link, before deleting them.'
+                    )
+                },
                 status=status.HTTP_409_CONFLICT,
             )
         return super().destroy(request, *args, **kwargs)
