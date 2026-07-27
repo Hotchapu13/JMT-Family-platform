@@ -4,12 +4,10 @@ from .models import FamilyMember
 
 
 class FamilyMemberNodeSerializer(serializers.ModelSerializer):
-    """Single-node shape used inside the recursive tree response.
+    """Single-node shape used inside the graph-shaped tree response.
 
-    `children` is threaded in by the tree-building service (services.py),
-    not by this serializer — a recursive nested serializer would issue one
-    query per node, while the service builds the whole tree from a single
-    query and attaches `children` afterward.
+    Union/spouse grouping is done by the tree-building service
+    (services.py), not by this serializer.
     """
 
     is_deceased = serializers.ReadOnlyField()
@@ -18,6 +16,10 @@ class FamilyMemberNodeSerializer(serializers.ModelSerializer):
         model = FamilyMember
         fields = [
             'id',
+            'father',
+            'mother',
+            'spouse',
+            'joined_by_marriage',
             'full_name',
             'title',
             'date_of_birth',
@@ -36,7 +38,10 @@ class FamilyMemberAdminSerializer(serializers.ModelSerializer):
         model = FamilyMember
         fields = [
             'id',
-            'parent',
+            'father',
+            'mother',
+            'spouse',
+            'joined_by_marriage',
             'full_name',
             'title',
             'date_of_birth',
@@ -54,16 +59,27 @@ class FamilyMemberDetailSerializer(serializers.ModelSerializer):
     """Full bio-modal payload for a single family member."""
 
     is_deceased = serializers.ReadOnlyField()
-    parent_name = serializers.CharField(
-        source='parent.full_name', read_only=True, default=None
+    father_name = serializers.CharField(
+        source='father.full_name', read_only=True, default=None
+    )
+    mother_name = serializers.CharField(
+        source='mother.full_name', read_only=True, default=None
+    )
+    spouse_name = serializers.CharField(
+        source='spouse.full_name', read_only=True, default=None
     )
 
     class Meta:
         model = FamilyMember
         fields = [
             'id',
-            'parent',
-            'parent_name',
+            'father',
+            'father_name',
+            'mother',
+            'mother_name',
+            'spouse',
+            'spouse_name',
+            'joined_by_marriage',
             'full_name',
             'title',
             'date_of_birth',
