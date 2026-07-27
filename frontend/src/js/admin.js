@@ -39,6 +39,7 @@ const codeError = document.querySelector('[data-code-error]');
 const codeList = document.querySelector('[data-code-list]');
 let codes = [];
 let justCreated = null; // { id, code } — plaintext held only in memory, only for this session
+let codeVisible = false; // whether the just-created code's plaintext is currently shown
 
 function renderCodes() {
   if (!codes.length) {
@@ -47,19 +48,35 @@ function renderCodes() {
   }
   codeList.innerHTML = codes
     .map((entry) => {
-      const isRevealed = justCreated && String(justCreated.id) === String(entry.id);
+      const hasPlaintext = justCreated && String(justCreated.id) === String(entry.id);
+      const isRevealed = hasPlaintext && codeVisible;
       const isActive = entry.is_active && entry.is_valid;
+      const eyeIcon = isRevealed
+        ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3l18 18M10.6 10.6a2 2 0 0 0 2.8 2.8M9.5 5.4A10.7 10.7 0 0 1 12 5c7 0 11 7 11 7a13.6 13.6 0 0 1-3.1 3.8M6.1 6.6C3.4 8.5 1 12 1 12s4 7 11 7a10.6 10.6 0 0 0 4-.8" /></svg>'
+        : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" /><circle cx="12" cy="12" r="3" /></svg>';
+      const codeActions = hasPlaintext
+        ? `
+            <button type="button" data-toggle-code="${entry.id}" aria-label="${isRevealed ? 'Hide code' : 'Show code'}" class="text-ink-faint hover:text-primary">
+              ${eyeIcon}
+            </button>
+            <button type="button" data-copy-code="${entry.id}" aria-label="Copy code" class="text-ink-faint hover:text-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9" y="9" width="12" height="12" rx="2" /><path d="M5 15V5a2 2 0 0 1 2-2h10" /></svg>
+            </button>
+          `
+        : '';
+      const deactivateAction = isActive
+        ? `<button type="button" data-deactivate="${entry.id}" class="btn-ghost !px-4 !py-1.5 text-xs">Deactivate</button>`
+        : '<span class="text-xs uppercase tracking-label text-ink-faint">Inactive</span>';
       return `
       <div class="flex items-center justify-between rounded-lg border border-outline-variant/60 px-4 py-3 ${isActive ? '' : 'opacity-50'}">
         <div>
-          <p class="font-display text-base text-ink">${isRevealed ? esc(justCreated.code) : '••••••••'}</p>
+          <div class="flex items-center gap-2">
+            <p class="font-display text-base text-ink">${isRevealed ? esc(justCreated.code) : '••••••••'}</p>
+            ${codeActions}
+          </div>
           <p class="text-xs text-ink-faint">${esc(entry.label || 'Untitled')} &middot; created ${esc((entry.created_at || '').slice(0, 10))} &middot; expires ${esc((entry.expires_at || '').slice(0, 10))}</p>
         </div>
-        ${
-          isActive
-            ? `<button type="button" data-deactivate="${entry.id}" class="btn-ghost !px-4 !py-1.5 text-xs">Deactivate</button>`
-            : '<span class="text-xs uppercase tracking-label text-ink-faint">Inactive</span>'
-        }
+        ${deactivateAction}
       </div>
     `;
     })
@@ -86,6 +103,7 @@ codeForm.addEventListener('submit', async (event) => {
   try {
     const created = await generateAccessCode({ label, expiresInDays, customCode });
     justCreated = { id: created.id, code: created.code };
+    codeVisible = true;
     codeForm.reset();
     document.querySelector('#code-expires').value = '365';
     await loadCodes();
@@ -96,6 +114,23 @@ codeForm.addEventListener('submit', async (event) => {
 });
 
 codeList.addEventListener('click', async (event) => {
+  const toggleButton = event.target.closest('[data-toggle-code]');
+  if (toggleButton) {
+    codeVisible = !codeVisible;
+    renderCodes();
+    return;
+  }
+
+  const copyButton = event.target.closest('[data-copy-code]');
+  if (copyButton && justCreated) {
+    try {
+      await navigator.clipboard.writeText(justCreated.code);
+    } catch {
+      /* Clipboard access can be denied by the browser; nothing to recover here. */
+    }
+    return;
+  }
+
   const button = event.target.closest('[data-deactivate]');
   if (!button) return;
   const id = button.dataset.deactivate;
@@ -387,7 +422,11 @@ const memberForm = document.querySelector('[data-member-form]');
 const memberError = document.querySelector('[data-member-error]');
 const memberList = document.querySelector('[data-member-list]');
 const memberIdField = document.querySelector('[data-member-id]');
-const memberParentSelect = document.querySelector('#member-parent');
+const memberFatherSelect = document.querySelector('#member-father');
+const memberMotherSelect = document.querySelector('#member-mother');
+const memberSpouseSelect = document.querySelector('#member-spouse');
+const memberRelationSelects = [memberFatherSelect, memberMotherSelect, memberSpouseSelect];
+const memberJoinedByMarriage = document.querySelector('#member-joined-by-marriage');
 const memberFields = {
   full_name: document.querySelector('#member-name'),
   title: document.querySelector('#member-title'),
@@ -410,20 +449,27 @@ function fillMemberForm(member) {
   memberFields.date_of_birth.value = member.date_of_birth || '';
   memberFields.date_of_death.value = member.date_of_death || '';
   memberFields.biography.value = member.biography || '';
-  memberParentSelect.value = member.parent ?? '';
+  memberFatherSelect.value = member.father ?? '';
+  memberMotherSelect.value = member.mother ?? '';
+  memberSpouseSelect.value = member.spouse ?? '';
+  memberJoinedByMarriage.checked = Boolean(member.joined_by_marriage);
   window.scrollTo({ top: memberForm.offsetTop - 100, behavior: 'smooth' });
 }
 
-function renderParentOptions() {
+function renderRelationOptions() {
   const options = membersCache.map((m) => `<option value="${m.id}">${esc(m.full_name)}</option>`).join('');
-  memberParentSelect.innerHTML = '<option value="">— None (root) —</option>' + options;
+  memberRelationSelects.forEach((select) => {
+    const previousValue = select.value;
+    select.innerHTML = '<option value="">— None —</option>' + options;
+    select.value = previousValue;
+  });
 }
 
 async function loadMembers() {
   memberList.innerHTML = loadingState('Loading family members…');
   try {
     membersCache = await listFamilyMembersAdmin();
-    renderParentOptions();
+    renderRelationOptions();
     if (!membersCache.length) {
       memberList.innerHTML = stateMessage('No family members yet.');
       return;
@@ -465,7 +511,7 @@ memberList.addEventListener('click', async (event) => {
     } catch (error) {
       memberError.textContent =
         error instanceof ApiError && error.status === 409
-          ? "This member still has children in the tree — reassign or remove them first."
+          ? "This member is still linked as a father, mother, or spouse elsewhere in the tree — reassign or clear those links first."
           : error instanceof ApiError
             ? error.message
             : 'Could not delete that member.';
@@ -486,7 +532,10 @@ memberForm.addEventListener('submit', async (event) => {
   if (memberFields.date_of_birth.value) formData.append('date_of_birth', memberFields.date_of_birth.value);
   if (memberFields.date_of_death.value) formData.append('date_of_death', memberFields.date_of_death.value);
   formData.append('biography', memberFields.biography.value);
-  if (memberParentSelect.value) formData.append('parent', memberParentSelect.value);
+  formData.append('father', memberFatherSelect.value);
+  formData.append('mother', memberMotherSelect.value);
+  formData.append('spouse', memberSpouseSelect.value);
+  formData.append('joined_by_marriage', memberJoinedByMarriage.checked ? 'true' : 'false');
   if (memberPhotoInput.files[0]) formData.append('profile_image', memberPhotoInput.files[0]);
 
   try {

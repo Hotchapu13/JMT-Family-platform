@@ -111,9 +111,16 @@ export default function MemberModal({ memberId, onClose }) {
                   </p>
                 )}
 
-                {member.parent_name && (
+                {(member.father_name || member.mother_name) && (
                   <p className="mt-2 font-display text-sm italic text-ink-soft">
-                    Child of {member.parent_name}
+                    Child of{' '}
+                    {[member.father_name, member.mother_name].filter(Boolean).join(' and ')}
+                  </p>
+                )}
+
+                {member.spouse_name && (
+                  <p className="mt-1 font-display text-sm italic text-ink-soft">
+                    Married to {member.spouse_name}
                   </p>
                 )}
               </div>
