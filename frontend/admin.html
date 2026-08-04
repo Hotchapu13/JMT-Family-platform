@@ -30,12 +30,16 @@
       <!-- Access codes -->
       <section class="card-exhibit mt-12">
         <h2 class="font-display text-xl font-bold text-ink">Family Access Codes</h2>
-        <p class="mt-1 text-sm text-ink-faint">Generate a new code to share, or deactivate one issued this session.</p>
+        <p class="mt-1 text-sm text-ink-faint">Generate a new code to share, or deactivate an existing one.</p>
 
         <form data-code-form class="mt-6 flex flex-wrap items-end gap-4">
           <div class="flex-1 min-w-[10rem]">
             <label for="code-label" class="label-eyebrow !text-ink-faint block">Label</label>
             <input id="code-label" name="label" type="text" placeholder="e.g. Cousins branch" class="mt-2 w-full rounded-lg border border-outline bg-transparent px-3 py-2 font-body text-sm text-ink focus:border-primary focus:outline-none" />
+          </div>
+          <div class="flex-1 min-w-[10rem]">
+            <label for="code-custom" class="label-eyebrow !text-ink-faint block">Custom code (optional)</label>
+            <input id="code-custom" name="custom_code" type="text" minlength="6" maxlength="64" placeholder="Leave blank to auto-generate" class="mt-2 w-full rounded-lg border border-outline bg-transparent px-3 py-2 font-body text-sm text-ink focus:border-primary focus:outline-none" />
           </div>
           <div class="w-32">
             <label for="code-expires" class="label-eyebrow !text-ink-faint block">Expires (days)</label>
@@ -115,6 +119,13 @@
             <label for="story-read-time" class="label-eyebrow !text-ink-faint block">Read time (min)</label>
             <input id="story-read-time" type="number" min="1" class="mt-2 w-full rounded-lg border border-outline bg-transparent px-3 py-2 text-sm text-ink focus:border-primary focus:outline-none" />
           </div>
+          <div class="sm:col-span-2" data-cover-dropzone>
+            <label for="story-cover" class="label-eyebrow !text-ink-faint block">Cover image</label>
+            <div data-dropzone-area class="mt-2 flex flex-col items-center justify-center gap-2 rounded-lg border border-dashed border-outline px-4 py-6 text-center transition-colors">
+              <p class="text-xs text-ink-faint">Drag an image here, or click to choose a file</p>
+              <input id="story-cover" name="cover_image" type="file" accept="image/*" class="text-sm text-ink-soft" />
+            </div>
+          </div>
           <div class="sm:col-span-2">
             <label for="story-excerpt" class="label-eyebrow !text-ink-faint block">Excerpt</label>
             <textarea id="story-excerpt" rows="2" class="mt-2 w-full rounded-lg border border-outline bg-transparent px-3 py-2 text-sm text-ink focus:border-primary focus:outline-none"></textarea>
@@ -127,6 +138,7 @@
             <label for="story-status" class="label-eyebrow !text-ink-faint">Status</label>
             <select id="story-status" class="rounded-lg border border-outline bg-transparent px-3 py-2 text-sm text-ink focus:border-primary focus:outline-none">
               <option value="draft">Draft</option>
+              <option value="pending_review">Pending Review</option>
               <option value="published">Published</option>
             </select>
           </div>
@@ -138,7 +150,75 @@
 
         <p data-story-error role="alert" class="mt-3 hidden font-body text-sm text-primary"></p>
 
-        <div data-story-list class="mt-8 flex flex-col gap-2 border-t border-outline-variant/50 pt-6"></div>
+        <div class="mt-8 flex items-center justify-between border-t border-outline-variant/50 pt-6">
+          <p class="label-eyebrow !text-ink-faint">All stories</p>
+          <button type="button" data-toggle-all-stories class="text-xs text-ink-faint hover:text-primary">Expand all</button>
+        </div>
+        <div data-story-list class="mt-4 flex flex-col gap-2"></div>
+      </section>
+
+      <!-- Family members -->
+      <section class="card-exhibit mt-8">
+        <h2 class="font-display text-xl font-bold text-ink">Family Members</h2>
+        <p class="mt-1 text-sm text-ink-faint">Create and edit family tree entries.</p>
+
+        <form data-member-form class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <input type="hidden" data-member-id />
+          <div>
+            <label for="member-name" class="label-eyebrow !text-ink-faint block">Full name</label>
+            <input id="member-name" required class="mt-2 w-full rounded-lg border border-outline bg-transparent px-3 py-2 text-sm text-ink focus:border-primary focus:outline-none" />
+          </div>
+          <div>
+            <label for="member-title" class="label-eyebrow !text-ink-faint block">Title</label>
+            <input id="member-title" class="mt-2 w-full rounded-lg border border-outline bg-transparent px-3 py-2 text-sm text-ink focus:border-primary focus:outline-none" />
+          </div>
+          <div>
+            <label for="member-father" class="label-eyebrow !text-ink-faint block">Father</label>
+            <select id="member-father" class="mt-2 w-full rounded-lg border border-outline bg-transparent px-3 py-2 text-sm text-ink focus:border-primary focus:outline-none">
+              <option value="">— None —</option>
+            </select>
+          </div>
+          <div>
+            <label for="member-mother" class="label-eyebrow !text-ink-faint block">Mother</label>
+            <select id="member-mother" class="mt-2 w-full rounded-lg border border-outline bg-transparent px-3 py-2 text-sm text-ink focus:border-primary focus:outline-none">
+              <option value="">— None —</option>
+            </select>
+          </div>
+          <div>
+            <label for="member-spouse" class="label-eyebrow !text-ink-faint block">Spouse</label>
+            <select id="member-spouse" class="mt-2 w-full rounded-lg border border-outline bg-transparent px-3 py-2 text-sm text-ink focus:border-primary focus:outline-none">
+              <option value="">— None —</option>
+            </select>
+          </div>
+          <div class="flex items-center gap-2 self-end pb-2">
+            <input id="member-joined-by-marriage" type="checkbox" class="h-4 w-4 rounded border-outline text-primary focus:ring-primary" />
+            <label for="member-joined-by-marriage" class="text-sm text-ink-soft">Joined this family by marriage</label>
+          </div>
+          <div>
+            <label for="member-dob" class="label-eyebrow !text-ink-faint block">Date of birth</label>
+            <input id="member-dob" type="date" class="mt-2 w-full rounded-lg border border-outline bg-transparent px-3 py-2 text-sm text-ink focus:border-primary focus:outline-none" />
+          </div>
+          <div>
+            <label for="member-dod" class="label-eyebrow !text-ink-faint block">Date of death</label>
+            <input id="member-dod" type="date" class="mt-2 w-full rounded-lg border border-outline bg-transparent px-3 py-2 text-sm text-ink focus:border-primary focus:outline-none" />
+          </div>
+          <div class="sm:col-span-2">
+            <label for="member-bio" class="label-eyebrow !text-ink-faint block">Biography</label>
+            <textarea id="member-bio" rows="4" class="mt-2 w-full rounded-lg border border-outline bg-transparent px-3 py-2 text-sm text-ink focus:border-primary focus:outline-none"></textarea>
+          </div>
+          <div class="sm:col-span-2">
+            <label for="member-photo" class="label-eyebrow !text-ink-faint block">Profile image</label>
+            <input id="member-photo" type="file" accept="image/*" class="mt-2 text-sm text-ink-soft" />
+          </div>
+          <div class="flex items-end justify-end gap-3 sm:col-span-2">
+            <button type="button" data-member-reset class="btn-ghost !px-5 !py-2 text-sm">New Member</button>
+            <button type="submit" data-member-submit class="btn-primary !px-6 !py-2.5 text-sm">Save</button>
+          </div>
+        </form>
+
+        <p data-member-error role="alert" class="mt-3 hidden font-body text-sm text-primary"></p>
+
+        <div data-member-list class="mt-8 flex flex-col gap-2 border-t border-outline-variant/50 pt-6"></div>
       </section>
     </main>
 

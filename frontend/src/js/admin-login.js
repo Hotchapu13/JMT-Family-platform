@@ -7,6 +7,17 @@ const passwordInput = document.querySelector('#admin-password');
 const errorEl = document.querySelector('[data-admin-login-error]');
 const submit = document.querySelector('[data-admin-login-submit]');
 const submitLabel = document.querySelector('[data-submit-label]');
+const toggleBtn = document.querySelector('[data-toggle-password-visibility]');
+const eyeOpen = toggleBtn.querySelector('[data-eye-open]');
+const eyeClosed = toggleBtn.querySelector('[data-eye-closed]');
+
+toggleBtn.addEventListener('click', () => {
+  const showing = passwordInput.type === 'text';
+  passwordInput.type = showing ? 'password' : 'text';
+  eyeOpen.classList.toggle('hidden', !showing);
+  eyeClosed.classList.toggle('hidden', showing);
+  toggleBtn.setAttribute('aria-label', showing ? 'Show password' : 'Hide password');
+});
 
 function showError(message) {
   errorEl.textContent = message;

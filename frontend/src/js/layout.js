@@ -6,11 +6,14 @@
  * with the nav key it should highlight.
  */
 
+import { viewerLogout } from './api.js';
+
 const NAV_LINKS = [
   { key: 'home', label: 'Home', href: '/home.html' },
   { key: 'tree', label: 'Family Tree', href: '/family-tree.html' },
   { key: 'gallery', label: 'Gallery', href: '/gallery.html' },
   { key: 'stories', label: 'Stories', href: '/stories.html' },
+  { key: 'story-submit', label: 'Share a Story', href: '/story-submit.html' },
   { key: 'anniversary', label: 'The 90th', href: '/anniversary.html' },
 ];
 
@@ -44,7 +47,10 @@ function navMarkup(activeKey) {
           </span>
         </a>
 
-        <nav class="hidden items-center gap-8 md:flex">${links}</nav>
+        <nav class="hidden items-center gap-8 md:flex">
+          ${links}
+          <button type="button" data-viewer-logout class="text-ink-soft hover:text-primary transition-colors duration-200 text-sm">Sign Out</button>
+        </nav>
 
         <button
           type="button"
@@ -61,6 +67,7 @@ function navMarkup(activeKey) {
 
       <div data-nav-panel class="hidden border-t border-outline-variant/50 bg-surface px-6 py-2 md:hidden">
         ${mobileLinks}
+        <button type="button" data-viewer-logout class="block w-full text-left py-3 text-base text-ink-soft">Sign Out</button>
       </div>
     </header>
   `;
@@ -140,6 +147,13 @@ export function mountChrome(activeKey) {
     const isOpen = !panel.classList.contains('hidden');
     panel.classList.toggle('hidden', isOpen);
     toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  document.querySelectorAll('[data-viewer-logout]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      await viewerLogout();
+      window.location.assign('/index.html');
+    });
   });
 
   observeReveals();
