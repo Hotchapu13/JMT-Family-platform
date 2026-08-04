@@ -13,11 +13,18 @@ class AdminLoginSerializer(serializers.Serializer):
 class GenerateAccessCodeSerializer(serializers.Serializer):
     label = serializers.CharField(max_length=100, required=False, allow_blank=True, default='')
     expires_in_days = serializers.IntegerField(min_value=1, default=30)
+    custom_code = serializers.CharField(
+        min_length=6, max_length=64, required=False, allow_blank=True, default=''
+    )
 
 
 class AccessCodeSerializer(serializers.Serializer):
     id = serializers.IntegerField()
     label = serializers.CharField()
     is_active = serializers.BooleanField()
+    is_valid = serializers.SerializerMethodField()
     created_at = serializers.DateTimeField()
     expires_at = serializers.DateTimeField()
+
+    def get_is_valid(self, obj):
+        return obj.is_valid()

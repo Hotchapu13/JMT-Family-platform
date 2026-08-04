@@ -34,6 +34,20 @@ class StoryAdminSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'title', 'category', 'year_label', 'excerpt', 'body',
             'cover_image', 'content_type', 'audio_url', 'status',
-            'read_time_minutes', 'created_at',
+            'read_time_minutes', 'submitted_by', 'created_at', 'published_at',
         ]
-        read_only_fields = ['created_at']
+        read_only_fields = ['created_at', 'published_at']
+
+
+class StorySubmissionSerializer(serializers.ModelSerializer):
+    """Viewer-facing submission shape — a Family Viewer proposing a story
+    for the Editor-in-Chief to review. `status` is always forced to
+    `pending_review` server-side; viewers cannot set it themselves.
+    """
+
+    class Meta:
+        model = Story
+        fields = [
+            'id', 'title', 'category', 'year_label', 'excerpt', 'body',
+            'cover_image', 'submitted_by',
+        ]

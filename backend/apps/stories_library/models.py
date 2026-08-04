@@ -4,6 +4,7 @@ from django.db import models
 class Story(models.Model):
     class Status(models.TextChoices):
         DRAFT = 'draft', 'Draft'
+        PENDING_REVIEW = 'pending_review', 'Pending Review'
         PUBLISHED = 'published', 'Published'
 
     class ContentType(models.TextChoices):
@@ -24,7 +25,9 @@ class Story(models.Model):
     audio_url = models.URLField(blank=True, null=True)
     status = models.CharField(max_length=20, choices=Status.choices, default=Status.DRAFT)
     read_time_minutes = models.PositiveIntegerField(null=True, blank=True)
+    submitted_by = models.CharField(max_length=200, blank=True)  # viewer-submitted stories only
     created_at = models.DateTimeField(auto_now_add=True)
+    published_at = models.DateTimeField(null=True, blank=True)
 
     class Meta:
         ordering = ['-created_at']

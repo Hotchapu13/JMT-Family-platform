@@ -6,6 +6,7 @@ app_name = 'authentication'
 
 urlpatterns = [
     path('validate-code/', views.ValidateCodeView.as_view(), name='validate-code'),
+    path('logout/', views.ViewerLogoutView.as_view(), name='logout'),
     path('admin/login/', views.AdminLoginView.as_view(), name='admin-login'),
     path('admin/logout/', views.AdminLogoutView.as_view(), name='admin-logout'),
     path(
