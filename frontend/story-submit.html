@@ -9,7 +9,13 @@
   </head>
   <body class="bg-surface">
     <main class="mx-auto max-w-3xl px-6 py-14 lg:px-10">
-      <h1 class="display-section">Submit a Story</h1>
+      <a href="/stories.html" class="group inline-flex items-center gap-2 text-sm text-ink-soft transition-colors hover:text-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="transition-transform group-hover:-translate-x-1">
+          <path d="M19 12H5M11 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        Back to Stories
+      </a>
+      <h1 class="display-section mt-6">Submit a Story</h1>
       <p class="mt-2 prose-archive !text-base">
         Share a memory for the family archive. Submissions are reviewed by the family curator before publishing.
       </p>
@@ -40,8 +46,17 @@
           <textarea id="submit-body" rows="8" required class="mt-2 w-full rounded-lg border border-outline bg-transparent px-3 py-2 text-sm text-ink focus:border-primary focus:outline-none"></textarea>
         </div>
         <div class="sm:col-span-2">
-          <label for="submit-cover" class="label-eyebrow !text-ink-faint block">Cover image (optional)</label>
-          <input id="submit-cover" type="file" accept="image/*" class="mt-2 text-sm text-ink-soft" />
+          <label for="submit-cover" class="label-eyebrow !text-ink-faint mb-2 block">Cover image (optional)</label>
+          <div data-dropzone class="dropzone">
+            <input data-dropzone-input id="submit-cover" type="file" accept="image/*" class="sr-only" />
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-ink-faint">
+              <path d="M7 18a4 4 0 01-1-7.86 5 5 0 019.9-1.05A4.5 4.5 0 0117 18H7z" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M12 12v6M9.5 14.5L12 12l2.5 2.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <p class="font-body text-sm text-ink-soft">Drag an image here, or</p>
+            <button type="button" data-dropzone-button class="btn-primary !px-6 !py-2 text-sm">Upload</button>
+            <p data-dropzone-filename class="text-xs text-ink-faint"></p>
+          </div>
         </div>
         <div class="sm:col-span-2 flex justify-end">
           <button type="submit" data-story-submit-button class="btn-primary !px-6 !py-2.5 text-sm">Submit for Review</button>
