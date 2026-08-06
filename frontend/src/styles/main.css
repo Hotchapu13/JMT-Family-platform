@@ -144,6 +144,52 @@
     content: '';
     @apply block h-px w-16 bg-primary/25;
   }
+
+  /* ---- Dropzone: the file-upload box ----
+     A soft, centered "browse" affordance (dropzone.js wires the click/drag
+     behaviour). On drag-over, an orange glow radiates outward from wherever
+     the dragged file is hovering, via the --drop-x/--drop-y custom
+     properties dropzone.js updates as the pointer moves. */
+  .dropzone {
+    @apply relative isolate flex cursor-pointer flex-col items-center justify-center gap-3
+           overflow-hidden rounded-xl border-2 border-dashed border-outline
+           bg-surface-low px-6 py-10 text-center transition-colors duration-300;
+  }
+
+  .dropzone:hover {
+    @apply border-primary/50;
+  }
+
+  .dropzone::before {
+    content: '';
+    position: absolute;
+    top: var(--drop-y, 50%);
+    left: var(--drop-x, 50%);
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: -1.25rem 0 0 -1.25rem;
+    border-radius: 9999px;
+    background: theme('colors.primary.DEFAULT');
+    opacity: 0;
+    transform: scale(0);
+    transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .dropzone.is-dragover {
+    @apply border-primary bg-primary-soft;
+  }
+
+  .dropzone.is-dragover::before {
+    opacity: 0.16;
+    transform: scale(20);
+  }
+
+  .dropzone > * {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 @layer utilities {

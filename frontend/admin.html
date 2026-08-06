@@ -13,7 +13,11 @@
     <header class="vellum-glass sticky top-0 z-40">
       <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-5 lg:px-10">
         <div class="flex items-center gap-3">
-          <span class="flex h-10 w-10 items-center justify-center rounded-full bg-primary font-display text-sm font-bold text-surface-lowest">90</span>
+          <img
+            src="https://res.cloudinary.com/lox7of3m/image/upload/v1786020215/JMT_logo_no_bg_2_jwxsqy.png"
+            alt="JMT Legacy"
+            class="h-10 w-auto"
+          />
           <span class="flex flex-col leading-none">
             <span class="font-display text-lg font-bold tracking-wide text-ink">JMT Legacy</span>
             <span class="mt-1 font-display text-[0.7rem] italic tracking-wider text-primary">Editor-in-Chief</span>
@@ -61,16 +65,27 @@
           the Era records in Django admin (there is no era-listing endpoint yet).
         </p>
 
-        <form data-photo-form class="mt-6 flex flex-wrap items-end gap-4">
+        <form data-photo-form class="mt-6 flex flex-col gap-4">
           <div>
-            <label for="photo-files" class="label-eyebrow !text-ink-faint block">Images</label>
-            <input id="photo-files" name="images" type="file" accept="image/*" multiple required class="mt-2 text-sm text-ink-soft" />
+            <label for="photo-files" class="label-eyebrow !text-ink-faint mb-2 block">Images</label>
+            <div data-dropzone class="dropzone">
+              <input data-dropzone-input id="photo-files" name="images" type="file" accept="image/*" multiple required class="sr-only" />
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-ink-faint">
+                <path d="M7 18a4 4 0 01-1-7.86 5 5 0 019.9-1.05A4.5 4.5 0 0117 18H7z" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M12 12v6M9.5 14.5L12 12l2.5 2.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <p class="font-body text-sm text-ink-soft">Drag photos here, or</p>
+              <button type="button" data-dropzone-button class="btn-primary !px-6 !py-2 text-sm">Upload</button>
+              <p data-dropzone-filename class="text-xs text-ink-faint"></p>
+            </div>
           </div>
-          <div class="w-32">
-            <label for="photo-era" class="label-eyebrow !text-ink-faint block">Era ID</label>
-            <input id="photo-era" name="era" type="number" min="1" placeholder="optional" class="mt-2 w-full rounded-lg border border-outline bg-transparent px-3 py-2 font-body text-sm text-ink focus:border-primary focus:outline-none" />
+          <div class="flex flex-wrap items-end gap-4">
+            <div class="w-32">
+              <label for="photo-era" class="label-eyebrow !text-ink-faint block">Era ID</label>
+              <input id="photo-era" name="era" type="number" min="1" placeholder="optional" class="mt-2 w-full rounded-lg border border-outline bg-transparent px-3 py-2 font-body text-sm text-ink focus:border-primary focus:outline-none" />
+            </div>
+            <button type="submit" data-photo-submit class="btn-primary !px-6 !py-2.5 text-sm">Submit</button>
           </div>
-          <button type="submit" data-photo-submit class="btn-primary !px-6 !py-2.5 text-sm">Upload</button>
         </form>
 
         <p data-photo-error role="alert" class="mt-3 hidden font-body text-sm text-primary"></p>
@@ -119,11 +134,17 @@
             <label for="story-read-time" class="label-eyebrow !text-ink-faint block">Read time (min)</label>
             <input id="story-read-time" type="number" min="1" class="mt-2 w-full rounded-lg border border-outline bg-transparent px-3 py-2 text-sm text-ink focus:border-primary focus:outline-none" />
           </div>
-          <div class="sm:col-span-2" data-cover-dropzone>
-            <label for="story-cover" class="label-eyebrow !text-ink-faint block">Cover image</label>
-            <div data-dropzone-area class="mt-2 flex flex-col items-center justify-center gap-2 rounded-lg border border-dashed border-outline px-4 py-6 text-center transition-colors">
-              <p class="text-xs text-ink-faint">Drag an image here, or click to choose a file</p>
-              <input id="story-cover" name="cover_image" type="file" accept="image/*" class="text-sm text-ink-soft" />
+          <div class="sm:col-span-2">
+            <label for="story-cover" class="label-eyebrow !text-ink-faint mb-2 block">Cover image</label>
+            <div data-dropzone class="dropzone">
+              <input data-dropzone-input id="story-cover" name="cover_image" type="file" accept="image/*" class="sr-only" />
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-ink-faint">
+                <path d="M7 18a4 4 0 01-1-7.86 5 5 0 019.9-1.05A4.5 4.5 0 0117 18H7z" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M12 12v6M9.5 14.5L12 12l2.5 2.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <p class="font-body text-sm text-ink-soft">Drag an image here, or</p>
+              <button type="button" data-dropzone-button class="btn-primary !px-6 !py-2 text-sm">Upload</button>
+              <p data-dropzone-filename class="text-xs text-ink-faint"></p>
             </div>
           </div>
           <div class="sm:col-span-2">
@@ -207,8 +228,17 @@
             <textarea id="member-bio" rows="4" class="mt-2 w-full rounded-lg border border-outline bg-transparent px-3 py-2 text-sm text-ink focus:border-primary focus:outline-none"></textarea>
           </div>
           <div class="sm:col-span-2">
-            <label for="member-photo" class="label-eyebrow !text-ink-faint block">Profile image</label>
-            <input id="member-photo" type="file" accept="image/*" class="mt-2 text-sm text-ink-soft" />
+            <label for="member-photo" class="label-eyebrow !text-ink-faint mb-2 block">Profile image</label>
+            <div data-dropzone class="dropzone">
+              <input data-dropzone-input id="member-photo" type="file" accept="image/*" class="sr-only" />
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-ink-faint">
+                <path d="M7 18a4 4 0 01-1-7.86 5 5 0 019.9-1.05A4.5 4.5 0 0117 18H7z" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M12 12v6M9.5 14.5L12 12l2.5 2.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <p class="font-body text-sm text-ink-soft">Drag a photo here, or</p>
+              <button type="button" data-dropzone-button class="btn-primary !px-6 !py-2 text-sm">Upload</button>
+              <p data-dropzone-filename class="text-xs text-ink-faint"></p>
+            </div>
           </div>
           <div class="flex items-end justify-end gap-3 sm:col-span-2">
             <button type="button" data-member-reset class="btn-ghost !px-5 !py-2 text-sm">New Member</button>

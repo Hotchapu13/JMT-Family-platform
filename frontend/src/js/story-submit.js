@@ -1,8 +1,10 @@
 import '../styles/main.css';
 import { requireSession, submitStory, ApiError } from './api.js';
 import { mountChrome } from './layout.js';
+import { initDropzones, resetDropzones } from './dropzone.js';
 
 mountChrome('story-submit');
+initDropzones();
 
 requireSession().catch(() => {
   /* Network hiccups shouldn't blank a page that needs no data to render. */
@@ -33,6 +35,7 @@ form.addEventListener('submit', async (event) => {
   try {
     await submitStory(formData);
     form.reset();
+    resetDropzones(form);
     successEl.textContent = 'Thank you — your story has been submitted for review.';
     successEl.classList.remove('hidden');
   } catch (error) {
