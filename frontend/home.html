@@ -9,6 +9,89 @@
   </head>
   <body class="bg-surface">
     <main>
+      <!-- Section 1: Gateway hero — dynamic, scrolling (not pinned), rotating background images -->
+      <section
+        data-hero-carousel
+        class="relative flex h-[85vh] min-h-[34rem] w-full items-center justify-center overflow-hidden"
+      >
+        <!--
+          Hero carousel images — replace each placeholder src below with a real
+          Cloudinary family-photo URL. Add or remove <img data-hero-slide> tags
+          to change how many images rotate through; the carousel JS in home.js
+          picks them up automatically.
+        -->
+        <img
+          data-hero-slide
+          src="https://placehold.co/1920x1080/2c2c2c/e8dfd0?text=Family+Photo+1"
+          alt=""
+          class="absolute inset-0 h-full w-full object-cover opacity-100 transition-opacity duration-[2000ms]"
+        />
+        <img
+          data-hero-slide
+          src="https://placehold.co/1920x1080/2f3f34/e8dfd0?text=Family+Photo+2"
+          alt=""
+          class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-[2000ms]"
+        />
+        <img
+          data-hero-slide
+          src="https://placehold.co/1920x1080/4e6352/e8dfd0?text=Family+Photo+3"
+          alt=""
+          class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-[2000ms]"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/30 to-surface"></div>
+
+        <div class="relative z-10 flex flex-col items-center px-6 text-center">
+          <div class="mb-8 h-[2px] w-16 bg-primary opacity-80"></div>
+          <h1
+            class="font-display text-5xl font-bold leading-tight tracking-display text-surface-lowest md:text-7xl lg:text-8xl"
+            style="text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5)"
+          >
+            The JMT Legacy:<br />
+            <span class="italic font-light text-surface-lowest/90">A Living Archive</span>
+          </h1>
+          <p
+            class="mx-auto mt-8 max-w-2xl font-display text-xl italic leading-relaxed text-surface/90 md:text-2xl"
+            style="text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3)"
+          >
+            Celebrating <span class="font-semibold not-italic text-primary-container">90 Years</span> of
+            Grace and Devotion.<br class="hidden md:block" />
+            Honoring the past, inspiring the future.
+          </p>
+          <a href="#curated-memories" class="btn-primary mt-10">Enter the Archive &rarr;</a>
+        </div>
+
+        <div class="absolute bottom-8 right-8 z-10 hidden lg:block">
+          <div
+            class="flex h-32 w-32 flex-col items-center justify-center rounded-full border border-surface/20 bg-surface/5 p-4 text-center shadow-ambient backdrop-blur-md"
+          >
+            <span class="font-display text-4xl font-bold leading-none text-surface-lowest">90</span>
+            <span class="mt-1 text-[0.6rem] font-bold uppercase tracking-label text-primary-container"
+              >Anniversary</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Curated Memories — three random stories, reshuffled on every load -->
+      <section id="curated-memories" class="bg-surface-low px-6 py-20 lg:px-10">
+        <div class="mx-auto max-w-6xl">
+          <div
+            class="mb-14 flex flex-col items-start justify-between gap-6 border-b border-outline-variant pb-8 md:flex-row md:items-end"
+          >
+            <div>
+              <p class="label-eyebrow">The Collection</p>
+              <h2 class="display-section mt-2">Curated Memories</h2>
+            </div>
+            <p class="max-w-md font-display text-lg italic text-ink-soft">
+              &ldquo;To understand where we are going, we must first understand from where we have
+              come.&rdquo;
+            </p>
+          </div>
+
+          <div data-curated-grid class="grid grid-cols-1 gap-8 md:grid-cols-3"></div>
+        </div>
+      </section>
+
       <!-- Hero -->
       <section class="px-6 pb-10 pt-20 text-center lg:px-10">
         <div class="mx-auto max-w-3xl reveal">
@@ -115,6 +198,170 @@
           </div>
         </div>
       </section>
+
+      <!-- Section 5: Heritage Gallery -->
+      <section class="bg-surface-low px-6 py-24 lg:px-10">
+        <div class="mx-auto max-w-3xl reveal text-center">
+          <span class="chip-inactive !cursor-default">90th Anniversary Collection</span>
+          <h2 class="display-section mt-6">
+            <span class="italic text-primary">Preserving</span> the moments that built a legacy.
+          </h2>
+          <p class="prose-archive mx-auto mt-6 max-w-2xl">
+            From the humble beginnings of our founding generation to the sprawling family of today,
+            the JMT story is woven through decades of resilience, faith, and unity. Explore the
+            archive below.
+          </p>
+          <div class="ornament my-10"><span class="text-sm">&#10047;</span></div>
+        </div>
+
+        <div class="mx-auto max-w-6xl columns-1 gap-8 md:columns-2 lg:columns-3">
+          <!-- Item 1: Patriarch cameo (oval portrait) -->
+          <div class="reveal mb-8 break-inside-avoid">
+            <div class="group relative aspect-[3/4] overflow-hidden rounded-[50%] border-4 border-surface-lowest shadow-artifact">
+              <!-- Insert Cloudinary URL for a founder/patriarch portrait here -->
+              <img
+                src="https://placehold.co/600x800/e8dfd0/5c554d?text=The+Patriarch"
+                alt="Placeholder — The Patriarch"
+                class="h-full w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0"
+              />
+              <div
+                class="absolute inset-0 flex flex-col items-center justify-end bg-gradient-to-t from-heritage-deep/80 via-transparent to-transparent pb-8 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              >
+                <p class="font-display italic text-surface-lowest">Joseph M. Thompson</p>
+                <p class="text-xs uppercase tracking-label text-primary-container">Founder, 1934</p>
+              </div>
+            </div>
+            <p class="mt-4 text-center text-xs font-bold uppercase tracking-label text-primary">
+              The Patriarch
+            </p>
+          </div>
+
+          <!-- Item 2: Landscape — the first homestead -->
+          <div class="reveal relative mb-8 mt-12 break-inside-avoid">
+            <!-- Insert Cloudinary URL for the homestead/landscape photo here -->
+            <img
+              src="https://placehold.co/900x700/f5ebdc/5c554d?text=The+First+Homestead"
+              alt="Placeholder — The First Homestead"
+              class="artifact-image w-full object-cover"
+            />
+            <div
+              class="absolute -bottom-4 -right-4 max-w-[12rem] rounded-lg border border-outline-variant bg-surface-lowest p-4 shadow-lift"
+            >
+              <p class="font-display text-sm font-bold text-ink">The First Homestead</p>
+              <p class="text-xs italic text-ink-faint">Spring, 1941</p>
+            </div>
+          </div>
+
+          <!-- Item 3: Square cameo portrait -->
+          <div class="reveal relative mb-8 mt-8 aspect-square overflow-hidden rounded-full border-8 border-surface-lowest shadow-artifact">
+            <!-- Insert Cloudinary URL for a family portrait here -->
+            <img
+              src="https://placehold.co/700x700/efe2ce/5c554d?text=Martha%2C+1955"
+              alt="Placeholder — Martha, 1955"
+              class="group h-full w-full object-cover grayscale transition-all duration-700 hover:grayscale-0"
+            />
+          </div>
+
+          <!-- Item 4: Text-only document card — no image needed -->
+          <div class="reveal relative mb-8 break-inside-avoid overflow-hidden rounded-lg border border-outline-variant bg-primary-soft p-8">
+            <h3 class="font-display text-xl font-bold text-ink">Original Deed</h3>
+            <p class="prose-archive mt-2 border-l-2 border-primary pl-4 !text-sm italic">
+              &ldquo;For the sum of three hundred dollars, the land known as Green Creek is hereby
+              transferred&hellip;&rdquo;
+            </p>
+            <div class="mt-4 flex items-end justify-between">
+              <span class="text-xs font-bold uppercase text-primary">Archived Doc #402</span>
+              <span class="text-xs text-ink-faint">Oct 12, 1934</span>
+            </div>
+          </div>
+
+          <!-- Item 5: Candid group photo -->
+          <div class="reveal relative mb-8 mt-12 break-inside-avoid overflow-hidden rounded-tl-[3rem] rounded-br-[3rem] shadow-lift">
+            <!-- Insert Cloudinary URL for a candid family/friends photo here -->
+            <img
+              src="https://placehold.co/900x650/d8cbb8/5c554d?text=Summer+Gathering"
+              alt="Placeholder — Summer Gathering"
+              class="group w-full object-cover opacity-90 transition-opacity duration-300 hover:opacity-100"
+            />
+            <div
+              class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-ink/70 to-transparent p-6 pt-12"
+            >
+              <p class="font-display font-medium text-surface-lowest">Summer Gathering</p>
+              <p class="text-sm text-surface-lowest/70">Lake Tahoe, 1972</p>
+            </div>
+          </div>
+
+          <!-- Item 6: Small oval cameo -->
+          <div class="reveal relative mb-8 flex justify-center break-inside-avoid py-6">
+            <div class="h-64 w-48 overflow-hidden rounded-[50%] border-4 border-heritage/20 bg-surface-lowest p-1 shadow-lift">
+              <!-- Insert Cloudinary URL for a young family member's portrait here -->
+              <img
+                src="https://placehold.co/480x640/e1d9cb/5c554d?text=The+Visionary"
+                alt="Placeholder — The Visionary"
+                class="h-full w-full rounded-[50%] object-cover"
+              />
+            </div>
+          </div>
+
+          <!-- Item 7: Inspirational quote — cycles automatically every 6 seconds -->
+          <div
+            data-quote-card
+            class="reveal relative mb-8 break-inside-avoid overflow-hidden rounded-tr-[2.5rem] rounded-bl-[2.5rem] bg-heritage-deep p-10 text-surface shadow-lift"
+          >
+            <p
+              data-quote-text
+              class="relative z-10 font-display text-xl italic leading-relaxed transition-opacity duration-500"
+            >
+              &ldquo;We build not for ourselves, but for those who will stand here when we are
+              gone.&rdquo;
+            </p>
+            <div class="relative z-10 mt-6 flex items-center gap-3">
+              <div class="h-px flex-1 bg-surface/30"></div>
+              <span data-quote-author class="text-sm font-bold text-primary-container transition-opacity duration-500"
+                >J.M.T. Jr, 1988</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Full-width panorama -->
+      <!-- <section class="relative h-[500px] w-full overflow-hidden md:h-[600px]">
+        <div class="pointer-events-none absolute inset-0 z-20 flex items-center justify-center">
+          <h2 class="whitespace-nowrap font-display text-[10vw] font-bold text-surface-lowest opacity-[0.07]">
+            &copy; JMT Family Archive
+          </h2>
+        </div>
+        Insert Cloudinary URL for a wide family-reunion panorama photo here
+        <img
+          src="https://placehold.co/1920x900/2f3f34/e8dfd0?text=The+90th+Reunion"
+          alt="Placeholder — The 90th Reunion"
+          class="h-full w-full scale-105 object-cover opacity-80"
+        />
+        <div class="absolute inset-0 z-10 bg-gradient-to-r from-heritage-deep/90 via-transparent to-heritage-deep/90 mix-blend-multiply"></div>
+        <div class="absolute inset-0 z-10 bg-gradient-to-t from-ink/80 via-transparent to-ink/40"></div>
+
+        <div class="absolute bottom-0 left-0 z-30 flex w-full flex-col items-end justify-between gap-8 p-8 md:flex-row md:p-16">
+          <div class="max-w-2xl">
+            <div class="mb-4 flex items-center gap-3">
+              <div class="h-px w-12 bg-primary"></div>
+              <span class="text-sm font-bold uppercase tracking-label text-primary-container">The Latest Chapter</span>
+            </div>
+            <h2 class="font-display text-4xl text-surface-lowest md:text-5xl">The 90th Reunion</h2>
+            <p class="mt-2 font-display text-lg font-light text-surface/80">
+              Gathered at the original homestead, four generations celebrate the enduring bonds of
+              family.
+            </p>
+          </div>
+          <div class="flex flex-col items-end gap-4">
+            <div class="rounded-lg border border-surface/20 bg-surface/10 p-4 text-right backdrop-blur-md">
+              <p class="text-sm font-bold text-surface-lowest">August 14, 2023</p>
+              <p class="text-xs uppercase tracking-label text-surface/60">Attendance: 142 Members</p>
+            </div>
+            <a href="/anniversary.html" class="btn-primary">Explore Full Panorama &rarr;</a>
+          </div>
+        </div>
+      </section> -->
     </main>
 
     <script type="module" src="/src/js/home.js"></script>

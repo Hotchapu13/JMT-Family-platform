@@ -18,6 +18,9 @@ import {
   ApiError,
 } from './api.js';
 import { esc, loadingState, errorState, stateMessage } from './ui.js';
+import { initDropzones, resetDropzones } from './dropzone.js';
+
+initDropzones();
 
 // The rest of the page still renders regardless; an expired or missing admin
 // cookie redirects to the admin login from inside api.js.
@@ -194,6 +197,7 @@ photoForm.addEventListener('submit', async (event) => {
     uploadedPhotos.unshift(...created);
     renderPhotos();
     photoForm.reset();
+    resetDropzones(photoForm);
   } catch (error) {
     photoError.textContent = error instanceof ApiError ? error.message : 'Upload failed.';
     photoError.classList.remove('hidden');
@@ -241,7 +245,6 @@ const storyError = document.querySelector('[data-story-error]');
 const storyList = document.querySelector('[data-story-list]');
 const storyIdField = document.querySelector('[data-story-id]');
 const storyCoverInput = document.querySelector('#story-cover');
-const dropzoneArea = document.querySelector('[data-dropzone-area]');
 const storyFields = {
   title: document.querySelector('#story-title'),
   category: document.querySelector('#story-category'),
@@ -252,26 +255,10 @@ const storyFields = {
   status: document.querySelector('#story-status'),
 };
 
-['dragover', 'dragenter'].forEach((evt) =>
-  dropzoneArea.addEventListener(evt, (e) => {
-    e.preventDefault();
-    dropzoneArea.classList.add('border-primary');
-  }),
-);
-['dragleave', 'drop'].forEach((evt) =>
-  dropzoneArea.addEventListener(evt, (e) => {
-    e.preventDefault();
-    dropzoneArea.classList.remove('border-primary');
-  }),
-);
-dropzoneArea.addEventListener('drop', (e) => {
-  const file = e.dataTransfer.files?.[0];
-  if (file) storyCoverInput.files = e.dataTransfer.files;
-});
-
 function resetStoryForm() {
   storyForm.reset();
   storyIdField.value = '';
+  resetDropzones(storyForm);
 }
 
 function fillStoryForm(story) {
@@ -440,6 +427,7 @@ let membersCache = [];
 function resetMemberForm() {
   memberForm.reset();
   memberIdField.value = '';
+  resetDropzones(memberForm);
 }
 
 function fillMemberForm(member) {

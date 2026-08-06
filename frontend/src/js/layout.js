@@ -12,7 +12,7 @@ const NAV_LINKS = [
   { key: 'home', label: 'Home', href: '/home.html' },
   { key: 'gallery', label: 'Gallery', href: '/gallery.html' },
   { key: 'stories', label: 'Stories', href: '/stories.html' },
-  { key: 'story-submit', label: 'Share a Story', href: '/story-submit.html' },
+  { key: 'roots', label: 'The Roots', href: '/roots.html' },
   { key: 'anniversary', label: 'The 90th', href: '/anniversary.html' },
 ];
 
