@@ -27,6 +27,7 @@ export default defineConfig({
       input: {
         gateway: page('index'),
         home: page('home'),
+        roots: page('roots'),
         familyTree: page('family-tree'),
         gallery: page('gallery'),
         stories: page('stories'),
