@@ -5,6 +5,33 @@
 @tailwind utilities;
 
 @layer base {
+  /* ---- The Roots: antique heritage chart ----
+     Palette for the family tree canvas, defined once so no hex value is ever
+     written at a call site. The D3 canvas reads these through var() inside
+     style declarations — custom properties do not resolve in SVG
+     presentation attributes. */
+  :root {
+    --tree-paper-base: #f7f0e4; /* canvas ground */
+    --tree-paper-shade: #ede2ce; /* mottling, low opacity */
+    --tree-plate-light: #e9d9af; /* nameplate fill, top of gradient */
+    --tree-plate-dark: #d6c08a; /* nameplate fill, bottom of gradient */
+    /* Deceased plates are the same panel, desaturated. Lower contrast reads
+       as "at rest"; the (RIP) line and the softened frame carry the same
+       signal, so colour is never the only cue (FR-2.3). */
+    --tree-plate-rip-light: #e2dac6;
+    --tree-plate-rip-dark: #cfc3a6;
+    --tree-frame: #4a3418; /* carved frame, connector strokes */
+    --tree-frame-deep: #2e2010; /* frame inner shadow, emphasis frames */
+    --tree-ink: #33240f; /* name text */
+    /* Darkened from the reference's #6b5637: against the foot of the plate
+       gradient (#d6c08a) that value measures 3.9:1, short of the 4.5:1 the
+       elder readers of this archive need (NFR-4.2). This measures 5.0:1. */
+    --tree-ink-muted: #5a4728; /* (RIP) text, captions */
+    --tree-watermark-rose: #c9a8ae; /* trunk watermark */
+    --tree-watermark-leaf: #7fa05c; /* leaf branch watermark */
+    --tree-heart: #3a2812; /* marriage glyph */
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -189,6 +216,50 @@
   .dropzone > * {
     position: relative;
     z-index: 1;
+  }
+
+  /* ---- The Roots: family tree canvas ----
+     Flat cream comes from the element itself so it also covers the edges the
+     viewBox letterboxes; the SVG lays the mottling on top. */
+  .tree-canvas {
+    background-color: var(--tree-paper-base);
+  }
+
+  /* Frame colour is a class rather than an inline style so hover and the
+     reduced-motion rule below can still win the cascade. */
+  .tree-frame {
+    color: var(--tree-frame);
+    transition: color 200ms ease;
+  }
+
+  .tree-frame--deep {
+    color: var(--tree-frame-deep);
+  }
+
+  .tree-node:hover .tree-frame {
+    color: var(--tree-frame-deep);
+  }
+
+  /* Focus ring drawn explicitly: browsers render the UA outline
+     inconsistently on focusable SVG groups, and it must never be lost. */
+  .tree-focus-ring {
+    fill: none;
+    stroke: transparent;
+    stroke-width: 2.5;
+  }
+
+  .tree-node:focus {
+    outline: none;
+  }
+
+  .tree-node:focus-visible .tree-focus-ring {
+    stroke: var(--tree-heart);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tree-frame {
+      transition: none;
+    }
   }
 }
 
