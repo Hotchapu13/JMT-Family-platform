@@ -284,6 +284,11 @@ sketch
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
 
 claude_code_backend_prompt.md
+claude_code_family_tree_migration_prompt.md
+claude_code_family_tree_restyle_prompt.md
+
+# Design reference art (not distributed with the source)
+frontend/wireframes/family-tree-screenshot.png
 
 # Frontend
 node_modules/

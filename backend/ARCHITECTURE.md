@@ -126,11 +126,11 @@ No additional fields — a thin subclass kept separate from any Family Viewer co
 | `full_name` | `CharField(200)` | |
 | `title` | `CharField(100, blank)` | e.g. "Patriarch," "Founder" |
 | `date_of_birth` | `DateField(null/blank)` | |
-| `date_of_death` | `DateField(null/blank)` | Drives `is_deceased` |
+| `date_of_death` | `DateField(null/blank)` | Optional detail; does **not** drive `is_deceased` |
 | `biography` | `TextField(blank)` | Full bio-modal content |
 | `profile_image` | `ImageField` (Cloudinary-backed) | |
 | `created_at` / `updated_at` | `DateTimeField` | |
-| `is_deceased` *(property, not a DB column)* | `bool` | `date_of_death is not None` — exposed read-only in serializers so the frontend can apply the grayscale/soft-border treatment (SRS FR-2.3) |
+| `is_deceased` | `BooleanField(default=False)` | Authoritative deceased flag, set by the curator. Independent of `date_of_death`, which the paper chart usually leaves unknown. Exposed in the tree and detail payloads so the frontend can apply the grayscale/soft-border treatment (SRS FR-2.3) |
 
 Relationship: self-referential FK forms an arbitrary-depth tree (no enforced single root).
 
