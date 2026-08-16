@@ -10,8 +10,6 @@ class FamilyMemberNodeSerializer(serializers.ModelSerializer):
     (services.py), not by this serializer.
     """
 
-    is_deceased = serializers.ReadOnlyField()
-
     class Meta:
         model = FamilyMember
         fields = [
@@ -31,8 +29,6 @@ class FamilyMemberNodeSerializer(serializers.ModelSerializer):
 
 class FamilyMemberAdminSerializer(serializers.ModelSerializer):
     """Admin-facing create/update/delete shape for CRUD management."""
-
-    is_deceased = serializers.ReadOnlyField()
 
     class Meta:
         model = FamilyMember
@@ -58,7 +54,6 @@ class FamilyMemberAdminSerializer(serializers.ModelSerializer):
 class FamilyMemberDetailSerializer(serializers.ModelSerializer):
     """Full bio-modal payload for a single family member."""
 
-    is_deceased = serializers.ReadOnlyField()
     father_name = serializers.CharField(
         source='father.full_name', read_only=True, default=None
     )

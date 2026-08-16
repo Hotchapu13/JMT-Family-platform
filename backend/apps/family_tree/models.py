@@ -13,6 +13,10 @@ class FamilyMember(models.Model):
         'self', null=True, blank=True, on_delete=models.SET_NULL, related_name='spouse_of'
     )
     joined_by_marriage = models.BooleanField(default=False)
+    is_deceased = models.BooleanField(
+        default=False,
+        help_text="Marked deceased. Independent of date_of_death, which is often unknown."
+    )
     full_name = models.CharField(max_length=200)
     title = models.CharField(max_length=100, blank=True)
     date_of_birth = models.DateField(null=True, blank=True)
@@ -31,10 +35,6 @@ class FamilyMember(models.Model):
 
     def __str__(self):
         return self.full_name
-
-    @property
-    def is_deceased(self):
-        return self.date_of_death is not None
 
     def clean(self):
         super().clean()
